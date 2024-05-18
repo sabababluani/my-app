@@ -1,0 +1,61 @@
+/* SearchInput.css */
+.searchcontainer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 26px;
+    height: 30px;
+    width: 584px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+}
+.searchcontainer img {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.searchcontainer:hover {
+    box-shadow: 0 7px 9px rgba(0, 0, 0, 0.1);
+}
+
+.searchcontainer input {
+    padding-left: 10px;
+}
+
+.searchcontainer img {
+    width: 15px;
+    height: 15px;
+}
+
+.searchinput {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.key img {
+    width: 30px;
+    height: 23px;
+    cursor: pointer;
+}
+
+.microphone img{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.camera img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

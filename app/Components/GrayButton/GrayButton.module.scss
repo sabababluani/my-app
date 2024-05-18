@@ -1,0 +1,13 @@
+.container {
+    width: 130px;
+    height: 44px;
+    font-weight: 300;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container:hover {
+    border: 1px solid rgb(211, 211, 211);
+}
