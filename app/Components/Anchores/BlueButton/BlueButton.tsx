@@ -9,9 +9,8 @@ export default function Button() {
     return (
         <div className={Style.container}>{
             userLoggedIn
-                ? <button>შესვლა</button>
-                : <div className={Style.wrap}>
-        </div>
+                ? <div className={Style.wrap}></div>
+                : <button>შესვლა</button>
         }
         </div>
     )
