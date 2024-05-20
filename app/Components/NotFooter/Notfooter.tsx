@@ -14,9 +14,9 @@ export default function NotFooter() {
                     <a href="#">როგორ მუშაობს ძიება</a>
                 </div>
                 <div className={Style.foot}>
-                    <a href="#">შესახებ</a>
-                    <a href="#">რეკლამა</a>
-                    <a href="#">ბიზნესმენი</a>
+                    <a href="#">კონფიდენციალური</a>
+                    <a href="#">წესები</a>
+                    <a href="#">პარამეტრები</a>
                 </div>
             </div>
         </div>

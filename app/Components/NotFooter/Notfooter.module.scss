@@ -16,7 +16,6 @@
     text-decoration: none;
     color: black;
     font-size: 14px;
-
 }
 
 .foot {
@@ -33,7 +32,18 @@
 
 .secondContainer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding-right: 30px;
     padding-right: 30px;
+}
+
+
+@media screen and (max-width: 706px){
+    .container {
+        height: 150px;
+    }
+    .foot {
+        gap: 10px;
+    }
 }
