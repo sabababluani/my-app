@@ -1,3 +1,5 @@
+'use client'
+
 import Style from "./MainInput.module.scss"
 
 export default function Maininput() {

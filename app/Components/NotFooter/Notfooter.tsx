@@ -1,3 +1,5 @@
+'use client'
+
 import Style from "./Notfooter.module.scss"
 
 

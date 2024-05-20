@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "./Logo.module.scss"
 
 export default function Logo() {

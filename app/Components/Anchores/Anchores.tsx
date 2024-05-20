@@ -1,3 +1,5 @@
+'use client'
+
 import Styles from "./Anchores.module.scss"
 import Button from "./BlueButton/BlueButton"
 

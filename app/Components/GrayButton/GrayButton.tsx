@@ -1,3 +1,5 @@
+'use client'
+
 import Style from "./GrayButton.module.scss"
 
 

@@ -1,3 +1,5 @@
+'use client'
+
 import Style from "./Maintext.module.scss"
 
 export default function Maintext() {
