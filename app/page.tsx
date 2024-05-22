@@ -10,14 +10,17 @@ import styles from "./page.module.css";
 
 
 export default function Home() {
+
+  const userIsGeorgian = true;
+
   return (
     <>
       <Anchores />
       <Logo />
       <Maininput />
       <div className={styles.container}>
-        <GrayButton title="Google ძებნა" />
-        <GrayButton title="იღბალს მივენდობი" width="150px" />
+        <GrayButton title={userIsGeorgian ? "Google ძებნა" : "Google search"} />
+        <GrayButton title={userIsGeorgian ? "იღბალს მივენდობი" : "I follow my fortune"} width="150px" />
       </div>
       <Maintext />
       <NotFooter />
