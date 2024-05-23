@@ -17,23 +17,28 @@ export default function Maininput() {
     };
 
     const handleKeyPress = (e: any) => {
-        if (e.key === 'Enter') {
-            setTasks((prevState) => [...prevState, inputValue])
-            setInputValue('');
+        if (inputValue !== '') {
+            if (e.key === 'Enter' && tasks.length < 12) {
+                setTasks((prevState) => [...prevState, inputValue])
+                setInputValue('');
+            }
         }
     };
 
-    // const onAdd = () => {
-    //     setTasks(inputValue)
-    // }
+    const onAdd = () => {
+        if (inputValue !== '' && tasks.length < 12) {
+            setTasks((prevState) => [...prevState, inputValue])
+            setInputValue('');
+        }
+    }
 
     const userIsGeorgian = true;
     return (
         <>
             <div className={styles.searchcontainer}>
-                <img src="search.png" alt="search" 
-                // onClick={onAdd}
-                
+                <img src="search.png" alt="search"
+                    onClick={onAdd}
+
                 />
                 <input type="text"
                     className={styles.searchinput}

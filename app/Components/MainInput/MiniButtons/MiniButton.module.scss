@@ -4,13 +4,19 @@
 
 .containeri {
     border-radius: 50%;
-    background-color: #ecf3feff;
+    background-color: rgb(221, 221, 221);
     padding: 20px;
 }
 
 .containeri img {
     width: 50px;
     height: 50px;
-    display: block;
-    margin: 0 auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.container p {
+    display: flex;
+    justify-content: center;
 }

@@ -4,6 +4,8 @@ import style from "./MiniButton.module.scss"
 interface Props {
     title: string;
 }
+
+
 export default (props: Props) => {
     console.log(props.title)
     return (

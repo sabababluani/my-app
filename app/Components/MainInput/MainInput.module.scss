@@ -10,6 +10,7 @@
     left: 50%;
     transform: translateX(-50%);
     bottom: 50px;
+    cursor: pointer;
 }
 
 .searchcontainer img {
@@ -67,22 +68,26 @@
         width: 18px;
         height: 18px;
     }
+
     .container {
         gap: 4px;
     }
+
     .searchcontainer input {
         padding-left: 3px;
     }
 }
 
-@media screen and (min-width :768px) and (max-width : 1023px){
+@media screen and (min-width :768px) and (max-width : 1023px) {
     .camera img {
         width: 20px;
         height: 20px;
     }
+
     .container {
         gap: 6px;
     }
+
     .searchcontainer input {
         padding-left: 5px;
     }
@@ -96,6 +101,12 @@
 }
 
 
-.cardWrapper{
-display: flex;
+.cardWrapper {
+    display: flex;
+    width: 606px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-51%);
+    flex-wrap: wrap;
+    gap: 20px;
 }

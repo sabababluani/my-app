@@ -5,7 +5,7 @@ import Image from "./Logo.module.scss"
 export default function Logo() {
     return (
         <div className={Image.container}>
-            <img src="/GoogleLogo.webp" alt="Google logo" width={300} height={100} />
+            <img src="/pic19930.gif" alt="Google logo" width={350} height={150} />
         </div>
     )
 }   
