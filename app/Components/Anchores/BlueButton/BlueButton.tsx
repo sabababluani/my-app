@@ -4,13 +4,13 @@ import Style from "./BlueButon.module.scss"
 
 
 export default function Button() {
-    const userLoggedIn = true;
-    const userIsGeorgian = true;
+    const userLoggedIn = false;
+    const userIsGeorgian = false;
     return (
         <div className={Style.container}>{
             userLoggedIn
                 ? <div className={Style.wrap}></div>
-                : <button>{userIsGeorgian ? "შესვლა" : "Log In"}</button>
+                : <button>{userIsGeorgian ? "შესვლა" : "Sign in"}</button>
         }
         </div>
     )

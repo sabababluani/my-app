@@ -2,10 +2,18 @@
 
 import Image from "./Logo.module.scss"
 
-export default function Logo() {
+interface Props {
+    src: string;
+    alt: string;
+    style: React.CSSProperties;
+    className?: string;
+}
+
+export default function Logo({ src, alt, style, className }: Props) {
+
     return (
         <div className={Image.container}>
-            <img src="/pic19930.gif" alt="Google logo" width={350} height={150} />
+            <img src={src} alt={alt} style={style} />
         </div>
     )
 }   

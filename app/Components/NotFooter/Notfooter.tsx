@@ -2,14 +2,20 @@
 
 import Style from "./Notfooter.module.scss"
 
-export default function NotFooter() {
-   
+interface Props {
+    backStyle?: React.CSSProperties;
+    belowStyle?: React.CSSProperties;
+}
+
+export default function NotFooter({ backStyle, belowStyle }: Props) {
+
     const userIsGeorgian = true;
+
     return (
-        <div className={Style.container}>
+        <div className={Style.container} style={backStyle}>
             <p>{userIsGeorgian ? "საქართველო" : "English"}</p>
             <hr />
-            <div className={Style.secondContainer}>
+            <div className={Style.secondContainer} style={belowStyle}>
                 <div className={Style.foot}>
                     <a href="#">{userIsGeorgian ? "შესახებ" : "About"}</a>
                     <a href="#">{userIsGeorgian ? "რეკლამა" : "Advertisement"}</a>

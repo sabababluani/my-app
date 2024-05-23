@@ -12,8 +12,8 @@ export default function Home() {
   const userIsGeorgian = true;
   return (
     <>
-      <Anchores />
-      <Logo />
+      <Anchores src="/9button.png" alt = "shuffle"/>
+      <Logo src="/pic19930.gif" alt ="google logo" style={{width : "350px" , height : "150px"}}/>
       <Maininput />
       <NotFooter />
     </>

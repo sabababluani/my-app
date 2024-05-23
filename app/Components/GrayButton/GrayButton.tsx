@@ -2,7 +2,6 @@
 
 import Style from "./GrayButton.module.scss"
 
-
 interface GrayButton {
     title: string;
     width?: string;
