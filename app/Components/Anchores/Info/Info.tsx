@@ -4,15 +4,18 @@ import Link from "next/link"
 
 interface Props {
     style?: React.CSSProperties;
+    displayPics?: boolean
 }
 
-export default function Info({style} :Props) {
+export default function Info(props: Props) {
     const userIsGeorgian = true;
 
     return (
-        <div className={Styles.anchore} style={style}>
-            <Link href="#">Gmail</Link>
-            <Link href="../../Pictures">{userIsGeorgian ? "სურათები" : "Photos"}</Link>
-        </div>
+        <>
+            {props.displayPics && <div className={Styles.anchore} style={props.style}>
+                <Link href="#">Gmail</Link>
+                <Link href="../../Pictures">{userIsGeorgian ? "სურათები" : "Photos"}</Link>
+            </div>}
+        </> 
     )
 }

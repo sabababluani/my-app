@@ -8,17 +8,17 @@ interface Props {
     style?: React.CSSProperties;
     src: string;
     alt: string;
+    active?: boolean;
 }
 
-
-export default function Anchores({ src, alt, style }: Props) {
-    const userIsGeorgian = true
-
+export default function Anchores(props: Props) {
+    const userIsGeorgian = true;
     return (
-        <div className={Styles.container} style={style}>
-            <Info style={{ display: "none" }} />
+        <div className={Styles.container} style={props.style}>
+            {props.active && <Info displayPics/>}
+            
             <div className={Styles.wrapper}>
-                <img src={src} alt={alt} />
+                <img src={props.src} alt={props.alt} />
                 <Button />
             </div>
         </div>

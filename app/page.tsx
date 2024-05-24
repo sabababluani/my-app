@@ -10,12 +10,17 @@ import styles from "./page.module.css";
 
 export default function Home() {
   const userIsGeorgian = true;
+
   return (
-    <>
-      <Anchores src="/9button.png" alt = "shuffle"/>
-      <Logo src="/pic19930.gif" alt ="google logo" style={{width : "350px" , height : "150px"}}/>
-      <Maininput />
-      <NotFooter />
-    </>
+    <div className={styles.container}>
+      <div className={styles.scroll}>
+        <Anchores active src="/9button.png" alt="shuffle" />
+        <div className={styles.wrapper}>
+          <Logo src="/pic19930.gif" alt="google logo" style={{ width: "250px", height: "100px" }} />
+          <Maininput />
+        </div>
+      </div>
+      <NotFooter backStyle={{ color: "black" }} />
+    </div>
   );
 }

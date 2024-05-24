@@ -1,16 +1,23 @@
 .container {
     width: 80px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .containeri {
     border-radius: 50%;
     background-color: rgb(221, 221, 221);
     padding: 20px;
+    width: 20px;
+    height: 20px;
 }
 
 .containeri img {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -19,5 +26,6 @@
 .container p {
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 14px;
 }

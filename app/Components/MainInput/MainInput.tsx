@@ -30,12 +30,13 @@ export default function Maininput({ inputStyle, wrapperStyle, mainStyle }: Props
         }
     };
 
-    const onAdd = () => {
-        if (inputValue !== '') {
-            setTasks((prevState) => [...prevState, inputValue])
-            setInputValue('');
+    const onAdd = (e: any) => {
+        if (inputValue !== '' || e.target.value.length <= 12) {
+            if ( tasks.length < 12) {
+                setTasks((prevState) => [...prevState, inputValue]);
+                setInputValue('');
+            }
         }
-
     }
     const userIsGeorgian = true;
     return (
@@ -74,5 +75,4 @@ export default function Maininput({ inputStyle, wrapperStyle, mainStyle }: Props
                 </div> : <ul className={styles.cardWrapper}>{tasks.map(inputValue => <li> <MiniButton title={inputValue} /> </li>)}</ul>}
         </>
     )
-
 } 

@@ -70,12 +70,15 @@
     }
 
     .container {
-        gap: 4px;
+        gap: 2px;
+        padding-left: 2px;
     }
 
     .searchcontainer input {
         padding-left: 3px;
     }
+
+    .cardWrapper {}
 }
 
 @media screen and (min-width :768px) and (max-width : 1023px) {
@@ -100,14 +103,21 @@
     gap: 20px;
 }
 
-
 .cardWrapper {
     display: flex;
-    width: 606px;
+    justify-content: center;
+    max-width: 606px;
+    height: 300px;
     position: relative;
     left: 50%;
-    transform: translateX(-51%);
+    transform: translateX(-50%);
     flex-wrap: wrap;
     gap: 20px;
     list-style: none;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.wrapper {
+    height: 300px;
 }

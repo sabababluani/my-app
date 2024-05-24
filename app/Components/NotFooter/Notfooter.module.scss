@@ -14,7 +14,6 @@
 }
 .foot a{
     text-decoration: none;
-    color: black;
     font-size: 14px;
 }
 
@@ -41,7 +40,7 @@
 
 @media screen and (max-width: 706px){
     .container {
-        height: 150px;
+        height: 100px;
     }
     .foot {
         gap: 10px;

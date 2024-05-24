@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll {
+    overflow-y: scroll;
+}
+
+.wrapper {
+    position: relative;
+    bottom:70px;
+}
