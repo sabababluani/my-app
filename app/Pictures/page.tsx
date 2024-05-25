@@ -11,10 +11,12 @@ export default function Picture() {
             <Logo src="/google-white-logo-1.png" alt="google logo" style={{ width: "300px", height: "100px", margin: "0 auto", paddingTop: "60px" }} />
             <Maininput wrapperStyle={{
                 display: "none",
-                backgroundColor: "transparent", marginTop: "100px"
+                backgroundColor: "transparent",
+                marginTop: "100px"
             }}
                 inputStyle={{ background: "transparent", color: "#fff" , border : "none"}}
                 mainStyle={{ marginTop: "80px" }}
+                darkMode={{color: "#fff"}}
             />
             <NotFooter backStyle={{ background: "#1b1b1c", color: "#fff" }} />
         </div>

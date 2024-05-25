@@ -78,7 +78,6 @@
         padding-left: 3px;
     }
 
-    .cardWrapper {}
 }
 
 @media screen and (min-width :768px) and (max-width : 1023px) {
@@ -120,4 +119,16 @@
 
 .wrapper {
     height: 300px;
+}
+
+.microphoneIcon img{
+    width: 26px;
+    height: 23px;
+    cursor: pointer;
+}
+
+.Magnifier img{
+    width: 20px;
+    height: 18px;
+    cursor: pointer;
 }

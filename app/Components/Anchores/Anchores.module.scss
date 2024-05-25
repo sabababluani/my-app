@@ -35,3 +35,16 @@
     align-items: center;
     cursor: pointer;
 }
+
+.buttons {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons:hover {
+    background-color: rgba(218, 218, 218, 0.344);
+    border-radius: 50%;
+}

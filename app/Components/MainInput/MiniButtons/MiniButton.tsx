@@ -1,17 +1,17 @@
+import React from "react";
 import style from "./MiniButton.module.scss"
 
 interface Props {
     title: string;
+    style? : React.CSSProperties;
 }
 
 export default (props: Props) => {
-    console.log(props.title)
     return (
         <div className={style.container}>
             <div className={style.containeri}>
                 <img src="/peng.png" alt="logo" />
             </div>
-            <p>{props.title}</p>
+            <p style={props.style}>{props.title}</p>
         </div>
-    )
-}
+    )}

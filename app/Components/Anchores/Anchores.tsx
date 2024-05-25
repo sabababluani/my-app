@@ -15,10 +15,11 @@ export default function Anchores(props: Props) {
     const userIsGeorgian = true;
     return (
         <div className={Styles.container} style={props.style}>
-            {props.active && <Info displayPics/>}
-            
+            {props.active && <Info displayPics />}
             <div className={Styles.wrapper}>
-                <img src={props.src} alt={props.alt} />
+                <div className={Styles.buttons}>
+                    <img src={props.src} alt={props.alt} />
+                </div>
                 <Button />
             </div>
         </div>
