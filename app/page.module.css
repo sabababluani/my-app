@@ -7,7 +7,7 @@
     overflow-y: scroll;
 }
 
-.wrapper {
+.activeBurger {
     position: relative;
-    bottom:70px;
+    right: 0;
 }

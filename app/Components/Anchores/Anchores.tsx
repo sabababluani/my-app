@@ -16,8 +16,8 @@ export default function Anchores(props: Props) {
     return (
         <div className={Styles.container} style={props.style}>
             {props.active && <Info displayPics />}
-            <div className={Styles.wrapper}>
-                <div className={Styles.buttons}>
+            <div className={Styles.wrapper} >
+                <div className={Styles.buttons} >
                     <img src={props.src} alt={props.alt} />
                 </div>
                 <Button />

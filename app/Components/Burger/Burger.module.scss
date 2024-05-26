@@ -1,19 +1,44 @@
-.container {
-    width: 300px;
-    height: 450px;
-    background-color: rgb(174, 217, 217);
-    border-radius: 15px;
-    overflow-y: scroll;
+.wrapper {
+    width: 320px;
+    height: 400px;
+    border-radius: 20px;
+    background-color: rgb(73, 72, 72);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 43px;
+    right: 145px;
 }
 
-.wrapper {
-    width: 200px;
-    height: 450px;
-    li {
-        list-style: none;
-        width: 75px;
-    }
+.container {
+    width: 300px;
+    height: 380px;
+    border-radius: 20px;
+    background-color: rgb(32, 32, 32);
 }
-.innerContainer {
-    width: 250px;
+
+.unlist {
+    width: 270px;
+    height: 330px;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    color: #fff;
+}
+
+.unlist li {
+    list-style: none;
+    padding-left: 0px;
+    cursor: pointer;
+}
+
+.unlist::-webkit-scrollbar {
+    width: 9px;
+}
+
+.unlist::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background: rgb(109, 108, 108);
 }
