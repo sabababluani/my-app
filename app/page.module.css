@@ -11,3 +11,7 @@
     position: relative;
     right: 0;
 }
+
+.Burger {
+    display: none;
+}

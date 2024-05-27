@@ -7,7 +7,6 @@ import { useState } from 'react';
 import MiniButton from "./MiniButtons/MiniButton";
 import { usePathname } from "next/navigation";
 
-
 interface Props {
     inputStyle?: React.CSSProperties;
     wrapperStyle?: React.CSSProperties;

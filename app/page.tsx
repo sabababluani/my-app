@@ -15,19 +15,16 @@ export default function Home() {
 
   const [isActive , setIsActive] = useState(false)
   
-  const handleClick = () => {
-    setIsActive(!isActive)
-  }
   return (
     <div className={styles.container}>
       <div className={styles.scroll}>
-        <Anchores active src="/9button.png" alt="shuffle" />
+        <Anchores active src="/9button.png" alt="shuffle"  isActive = {isActive} setHandleClick={setIsActive}/>
         <div className={styles.navbar}>
           <div className={styles.wrapper}>
             <Logo src="/pic19930.gif" alt="google logo" style={{ width: "250px", height: "100px" }} />
             <Maininput />
           </div>
-          <div className={`${styles.activeBurger} ${styles.activeBurger}`}>
+          <div className={isActive ? styles.activeBurger : styles.Burger}>
             <Burger />
           </div>
         </div>
