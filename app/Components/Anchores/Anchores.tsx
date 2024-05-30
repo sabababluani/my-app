@@ -11,6 +11,7 @@ interface Props {
     alt: string;
     active?: boolean;
     setHandleClick : (value:boolean) => void;
+    handleTaskDelete: ( index: any ) =>void;
     isActive : boolean;
 }
 

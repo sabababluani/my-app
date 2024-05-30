@@ -37,3 +37,17 @@
     text-decoration: none;
     color: black;
 }
+
+.container > img {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 15px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 100;
+}
+.container  > img:hover {
+    background-color: rgb(162, 162, 162);
+    border-radius: 50%;
+}

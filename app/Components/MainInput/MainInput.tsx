@@ -39,6 +39,14 @@ export default function Maininput({ inputStyle, wrapperStyle, mainStyle, darkMod
             }
         }
     }
+
+    const handleTaskDelete = (index: any) => {
+        const updatedTasks = [...tasks];
+        updatedTasks.splice(index, 1);
+        setTasks(updatedTasks);
+    }
+
+
     const pathName = usePathname()
     const userIsGeorgian = true;
     return (
@@ -57,7 +65,7 @@ export default function Maininput({ inputStyle, wrapperStyle, mainStyle, darkMod
                 />
                 <div className={styles.container}>
                     <div className={`${styles.key} ${pathName === '/Pictures' ? styles.microphoneIcon : styles.keyboardIcon}`} >
-                        <img src={pathName === '/Pictures' ? "microphone.png" : "keyboard.png"}  
+                        <img src={pathName === '/Pictures' ? "microphone.png" : "keyboard.png"}
                         />
                     </div>
                     <div className={`${styles.microphone} ${pathName === '/Pictures' ? styles.microphoneIcon : styles.keyboardIcon}`} >
@@ -66,16 +74,29 @@ export default function Maininput({ inputStyle, wrapperStyle, mainStyle, darkMod
                     <div className={`${styles.camera} ${pathName === '/Pictures' ? styles.Magnifier : styles.keyboardIcon}`}>
                         <img src={pathName === '/Pictures' ? "search2.png" : "blackCamera.png"} />
                     </div>
-                </div> 
+                </div>
             </div>
-            {tasks.length === 0 ?
+            {tasks.length === 0 ? (
                 <div className={styles.wrapper} style={wrapperStyle}>
                     <div className={styles.containerr}>
                         <GrayButton title={userIsGeorgian ? "Google ძებნა" : "Google search"} />
                         <GrayButton title={userIsGeorgian ? "იღბალს მივენდობი" : "I follow my fortune"} width="150px" />
                     </div>
                     <Maintext />
-                </div> : <ul className={styles.cardWrapper}>{tasks.map(inputValue => <li> <MiniButton title={inputValue} style={darkMode} /></li>)}</ul>}
+                </div>
+            ) : (
+                <ul className={styles.cardWrapper}>
+                    {tasks.map((task,index) => (
+                        <li key={index}>
+                            <MiniButton
+                                title={task}
+                                style={darkMode}
+                                onDelete={() => handleTaskDelete(index)} 
+                            />
+                        </li>
+                    ))}
+                </ul>
+            )}
         </>
     )
 } 
