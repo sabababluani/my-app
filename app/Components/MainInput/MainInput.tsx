@@ -6,6 +6,8 @@ import styles from "./MainInput.module.scss";
 import { useState } from 'react';
 import MiniButton from "./MiniButtons/MiniButton";
 import { usePathname } from "next/navigation";
+import { useRecoilState } from "recoil";
+import { userIsGeorgianState } from "@/app/atoms/states";
 
 interface Props {
     inputStyle?: React.CSSProperties;
@@ -13,7 +15,7 @@ interface Props {
     mainStyle?: React.CSSProperties;
     darkMode?: React.CSSProperties;
 }
-export default function Maininput({ inputStyle, wrapperStyle, mainStyle, darkMode }: Props) {
+export default function Maininput(props: Props) {
 
     const [inputValue, setInputValue] = useState<string>('');
     const [tasks, setTasks] = useState<string[]>([])
@@ -40,18 +42,18 @@ export default function Maininput({ inputStyle, wrapperStyle, mainStyle, darkMod
         }
     }
 
-    const handleTaskDelete = (index: any) => {
+    const handleTaskDelete = (index: number) => {
         const updatedTasks = [...tasks];
         updatedTasks.splice(index, 1);
         setTasks(updatedTasks);
     }
 
+    const [userIsGeorgian, setUserIsGeorgian] = useRecoilState(userIsGeorgianState)
 
     const pathName = usePathname()
-    const userIsGeorgian = true;
     return (
         <>
-            <div className={styles.searchcontainer} style={mainStyle}>
+            <div className={styles.searchcontainer} style={props.mainStyle}>
                 <img src="search.png" alt="search"
                     onClick={onAdd}
                 />
@@ -61,7 +63,7 @@ export default function Maininput({ inputStyle, wrapperStyle, mainStyle, darkMod
                     value={inputValue}
                     onChange={handleInputChange}
                     onKeyPress={handleKeyPress}
-                    style={inputStyle}
+                    style={props.inputStyle}
                 />
                 <div className={styles.container}>
                     <div className={`${styles.key} ${pathName === '/Pictures' ? styles.microphoneIcon : styles.keyboardIcon}`} >
@@ -77,7 +79,7 @@ export default function Maininput({ inputStyle, wrapperStyle, mainStyle, darkMod
                 </div>
             </div>
             {tasks.length === 0 ? (
-                <div className={styles.wrapper} style={wrapperStyle}>
+                <div className={styles.wrapper} style={props.wrapperStyle}>
                     <div className={styles.containerr}>
                         <GrayButton title={userIsGeorgian ? "Google ძებნა" : "Google search"} />
                         <GrayButton title={userIsGeorgian ? "იღბალს მივენდობი" : "I follow my fortune"} width="150px" />
@@ -90,7 +92,7 @@ export default function Maininput({ inputStyle, wrapperStyle, mainStyle, darkMod
                         <li key={index}>
                             <MiniButton
                                 title={task}
-                                style={darkMode}
+                                style={props.darkMode}
                                 onDelete={() => handleTaskDelete(index)} 
                             />
                         </li>

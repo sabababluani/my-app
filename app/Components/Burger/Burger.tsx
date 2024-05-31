@@ -1,6 +1,7 @@
 import styles from "./Burger.module.scss"
 import Icon from "./Icons/Icons"
 
+
 export default function Burger() {
     return (
         <div className={styles.wrapper}>

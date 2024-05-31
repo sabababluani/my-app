@@ -1,14 +1,17 @@
 'use client'
 
-import Style from "./Notfooter.module.scss"
+import { userIsGeorgianState } from "@/app/atoms/states";
+import Style from "./Notfooter.module.scss";
+import { useRecoilState } from "recoil";
 
 interface Props {
-    backStyle?: React.CSSProperties;
+    backStyle ?: React.CSSProperties;
 }
 
 export default function NotFooter({ backStyle }: Props) {
 
-    const userIsGeorgian = true;
+
+    const [userIsGeorgian, setUserIsGeorgian] = useRecoilState(userIsGeorgianState)
 
     return (
         <div className={Style.container} style={backStyle}>
