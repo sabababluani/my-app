@@ -1,17 +1,21 @@
-'use client'
+// 'use client'
+// import { useState } from "react";
+// import { useRecoilState } from "recoil";
+// import Style from "./BlueButon.module.scss"
+// import { userIsGeorgianState } from "@/app/atoms/states";
 
-import Style from "./BlueButon.module.scss"
+// interface Props {
+//     setHandleJoined: (value: boolean) => void;
+//     isJoined: boolean;
+// }
 
-
-export default function Button() {
-    const userLoggedIn = false;
-    const userIsGeorgian = false;
-    return (
-        <div className={Style.container}>{
-            userLoggedIn
-                ? <div className={Style.wrap}></div>
-                : <button>{userIsGeorgian ? "შესვლა" : "Sign in"}</button>
-        }
-        </div>
-    )
-}
+// export default function Button(props: Props) {
+//     const [userIsGeorgian, setUserIsGeorgian] = useRecoilState(userIsGeorgianState)
+//     const [isJoined , setIsJoined] = useState(false)
+//     return (
+//         <div className={Style.container}>{
+//             <button onClick={() => props.setHandleJoined(!props.isJoined)}>{userIsGeorgian ? "შესვლა" : "Sign in"}</button>
+//         }
+//         </div>
+//     )
+// }

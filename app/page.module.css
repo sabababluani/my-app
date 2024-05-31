@@ -15,3 +15,12 @@
 .Burger {
     display: none;
 }
+
+.disabledLogin {
+    display: none;
+}
+
+.activeLogin {
+    position: relative;
+    right: 0;
+}

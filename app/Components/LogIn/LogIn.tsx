@@ -7,7 +7,7 @@ const Login = () => {
     const onFinish: FormProps<FieldType>['onFinish'] = (values: any) => {
         console.log('Success:', values);
 
-        
+
     };
 
     const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo: any) => {
@@ -30,7 +30,7 @@ const Login = () => {
     return (
         <div>
             <Button type="primary" onClick={showModal}>
-             Sign in
+                Sign in
             </Button>
             <Modal
                 visible={open}
@@ -41,7 +41,7 @@ const Login = () => {
                     name="basic"
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
-                    style={{ maxWidth: 600 }}
+                    style={{ maxWidth: 600 ,display: 'flex', flexDirection:'column',justifyContent: 'center', alignItems: 'center' }}
                     initialValues={{ remember: true }}
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
@@ -67,8 +67,9 @@ const Login = () => {
                         name="remember"
                         valuePropName="checked"
                         wrapperCol={{ offset: 8, span: 16 }}
+                        style={{width: "300px"}}
                     >
-                        <Checkbox>Remember me</Checkbox>
+                        <Checkbox >Remember me</Checkbox>
                     </Form.Item>
 
                     <Form.Item wrapperCol={{ offset: 8, span: 16 }}>

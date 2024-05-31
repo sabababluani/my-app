@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Styles from "./Anchores.module.scss"
-import Button from "./BlueButton/BlueButton"
 import Info from "./Info/Info";
+import Login from "../LogIn/LogIn";
 
 interface Props {
     style?: React.CSSProperties;
@@ -11,15 +11,14 @@ interface Props {
     alt: string;
     active?: boolean;
     setHandleClick : (value:boolean) => void;
-    handleTaskDelete: ( index: any ) =>void;
-    isActive : boolean;
+    handleTaskDelete?: ( index: any ) =>void;
+    isActive ?: boolean;
 }
 
 export default function Anchores(props: Props) {
-    const userIsGeorgian = true;
 
     const [isActive , setIsActive] = useState(false)
-
+    
     return (
         <div className={Styles.container} style={props.style}>
             {props.active && <Info displayPics />}
@@ -27,7 +26,7 @@ export default function Anchores(props: Props) {
                 <div className={Styles.buttons} onClick={() => props.setHandleClick(!props.isActive)} >
                     <img src={props.src} alt={props.alt} />
                 </div>
-                <Button />
+                <Login/>
             </div>
         </div>
     )

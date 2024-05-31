@@ -9,12 +9,13 @@ import Maininput from "./Components/MainInput/MainInput";
 import Maintext from "./Components/Maintext/Maintext";
 import NotFooter from "./Components/NotFooter/Notfooter";
 import styles from "./page.module.css";
+import Login from "./Components/LogIn/LogIn";
 
 export default function Home() {
   const userIsGeorgian = true;
 
   const [isActive , setIsActive] = useState(false)
-  
+
   return (
     <div className={styles.container}>
       <div className={styles.scroll}>
@@ -22,6 +23,8 @@ export default function Home() {
         <div className={styles.navbar}>
           <div className={styles.wrapper}>
             <Logo src="/pic19930.gif" alt="google logo" style={{ width: "250px", height: "100px" }} />
+            <div className={styles.activeLogin }>
+          </div>
             <Maininput />
           </div>
           <div className={isActive ? styles.activeBurger : styles.Burger}>
