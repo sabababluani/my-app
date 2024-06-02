@@ -12,7 +12,6 @@ interface Props {
 
 export default function Info(props: Props) {
   
-
     const [userIsGeorgian, setUserIsGeorgian] = useRecoilState(userIsGeorgianState)
 
     return (

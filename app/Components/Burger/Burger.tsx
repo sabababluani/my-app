@@ -22,7 +22,6 @@ export default function Burger() {
                     <li><Icon photo="peng.png" title="pingvini"/></li>
                     <li><Icon photo="peng.png" title="pingvini"/></li>
                     <li><Icon photo="peng.png" title="pingvini"/></li>
-                    <li><Icon photo="peng.png" title="pingvini"/></li>
                 </ul>
             </div>
         </div>

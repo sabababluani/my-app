@@ -12,7 +12,6 @@ import styles from "./page.module.css";
 import Login from "./Components/LogIn/LogIn";
 
 export default function Home() {
-  const userIsGeorgian = true;
 
   const [isActive , setIsActive] = useState(false)
 

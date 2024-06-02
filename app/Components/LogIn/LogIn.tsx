@@ -3,11 +3,19 @@ import type { FormProps } from 'antd';
 import { Button, Checkbox, Form, Input, Modal } from 'antd';
 import { FieldType } from '@/app/Interface/login.interface';
 
-const Login = () => {
+
+interface Props {
+    onLoginSuccess: (username: string) => void;
+}
+const Login = (props: Props) => {
+
+    const [userName, setUserName] = useState('')
+
     const onFinish: FormProps<FieldType>['onFinish'] = (values: any) => {
         console.log('Success:', values);
-
-
+        setOpen(false)
+        setUserName(values.username)
+        props.onLoginSuccess(values.username)
     };
 
     const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo: any) => {
@@ -41,7 +49,7 @@ const Login = () => {
                     name="basic"
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
-                    style={{ maxWidth: 600 ,display: 'flex', flexDirection:'column',justifyContent: 'center', alignItems: 'center' }}
+                    style={{ maxWidth: 600, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
                     initialValues={{ remember: true }}
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
@@ -67,9 +75,8 @@ const Login = () => {
                         name="remember"
                         valuePropName="checked"
                         wrapperCol={{ offset: 8, span: 16 }}
-                        style={{width: "300px"}}
+                        style={{ width: "300px" }}
                     >
-                        <Checkbox >Remember me</Checkbox>
                     </Form.Item>
 
                     <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
