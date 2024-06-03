@@ -24,3 +24,14 @@
     position: relative;
     right: 0;
 }
+
+.inactiveProfileBurger {
+    display: none;
+}
+
+.activeProfileBurger {
+    position: fixed;
+    right: 500px;
+    top: 60px;
+
+}

@@ -4,8 +4,10 @@ import { useState } from "react";
 import Styles from "./Anchores.module.scss"
 import Info from "./Info/Info";
 import Login from "../LogIn/LogIn";
+import Profile from "./Profile/Profile";
 
 interface Props {
+    isLog: boolean;
     style?: React.CSSProperties;
     src: string;
     alt: string;
@@ -13,15 +15,19 @@ interface Props {
     setHandleClick: (value: boolean) => void;
     handleTaskDelete?: (index: any) => void;
     isActive?: boolean;
+    handleClick: (value: boolean) => void;
 }
 
 export default function Anchores(props: Props) {
 
     const [isActive, setIsActive] = useState(false)
     const [userName, setUserName] = useState('')
-    const handleLoginSuccess = (username: string) => {
-        setUserName(username);
+    const [isLog , setIsLog] = useState(false)
+
+    const toggleProfile = () => {
+        props.handleClick(!isLog);
     };
+
     return (
         <div className={Styles.container} style={props.style}>
             {props.active && <Info displayPics />}
@@ -29,12 +35,7 @@ export default function Anchores(props: Props) {
                 <div className={Styles.buttons} onClick={() => props.setHandleClick(!props.isActive)} >
                     <img src={props.src} alt={props.alt} />
                 </div>
-                {userName ? (<div className={Styles.ProfileWrapper}>
-                    <div className={Styles.Profile}>
-                        <img src="/penguinLinux.png" alt="pingvinishka" />
-                    </div>
-                    <p>{userName}</p>
-                </div>) : (<Login onLoginSuccess={handleLoginSuccess} />)}
+                <Profile isLog={props.isLog} handleClick={toggleProfile} />
             </div>
         </div>
     )

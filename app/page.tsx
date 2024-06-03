@@ -10,26 +10,32 @@ import Maintext from "./Components/Maintext/Maintext";
 import NotFooter from "./Components/NotFooter/Notfooter";
 import styles from "./page.module.css";
 import Login from "./Components/LogIn/LogIn";
+import ProfileBurger from "./Components/ProfileBurger/ProfileBurger";
+
 
 export default function Home() {
 
-  const [isActive , setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState(false)
+  const [isLog, setIsLog] = useState(false)
 
   return (
     <div className={styles.container}>
       <div className={styles.scroll}>
-        <Anchores active src="/9button.png" alt="shuffle"  isActive = {isActive} setHandleClick={setIsActive}/>
+        <Anchores active src="/9button.png" alt="shuffle" isActive={isActive} setHandleClick={setIsActive} isLog={isLog} handleClick={setIsLog} />
         <div className={styles.navbar}>
           <div className={styles.wrapper}>
-            <Logo src="/pic19930.gif" alt="google logo" style={{ width: "250px", height: "100px" }} />
-            <div className={styles.activeLogin }>
-          </div>
+            <Logo src="/swimLogo.gif" alt="google logo" style={{ width: "250px", height: "100px" }} />
+            <div className={styles.activeLogin}>
+            </div>
             <Maininput />
           </div>
           <div className={isActive ? styles.activeBurger : styles.Burger}>
             <Burger />
           </div>
         </div>
+      </div>
+      <div className={isLog ? styles.activeProfileBurger : styles.inactiveProfileBurger}>
+        <ProfileBurger />
       </div>
       <NotFooter backStyle={{ color: "black" }} />
     </div>

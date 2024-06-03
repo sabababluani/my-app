@@ -1,0 +1,83 @@
+.wrapper {
+    width: 436px;
+    height: 386px;
+    background-color: rgb(202, 218, 218);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 40px;
+    position: fixed;
+}
+
+.Profile img{
+    width: 64px;
+    height:64px;
+}
+
+.paragraph p {
+    color: black;
+}
+
+.managebutton button{
+    width: 250px;
+    height: 37px;
+    background-color: transparent;
+    border: 1px solid gray;
+    color: rgb(45, 45, 245);
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+.addButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.addAccount button {
+    width: 150px;
+    height: 45px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color:whitesmoke;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}       
+.addAccount button img {
+    width: 25px
+}
+
+.signOut button {
+    width: 150px;
+    height: 45px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color:whitesmoke;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+}
+.signOut button img {
+    width: 15px;
+}
+
+.anchores a {
+    text-decoration: none;
+    color: black;
+}
+.anchores {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}

@@ -48,7 +48,7 @@ export default function Maininput(props: Props) {
         setTasks(updatedTasks);
     }
 
-    const [userIsGeorgian, setUserIsGeorgian] = useRecoilState(userIsGeorgianState)
+    const [userIsGeorgian] = useRecoilState(userIsGeorgianState)
 
     const pathName = usePathname()
     return (
