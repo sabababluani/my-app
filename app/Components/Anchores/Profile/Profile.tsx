@@ -16,7 +16,7 @@ const Profile =  (props: Props) => {
         setUserName(username);
     };
     const toggleProfile = () => {
-        props.handleClick(!isLog);
+        props.handleClick(!props.isLog);
     };
 
     return (

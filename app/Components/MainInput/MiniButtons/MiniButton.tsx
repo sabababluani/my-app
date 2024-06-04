@@ -12,7 +12,7 @@ export default (props: Props) => {
     return (
         <div className={style.container}>
             <img src="X.png" onClick={props.onDelete}/>
-            <Link href={`https://www.${props.title}.com`}>
+            <Link href={`https://www.${props.title}.com`} target="_blank">
                 <div className={style.containeri}>
                     <img src="/peng.png" alt="logo" />
                 </div>

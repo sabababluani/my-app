@@ -1,19 +1,23 @@
+import { useState } from 'react';
 import styles from './ProfileBurger.module.scss'
+import Login from '../LogIn/LogIn';
+
+const ProfileBurger = () => {
+
+    const [userName, setUserName] = useState('')
+    const handleLoginSuccess = (username: string) => {
+
+        setUserName(username);
+    };
 
 
-interface Props {
-
-}
-
-
-const ProfileBurger = (props :Props ) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.Profile}>
                 <img src="/penguinLinux.png" />
             </div>
             <div className={styles.paragraph}>
-                <p>Hi {}!</p>
+                <p>Hi {userName} !</p>
             </div>
             <div className={styles.managebutton}>
                 <button>Manage your Google Acoount</button>
@@ -29,6 +33,9 @@ const ProfileBurger = (props :Props ) => {
             <div className={styles.anchores}>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
+            </div>
+            <div className={styles.displayNone}>
+                <Login onLoginSuccess={handleLoginSuccess} />
             </div>
         </div>
     );

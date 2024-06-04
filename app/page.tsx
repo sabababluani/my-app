@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.scroll}>
-        <Anchores active src="/9button.png" alt="shuffle" isActive={isActive} setHandleClick={setIsActive} isLog={isLog} handleClick={setIsLog} />
+        <Anchores active src="/9button.png" alt="shuffle" isActive={isActive} setHandleClick={setIsActive} isLog={isLog} setIsLog={setIsLog} />
         <div className={styles.navbar}>
           <div className={styles.wrapper}>
             <Logo src="/swimLogo.gif" alt="google logo" style={{ width: "250px", height: "100px" }} />

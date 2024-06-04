@@ -15,17 +15,15 @@ interface Props {
     setHandleClick: (value: boolean) => void;
     handleTaskDelete?: (index: any) => void;
     isActive?: boolean;
-    handleClick: (value: boolean) => void;
+    setIsLog: (value: boolean) => void;
 }
 
 export default function Anchores(props: Props) {
 
     const [isActive, setIsActive] = useState(false)
-    const [userName, setUserName] = useState('')
-    const [isLog , setIsLog] = useState(false)
 
     const toggleProfile = () => {
-        props.handleClick(!isLog);
+        props.setIsLog(!props.isLog);
     };
 
     return (
