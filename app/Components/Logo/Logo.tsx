@@ -9,11 +9,10 @@ interface Props {
     className?: string;
 }
 
-export default function Logo({ src, alt, style }: Props) {
-
+export default function Logo(props :  Props) {
     return (
         <div className={Image.container}>
-            <img src={src} alt={alt} style={style} />
+            <img src={props.src} alt={props.alt} style={props.style} />
         </div>
     )
 }   

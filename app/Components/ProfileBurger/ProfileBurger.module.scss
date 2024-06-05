@@ -25,23 +25,29 @@
     height: 37px;
     background-color: transparent;
     border: 1px solid gray;
-    color: rgb(45, 45, 245);
+    color: rgb(70, 70, 241);
     cursor: pointer;
     border-radius: 40px;
 }
-
+.managebutton button:hover {
+    background-color: rgba(185, 211, 214, 0.623);
+}
 .addButton {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 4px;
 }
-
+.addButton button:hover {
+    background-color: rgb(190, 189, 189);
+}
 .addAccount button {
     width: 150px;
     height: 45px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
     background-color:whitesmoke;
     border: none;
     display: flex;
@@ -58,6 +64,8 @@
     height: 45px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
     background-color:whitesmoke;
     border: none;
     display: flex;
@@ -66,6 +74,7 @@
     gap: 3px;
     cursor: pointer;
 }
+
 .signOut button img {
     width: 15px;
 }
@@ -74,6 +83,7 @@
     text-decoration: none;
     color: black;
 }
+
 .anchores {
     display: flex;
     gap: 6px;
@@ -84,4 +94,16 @@
 
 .displayNone {
     display: none;
+}
+.displayBlock {
+    display: block;
+}
+
+.anchoresGeorgia {
+    display: flex;
+    flex-direction: column;
+}
+
+.manageGeorgian {
+    font-size: 14px;
 }

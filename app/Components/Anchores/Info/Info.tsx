@@ -7,12 +7,12 @@ import { userIsGeorgianState } from "@/app/atoms/states";
 
 interface Props {
     style?: React.CSSProperties;
-    displayPics?: boolean
+    displayPics?: boolean;
 }
 
 export default function Info(props: Props) {
   
-    const [userIsGeorgian, setUserIsGeorgian] = useRecoilState(userIsGeorgianState)
+    const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
 
     return (
         <div>

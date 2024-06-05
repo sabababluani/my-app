@@ -15,8 +15,8 @@ import ProfileBurger from "./Components/ProfileBurger/ProfileBurger";
 
 export default function Home() {
 
-  const [isActive, setIsActive] = useState(false)
-  const [isLog, setIsLog] = useState(false)
+  const [isActive, setIsActive] = useState(false);
+  const [isLog, setIsLog] = useState(false);
 
   return (
     <div className={styles.container}>

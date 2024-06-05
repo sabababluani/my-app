@@ -18,7 +18,7 @@ interface Props {
 export default function Maininput(props: Props) {
 
     const [inputValue, setInputValue] = useState<string>('');
-    const [tasks, setTasks] = useState<string[]>([])
+    const [tasks, setTasks] = useState<string[]>([]);
 
     const handleInputChange = (e: any) => {
         setInputValue(e.target.value);

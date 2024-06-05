@@ -10,7 +10,7 @@ interface Props {
 
 export default function NotFooter({ backStyle }: Props) {
 
-    const [userIsGeorgian, setUserIsGeorgian] = useRecoilState(userIsGeorgianState)
+    const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
 
     return (
         <div className={Style.container} style={backStyle}>

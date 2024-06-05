@@ -6,7 +6,7 @@ import Info from "./Info/Info";
 import Login from "../LogIn/LogIn";
 import Profile from "./Profile/Profile";
 
-interface Props {
+type Props = {
     isLog: boolean;
     style?: React.CSSProperties;
     src: string;
@@ -19,8 +19,6 @@ interface Props {
 }
 
 export default function Anchores(props: Props) {
-
-    const [isActive, setIsActive] = useState(false)
 
     const toggleProfile = () => {
         props.setIsLog(!props.isLog);

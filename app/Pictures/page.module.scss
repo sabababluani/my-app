@@ -6,3 +6,12 @@
 .Burger {
     display: none;
 }
+.inactiveProfileBurger {
+    display: none;
+}
+
+.activeProfileBurger {
+    position: fixed;
+    right: 500px;
+    top: 70px;
+}

@@ -6,22 +6,16 @@ import { userIsGeorgianState } from "@/app/atoms/states";
 import { useState } from "react";
 import Link from "next/link";
 
-interface Props {
-    setHandleClick: (value: boolean) => void;
-    isActive: boolean;
-}
 export default function Maintext() {
 
-
-    const [userIsGeorgian, setUserIsGeorgian] = useRecoilState(userIsGeorgianState)
-    const [isActive , setIsActive] = useState(userIsGeorgian)
-
+    const [userIsGeorgian, setUserIsGeorgian] = useRecoilState(userIsGeorgianState);
+    const [isActive , setIsActive] = useState(userIsGeorgian);
 
     const toggleFunction = () => {
-        const newIsGeorgian = !isActive; 
-        setIsActive(newIsGeorgian); 
-        setUserIsGeorgian(newIsGeorgian);
+        setIsActive(!isActive); 
+        setUserIsGeorgian(!isActive);
     }
+    
     return (
         <div className={Style.container}>
             <p>{userIsGeorgian ? "Google ხელმისაწვდომია შემდეგ ენაზე:" : "Google is available in the following languages:"}</p> &nbsp;&nbsp;
