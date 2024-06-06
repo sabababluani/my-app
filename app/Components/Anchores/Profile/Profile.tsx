@@ -14,8 +14,6 @@ const Profile = (props: Props) => {
     const [userName, setUserName] = useState('');
     const [userIsLogedOut, setUserIsLogedOut] = useRecoilState(userIsLogedOutState);
 
-
-
     const handleLoginSuccess = (username: string) => {
         setUserName(username);
         setUserIsLogedOut(false);

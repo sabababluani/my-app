@@ -4,9 +4,9 @@
     background-color: #e4e5e7;
     padding-left: 15px;
     padding-right: 15px;
-    position: fixed;
-    left: 0;
+    position: absolute;
     bottom: 0;
+    z-index: -1;
 }
 
 .container > p {

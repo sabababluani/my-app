@@ -1,26 +1,43 @@
 .wrapper {
     width: 436px;
-    height: 386px;
+    max-height: 656px;
     background-color: rgb(206, 214, 214);
     border-radius: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    padding-top: 40px;
+    gap: 10px;
     position: fixed;
 }
 
-.Profile img{
+.container {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+
+}
+
+.container::-webkit-scrollbar {
+    width: 1px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  display: none;
+}
+.Profile img {
     width: 64px;
-    height:64px;
+    height: 64px;
 }
 
 .paragraph p {
     color: black;
 }
 
-.managebutton button{
+.managebutton button {
     width: 250px;
     height: 37px;
     background-color: transparent;
@@ -29,18 +46,22 @@
     cursor: pointer;
     border-radius: 40px;
 }
+
 .managebutton button:hover {
     background-color: rgba(185, 211, 214, 0.623);
 }
+
 .addButton {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 4px;
 }
+
 .addButton button:hover {
     background-color: rgb(190, 189, 189);
 }
+
 .addAccount button {
     width: 150px;
     height: 45px;
@@ -48,13 +69,14 @@
     border-bottom-left-radius: 20px;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
-    background-color:whitesmoke;
+    background-color: whitesmoke;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-}       
+}
+
 .addAccount button img {
     width: 25px
 }
@@ -66,7 +88,7 @@
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 2px;
     border-top-left-radius: 2px;
-    background-color:whitesmoke;
+    background-color: whitesmoke;
     border: none;
     display: flex;
     align-items: center;
@@ -95,6 +117,7 @@
 .displayNone {
     display: none;
 }
+
 .displayBlock {
     display: block;
 }
@@ -106,4 +129,208 @@
 
 .manageGeorgian {
     font-size: 14px;
+}
+
+.searchParagraph {
+    color: rgb(150, 150, 150);
+    text-align: start;
+    width: 280px;
+}
+
+.deleteButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.deleteButtons button:hover {
+    background-color: rgb(190, 189, 189);
+}
+
+.deleteButtons button {
+    width: 300px;
+    height: 42px;
+}
+
+.historyButton button img {
+    width: 25px;
+    height: 25px;
+}
+
+.lastDeleteButton button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+}
+
+
+.historyButton button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+    background-color: whitesmoke;
+    cursor: pointer;
+    width: 300px;
+}
+
+.historyButton button:hover {
+    background-color: rgb(190, 189, 189);
+}
+
+.innerHistoryButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lastDeleteButton button {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border: none;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    gap: 2px;
+    padding-left: 14px;
+    cursor: pointer;
+}
+
+.deleteButtonsSaving {
+    font-size: 13px;
+
+}
+
+.searchParagraph p {
+    font-size: 12px;
+}
+
+.interestsButton button {
+    width: 300px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2px;
+    border: none;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+.interestsButton button:hover {
+    background-color: rgb(190, 189, 189);
+}
+
+.interestsButton img {
+    width: 25px;
+    height: 25px;
+}
+
+.interestInner {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.languageInner {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding-left: 6px;
+}
+
+.languagesbutton button {
+    width: 300px;
+    height: 45px;
+    border: none;
+    border-radius: 2px;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.languagesbutton button:hover {
+    background-color: rgb(190, 189, 189);
+}
+
+.languagesbutton img {
+    width: 25px;
+    height: 25px;
+}
+
+.settingButton {
+    height: 45px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.settingButton img {
+    width: 20px;
+    height: 20px;
+}
+
+.helpButton {
+    width: 150px;
+    height: 45px;
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.helpButton button:hover {
+    background-color: rgb(190, 189, 189);
+}
+
+.helpButton img {
+    width: 25px;
+    height: 25px;
+}
+
+.settingContainer {
+    display: flex;
+    gap: 2px;
+
+}
+
+.settings button {
+    border: none;
+    width: 149px;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+}
+
+.settings button:hover {
+    background-color: rgb(190, 189, 189);
+}
+
+.help button {
+    border: none;
+    width: 149px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+}
+
+.help button:hover {
+    background-color: rgb(190, 189, 189);
+}
+
+.buttonWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
 }
