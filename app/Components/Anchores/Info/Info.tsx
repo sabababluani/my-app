@@ -1,3 +1,5 @@
+'use client'
+
 import { useRouter } from "next/router";
 import Styles from "./Info.module.scss"
 import Link from "next/link"

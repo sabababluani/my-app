@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react";
 import styles from './Profile.module.scss';
 import Login from "../../LogIn/LogIn";

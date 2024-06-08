@@ -1,0 +1,88 @@
+.container {
+    width: 913px;
+    height: 418px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.googleLogo {
+    position: relative;
+    bottom: 90px;
+}
+
+.googleLogo h2 {
+    font-weight: 400;
+    font-size: 38px;
+}
+
+.searchInput {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 10px;
+}
+
+.searchInputFlex {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.paragraph {
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+}
+
+.paragraph p a {
+    text-decoration: none;
+    color: rgb(38, 38, 228);
+}
+
+.searchInputFlex a {
+    text-decoration: none;
+    color: rgb(38, 38, 228);
+}
+
+.googleLogo img {
+    width: 35px;
+    height: 35px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+}
+
+.createButton button {
+    background-color: transparent;
+    border: none;
+    border-radius: 50px;
+    width: 120px;
+    height: 37px;
+    cursor: pointer;
+}
+
+.createButton button:hover {
+    background-color: rgba(201, 199, 199, 0.514);
+}
+
+.nextButton button {
+    background-color: rgb(80, 80, 239);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    width: 80px;
+    height: 37px;
+    cursor: pointer;
+}

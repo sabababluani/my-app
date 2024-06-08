@@ -1,3 +1,5 @@
+'use client'
+
 import styles from "./Burger.module.scss"
 import Icon from "./Icons/Icons"
 

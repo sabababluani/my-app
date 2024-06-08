@@ -40,7 +40,7 @@ export default function Maininput(props: Props) {
                 setInputValue('');
             }
         }
-    }
+    };
 
     const handleTaskDelete = (index: number) => {
         const updatedTasks = [...tasks];
