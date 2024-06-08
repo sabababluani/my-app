@@ -1,7 +1,6 @@
 'use client'
 
 
-import AddInput from './AddInput/AddInput';
 import styles from './page.module.scss';
 import Link from "next/link";
 
@@ -16,7 +15,6 @@ const addAccount = () => {
                 </div>
                 <div className={styles.searchInput}>
                     <div className={styles.searchInputFlex}>
-                        <AddInput/>
                         <Link href=''>Forgot email?</Link>
                     </div>
                     <div className={styles.paragraph}>
