@@ -1,0 +1,22 @@
+.container__txt{
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.container__txt img{
+    width: 80px;
+}
+
+.container__txt p{
+    color: gray;
+    font-size: 16px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 100% ;
+    align-items: center;
+    padding: 15px 20px;
+}
