@@ -27,8 +27,9 @@ export default function Burger() {
                     <li><Icon photo="peng.png" title="pingvini" /></li>
                     <li><Icon photo="peng.png" title="pingvini" /></li>
                     <li><Icon photo="peng.png" title="pingvini" /></li>
+                    <div className={styles.containerButton}><button>Show Names</button></div>
                 </ul>
-                <div className={styles.containerButton}><button>Show Names</button></div>
+                
             </div>
         </div>
     )

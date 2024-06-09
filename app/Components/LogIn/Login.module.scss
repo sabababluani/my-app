@@ -52,7 +52,28 @@
     left: 2px;
 }
 
-.submitButton input {
+.confirmPassword {
+    position: relative;
+    right: 24px;
+}
+.confirmPassword input{
+    width: 200px;
+    border-radius: 5px;
+    height: 27px;
+    border: 1px solid gray;
+    padding-left: 5px;
+}
+
+.inputContainerRegister {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.submitButton button {
     background-color: rgb(11, 122, 182);
     border: none;
     color: #fff;
@@ -62,4 +83,9 @@
     position: relative;
     left: 270px;
     top: 20px;
+    cursor: pointer;
+}
+
+.inputContainer {
+    display: flex;
 }
