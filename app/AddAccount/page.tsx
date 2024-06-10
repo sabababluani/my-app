@@ -1,6 +1,7 @@
 'use client'
 
 
+import AddInput from './AddInput/AddInput';
 import styles from './page.module.scss';
 import Link from "next/link";
 
@@ -14,6 +15,7 @@ const addAccount = () => {
                     <p>Use your Google Account</p>
                 </div>
                 <div className={styles.searchInput}>
+                    <AddInput/>
                     <div className={styles.searchInputFlex}>
                         <Link href=''>Forgot email?</Link>
                     </div>

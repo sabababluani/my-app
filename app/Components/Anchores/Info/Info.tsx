@@ -19,7 +19,7 @@ export default function Info(props: Props) {
     return (
         <div>
             {props.displayPics && <div className={Styles.anchore} style={props.style}>
-                <Link href="#">Gmail</Link>
+                <Link href= "#">Gmail</Link>
                 <Link href="../../Pictures">{userIsGeorgian ? "სურათები" : "Photos"}</Link>
             </div>}
         </div> 

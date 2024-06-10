@@ -1,6 +1,6 @@
 'use client '
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './ProfileBurger.module.scss'
 import Login from '../LogIn/LogIn';
 import { userIsGeorgianState, userIsLogedOutState, userNameState } from "@/app/atoms/states";
@@ -13,6 +13,7 @@ const ProfileBurger = () => {
     const [isLogOut, setIsLogOut] = useState(profileIsVisible);
     const [userName, setUserName] = useRecoilState(userNameState);
     const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
+    const [randomNumber , setRandomNumber] = useState(0);
 
     const handleLoginSuccess = (username: string) => {
         setUserName(username);
@@ -23,15 +24,18 @@ const ProfileBurger = () => {
         setIsLogOut(!isLogOut);
     };
 
-    // const generateRandomNumber = () => {
-    //     return Math.floor(Math.random() * 900) + 100; 
-    // };
+    useEffect(() => {
+        const generateRandomNumber = () => {
+            return Math.floor(Math.random() * 900) + 100; 
+        }
+        setRandomNumber(generateRandomNumber)
+        }, []);
 
     return (
         !profileIsVisible &&
         <div className={styles.wrapper} >
             <div className={styles.container}>
-                <div><p>{`${userName}467@gmail.com`}</p></div>
+                <div><p>{`${userName}${randomNumber}@gmail.com`}</p></div>
                 <div className={styles.Profile}>
                     <img src="/penguinLinux.png" />
                 </div>
@@ -94,6 +98,5 @@ const ProfileBurger = () => {
         </div>
     );
 }
-
 
 export default ProfileBurger;

@@ -19,9 +19,6 @@ export default function Home() {
   const [isActive, setIsActive] = useState(false);
   const [isLog, setIsLog] = useState(false);
 
-
-
-  
   return (
     <div className={styles.container}>
       <div className={styles.scroll}>
