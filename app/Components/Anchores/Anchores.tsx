@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react";
-import Styles from "./Anchores.module.scss"
+import Styles from "./Anchores.module.scss";
 import Info from "./Info/Info";
 import Login from "../LogIn/LogIn";
 import Profile from "./Profile/Profile";
@@ -19,7 +19,6 @@ type Props = {
 }
 
 export default function Anchores(props: Props) {
-
     const toggleProfile = () => {
         props.setIsLog(!props.isLog);
     };

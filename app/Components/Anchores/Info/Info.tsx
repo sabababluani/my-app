@@ -1,8 +1,8 @@
 'use client'
 
 import { useRouter } from "next/router";
-import Styles from "./Info.module.scss"
-import Link from "next/link"
+import Styles from "./Info.module.scss";
+import Link from "next/link";
 import { useRecoilState } from "recoil";
 import { userIsGeorgianState } from "@/app/atoms/states";
 

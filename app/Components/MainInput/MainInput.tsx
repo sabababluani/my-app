@@ -19,6 +19,8 @@ export default function Maininput(props: Props) {
 
     const [inputValue, setInputValue] = useState<string>('');
     const [tasks, setTasks] = useState<string[]>([]);
+    const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
+    const pathName = usePathname();
 
     const handleInputChange = (e: any) => {
         setInputValue(e.target.value);
@@ -46,11 +48,9 @@ export default function Maininput(props: Props) {
         const updatedTasks = [...tasks];
         updatedTasks.splice(index, 1);
         setTasks(updatedTasks);
-    }
+    };
 
-    const [userIsGeorgian] = useRecoilState(userIsGeorgianState)
 
-    const pathName = usePathname()
     return (
         <>
             <div className={styles.searchcontainer} style={props.mainStyle}>

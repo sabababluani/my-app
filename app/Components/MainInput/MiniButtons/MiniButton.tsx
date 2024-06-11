@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./MiniButton.module.scss"
 import Link from "next/link";
+import EditShortcut from "./EditShortcut/EditShortcut";
 
 interface Props {
     title: string;
@@ -9,15 +10,28 @@ interface Props {
 }
 
 export default (props: Props) => {
+
+    const [isAddedEditRemove, setIsAddedEditRemove] = useState(false)
+
+    const addConponent = () => {
+        setIsAddedEditRemove(!isAddedEditRemove)
+    }
+
     return (
-        <div className={style.container}>
-            <img src="X.png" onClick={props.onDelete}/>
-            <Link href={`https://www.${props.title}.com`} target="_blank">
-                <div className={style.containeri}>
-                    <img src="/peng.png" alt="logo" />
+        <>
+            <div className={style.container}>
+                <img src="threeDots.png" onClick={addConponent} />
+                <Link href={`https://www.${props.title}.com`} target="_blank">
+                    <div className={style.containeri}>
+                        <img src="/peng.png" alt="logo" />
+                    </div>
+                    <p style={props.style}>{props.title}</p>
+                </Link>
+                <div className={isAddedEditRemove ? style.wrapper : style.wrapperNone}>
+                    <button>Edit shortcut</button>
+                    <button onClick={props.onDelete}>Remove</button>
                 </div>
-                <p style={props.style}>{props.title}</p>
-            </Link>
-        </div>
+            </div>
+        </>
     )
 }
