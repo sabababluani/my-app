@@ -11,12 +11,15 @@ interface Props {
 
 export default (props: Props) => {
 
-    const [isAddedEditRemove, setIsAddedEditRemove] = useState(false)
+    const [isAddedEditRemove, setIsAddedEditRemove] = useState(false);
 
     const addConponent = () => {
         setIsAddedEditRemove(!isAddedEditRemove)
-    }
+    };
 
+    const onAddEdit = () => {
+    
+    };
     return (
         <>
             <div className={style.container}>
@@ -28,7 +31,7 @@ export default (props: Props) => {
                     <p style={props.style}>{props.title}</p>
                 </Link>
                 <div className={isAddedEditRemove ? style.wrapper : style.wrapperNone}>
-                    <button>Edit shortcut</button>
+                    {/* <button onClick={}>Edit shortcut</button> */}
                     <button onClick={props.onDelete}>Remove</button>
                 </div>
             </div>

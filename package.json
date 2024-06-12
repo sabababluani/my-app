@@ -14,6 +14,7 @@
     "axios": "^1.7.2",
     "next": "14.2.3",
     "react": "^18",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18",
     "recoil": "^0.7.7",
     "sass": "^1.77.2"
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
+    "@types/react-beautiful-dnd": "^13.1.8",
     "@types/react-dom": "^18",
     "typescript": "^5"
   }

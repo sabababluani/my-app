@@ -1,0 +1,48 @@
+.page {
+    background-color: #2a385c;
+    background-image: linear-gradient(320deg, hsl(215, 10%, 12%) 0% hsl(215, 19%, 24%) 100%);
+    font-family: var(--fonts-primary);
+    font-size: 14px;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.layout__wrapper {
+    background-image: linear-gradient(0deg, hsl(215, 14%, 16%) 0%, hsl(215, 19%, 29%) 100%);
+    border-radius: 3px;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, .25);
+    margin: 3rem auto;
+    max-width: 370px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 450px;
+}
+
+.header {
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.storeContainer {
+    text-align: center;
+    padding: 5px;
+    background-color: rgb(0, 247, 255);
+}
+
+.itemsContainer {
+    text-align: center;
+}
+
+.itemContainer {
+    padding: 5px;
+    border-bottom: 1px solid grey;
+}
