@@ -9,9 +9,10 @@
     display: flex;
     justify-content: center;
     align-items: start;
+
 }
 
-.layout__wrapper {
+.layoutWrapper {
     background-image: linear-gradient(0deg, hsl(215, 14%, 16%) 0%, hsl(215, 19%, 29%) 100%);
     border-radius: 3px;
     box-shadow: 0 12px 16px rgba(0, 0, 0, .25);
@@ -35,7 +36,7 @@
 .storeContainer {
     text-align: center;
     padding: 5px;
-    background-color: rgb(0, 247, 255);
+    background-color: rgb(137, 141, 141);
 }
 
 .itemsContainer {
