@@ -1,0 +1,98 @@
+.sidebar {
+    height: 100vh;
+    background-color: #f5f8ff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 350px;
+    border-radius: 20px;
+}
+
+.safe {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #c7dbff;
+    padding: 10px 12px;
+    margin: 10px 12px;
+    border-radius: 30px;
+    width: 250px;
+}
+
+.safe img {
+    width: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+    padding-left: 12px;
+}
+
+.option img {
+    width: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.option p {
+    color: #545d7e;
+}
+
+.activity {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    gap: 80px;
+}
+
+.activity h2 {
+    font-size: 23px;
+}
+
+.activity p {
+    font-size: 20px;
+    width: 650px;
+    font-size: 17px;
+    margin-top: -2px;
+}
+
+.wrapper img {
+    width: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.wrapper {
+    background-color: #f5f8ff;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 650px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 18px 15px;
+}
+
+.history span {
+    font-size: 15px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cont{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
