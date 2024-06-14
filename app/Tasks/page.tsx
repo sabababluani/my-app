@@ -54,15 +54,26 @@ const Tasks = () => {
         if (type === 'group') {
             const reorderedStores = [...stores];
 
-            const sourceIndex = source.index;
-            const destinationIndex = destination.index;
-            const [removedStore] = reorderedStores.splice(sourceIndex, 1);
-            reorderedStores.splice(destinationIndex, 0, removedStore);
+            const storeSourceIndex = source.index;
+            const storeDestinationIndex = destination.index;
+
+            const [removedStore] = reorderedStores.splice(storeSourceIndex, 1);
+            reorderedStores.splice(storeDestinationIndex, 0, removedStore);
+
             return setStores(reorderedStores);
         }
 
-        const storeSourceIndex = stores.findIndex((store) => store.id === source.droppableId);
-        const storeDestinationIndex = stores.findIndex((store) => store.id === destination.droppableId);
+        const itemSourceIndex = source.index;
+        const itemDestinationIndex = destination.index;
+
+        const storeSourceIndex = stores.findIndex(
+            (store) => store.id === source.droppableId
+        );
+
+        const storeDestinationIndex = stores.findIndex(
+            (store) => store.id === destination.droppableId
+        );
+
         const newSourceItems = [...stores[storeSourceIndex].items];
         const newDestinationItems =
             source.droppableId !== destination.droppableId
@@ -70,22 +81,22 @@ const Tasks = () => {
                 : newSourceItems;
 
 
-        const [deletedItem] = newSourceItems.splice(source.index, 1);
-        newDestinationItems.splice(destination.index, 0, deletedItem);
+        const [deletedItem] = newSourceItems.splice(itemSourceIndex, 1);
+        newDestinationItems.splice(itemDestinationIndex, 0, deletedItem);
 
         const newStores = [...stores];
 
         newStores[storeSourceIndex] = {
             ...stores[storeSourceIndex],
             items: newSourceItems,
-        }
+        };
 
         newStores[storeDestinationIndex] = {
-            ...stores[storeSourceIndex],
+            ...stores[storeDestinationIndex],
             items: newDestinationItems,
-        }
+        };
 
-        setStores(newStores)
+        setStores(newStores);
     }
 
     return (
@@ -138,11 +149,13 @@ function StoreList({ name, items, id }: any) {
                     </div>
                     <div className={styles.itemsContainer}>
                         {items.map((item: any, index: any) => (
-                            <Draggable draggableId={item.id}
-                                index={index}
-                                key={item.id}>
+                            <Draggable draggableId={item.id} index={index} key={item.id}>
                                 {(provided) => (
-                                    <div className={styles.itemContainer} {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
+                                    <div className={styles.itemContainer}
+                                        {...provided.dragHandleProps}
+                                        {...provided.draggableProps}
+                                        ref={provided.innerRef}
+                                    >
                                         <h4>{item.name}</h4>
                                     </div>
                                 )}
