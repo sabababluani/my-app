@@ -48,51 +48,49 @@
     flex-direction: column;
 }
 
-.container {
-    display: flex;
-    gap: 80px;
-}
-
-.activity h2 {
+.sectionTxt h2 {
     font-size: 23px;
 }
 
-.activity p {
+.sectionTxt p {
     font-size: 20px;
     width: 650px;
     font-size: 17px;
     margin-top: -2px;
 }
 
-.wrapper img {
-    width: 30px;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.wrapper {
-    background-color: #f5f8ff;
+.container {
     display: flex;
-    justify-content: space-between;
-    align-content: center;
-    width: 650px;
-    height: 50px;
-    border-radius: 20px;
-    padding: 18px 15px;
+    gap: 80px;
 }
 
-.history span {
-    font-size: 15px;
-}
-
-.flex {
+.contentBtn{
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    gap: 5px;
 }
 
-.cont{
+.sec{
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
+.btn{
+    display: flex;
+    gap: 15px;
+}
+
+.links ul{
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.links a{
+    font-size: 16px;
+    text-decoration: none;
+}
+
+
+
