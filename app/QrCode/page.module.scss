@@ -56,24 +56,11 @@
     color: #fff;
 }
 
-.scanContainer {
-    width: 200px;
 
-}
-.scanContainer h3 {
-    color: #fff;
-    font-size: 22px;
-}
-.scanContainer button {
-    background-color: rgb(22, 131, 22);
-    border: none;
-    color: #fff;
-    height: 34px;
-    border-radius: 4px;
-    cursor: pointer;
-}
 
 .qrCode {
-    position: relative;
-    right: 370px;
+    width: 100%;
+   display: flex;
+   justify-content: space-around;
+   
 }

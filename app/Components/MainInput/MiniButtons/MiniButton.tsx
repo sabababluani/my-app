@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "./MiniButton.module.scss"
+import style from "./MiniButton.module.scss";
 import Link from "next/link";
 import EditShortcut from "./EditShortcut/EditShortcut";
 

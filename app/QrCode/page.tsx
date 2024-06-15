@@ -2,20 +2,24 @@
 
 import { useState } from 'react'
 import styles from './page.module.scss'
-import QRCode from 'qrcode.react'
+import QRCode from 'qrcode'
+import QrCodeReact from 'qrcode.react'
+import QrCodeScanner from './QrCodeScanner/QrCodeScanner'
+
 
 const QrCode = () => {
 
-    const [inputValue, setInputValue] = useState('')
-    const [isAdded, setIsAdded] = useState(false)
+    const [inputValue, setInputValue] = useState('');
+    const [qrImageUrl, setQrImageUrl] = useState('');
+    const [isAdded, setIsAdded] = useState(false);
 
-    const onClick = () => {
-        setIsAdded(true)
-    }
-
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
+        if (!inputValue) return alert('Please enter some value');
+        const response = await QRCode.toDataURL(inputValue);
+        setQrImageUrl(response);
     }
+
 
     return (
         <div className={styles.page}>
@@ -29,17 +33,16 @@ const QrCode = () => {
                     <form onSubmit={handleSubmit}>
                         <div className={styles.QRInputPlus}>
                             <input type="text" placeholder='Enter text' value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-                            <button type="submit" onClick={onClick}>+</button>
+                            <button type="submit">+</button>
                         </div>
                     </form>
                 </div>
-                <div className={styles.scanContainer}>
-                    <h3>Read QR Code</h3>
-                    <button>Scan QR Code</button>
-                </div>
+                <QrCodeScanner />
             </div>
-            {isAdded && <div className={styles.qrCode}>
-                <QRCode value={inputValue} />
+            {qrImageUrl && <div className={styles.qrCode}>
+                <a href={qrImageUrl} download='qr.png'>
+                    <QrCodeReact value={inputValue} />
+                </a>
             </div>}
 
         </div>
