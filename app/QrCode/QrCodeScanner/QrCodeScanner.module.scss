@@ -1,6 +1,7 @@
 .scanContainer {
     width: 200px;
-
+    display: flex;
+    flex-direction: column;
 }
 .scanContainer h3 {
     color: #fff;
@@ -17,4 +18,19 @@
 
 .scanContainer input {
     display: none;
+}
+
+.qrResultPAragraph {
+    color: #fff;
+    font-size: 20px;
+}
+
+.resultQr {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.resultQr img {
+    width: 100px;
 }

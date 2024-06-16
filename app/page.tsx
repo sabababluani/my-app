@@ -40,7 +40,7 @@ export default function Home() {
         <ProfileBurger />
       </div>
       <NotFooter backStyle={{ color: "black" }} />
-      <EditShortcut />
+      {/* <EditShortcut /> */}
     </div>
   );
 }
