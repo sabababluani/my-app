@@ -19,7 +19,7 @@
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18",
     "recoil": "^0.7.7",
-    "sass": "^1.77.2"
+    "sass": "^1.77.4"
   },
   "devDependencies": {
     "@types/node": "^20",
