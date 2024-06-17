@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styles from './AddInput.module.scss'
 
 
@@ -8,7 +8,7 @@ const AddInput = () => {
     const [inputValue , setInputValue] = useState('')
 
 
-    const handleClick = (e :any) => {
+    const handleClick = (e :React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value)
     }
     return (

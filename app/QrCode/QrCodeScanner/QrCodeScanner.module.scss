@@ -1,0 +1,36 @@
+.scanContainer {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.scanContainer h3 {
+    color: #fff;
+    font-size: 22px;
+}
+.scanContainer button {
+    background-color: rgb(22, 131, 22);
+    border: none;
+    color: #fff;
+    height: 34px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.scanContainer input {
+    display: none;
+}
+
+.qrResultPAragraph {
+    color: #fff;
+    font-size: 20px;
+}
+
+.resultQr {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.resultQr img {
+    width: 100px;
+}

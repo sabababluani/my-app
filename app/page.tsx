@@ -12,6 +12,7 @@ import styles from "./page.module.css";
 import Login from "./Components/LogIn/LogIn";
 import ProfileBurger from "./Components/ProfileBurger/ProfileBurger";
 import axios from "axios";
+import EditShortcut from "./Components/MainInput/EditShortcut/EditShortcut";
 
 
 export default function Home() {
@@ -19,9 +20,6 @@ export default function Home() {
   const [isActive, setIsActive] = useState(false);
   const [isLog, setIsLog] = useState(false);
 
-
-
-  
   return (
     <div className={styles.container}>
       <div className={styles.scroll}>
@@ -42,6 +40,7 @@ export default function Home() {
         <ProfileBurger />
       </div>
       <NotFooter backStyle={{ color: "black" }} />
+      {/* <EditShortcut /> */}
     </div>
   );
 }
