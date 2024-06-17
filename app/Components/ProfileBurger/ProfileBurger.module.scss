@@ -26,8 +26,9 @@
 }
 
 .container::-webkit-scrollbar-thumb {
-  display: none;
+    display: none;
 }
+
 .Profile img {
     width: 64px;
     height: 64px;
@@ -287,7 +288,7 @@
     width: 150px;
     height: 45px;
     display: flex;
-    justify-content:start;
+    justify-content: start;
     align-items: center;
     padding-right: 10px;
 }
@@ -306,14 +307,21 @@
     gap: 2px;
 
 }
+
 .addAccount a {
     text-decoration: none;
 }
+
 .settings button {
     border: none;
     width: 149px;
     border-bottom-left-radius: 20px;
     cursor: pointer;
+}
+
+.settings a {
+    text-decoration: none;
+    color: black;
 }
 
 .settings button:hover {

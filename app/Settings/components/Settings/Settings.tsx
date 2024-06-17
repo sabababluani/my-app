@@ -11,8 +11,6 @@ const Settings = (props:Props) => {
                 <p>{props.title}</p>
             </div>
           <img src="penguinLinux.png" alt="" width={45} height={45} />
-            
-
         </div>
     )
 }

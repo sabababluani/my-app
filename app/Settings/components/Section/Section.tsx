@@ -26,26 +26,18 @@ const Section = () => {
                         When you save history to your account as part of your web and app activity,
                         Google can use it to improve your experience
                     </p>
-
-
                 </div>
-
                 <Button name='Search History' span='Saving in progress' src="history.png" />
-
-
                 <div className={`${styles.content} ${styles.sectionTxt}`}>
                     <h2>content</h2>
                     <p>
                         Control the types of search results you see by setting personalization and inappropriate content settings
                     </p>
-
                 </div>
                 <div className={styles.contentBtn}>
-                    <Button name='personal results' span='involved' src="history.png" />
+                    <Button name='Personal results' span='Involved' src="history.png" />
                     <Button name='SafeSearch' span='Filtering is enabled' src="history.png" />
                 </div>
-
-
                 <div className={`${styles.content} ${styles.sectionTxt}`}>
                     <h2>other options</h2>
                     <div className={styles.btn}>
@@ -59,18 +51,12 @@ const Section = () => {
                     <ul>
                         <Link href="#">Feedback</Link>
                         <Link href="#">Help</Link>
-                        <Link href="#">confidential</Link>
-                        <Link href="#">rules</Link>
+                        <Link href="#">Confidential</Link>
+                        <Link href="#">Rules</Link>
                     </ul>
                 </div>
-
-
             </div>
-
         </div>
-
-
-
     )
 
 }

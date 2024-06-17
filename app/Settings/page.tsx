@@ -11,10 +11,7 @@ const SettingSearch = () => {
             <header className={styles.header}>
                 <Settings title='Search options' />
             </header>
-            
-                <Section />
-            
-            
+                <Section /> 
         </>
 
     )

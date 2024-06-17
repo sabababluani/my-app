@@ -4,7 +4,7 @@ import { useState } from "react";
 import styles from './Profile.module.scss';
 import Login from "../../LogIn/LogIn";
 import { useRecoilState } from "recoil";
-import { userIsLogedOutState } from "@/app/atoms/states";
+import { profileIsVisibleState } from "@/app/atoms/states";
 
 interface Props {
     handleClick: (value: boolean) => void;
@@ -14,7 +14,7 @@ interface Props {
 const Profile = (props: Props) => {
 
     const [userName, setUserName] = useState('');
-    const [userIsLogedOut, setUserIsLogedOut] = useRecoilState(userIsLogedOutState);
+    const [userIsLogedOut, setUserIsLogedOut] = useRecoilState(profileIsVisibleState);
 
     const handleLoginSuccess = (username: string) => {
         setUserName(username);

@@ -5,8 +5,8 @@ export const userIsGeorgianState = atom({
     default: false
 })
 
-export const userIsLogedOutState = atom({
-    key: "userIslogetOut",
+export const profileIsVisibleState = atom({
+    key: "profileIsVisible",
     default: false
 })
 

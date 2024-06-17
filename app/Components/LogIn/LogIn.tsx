@@ -12,9 +12,9 @@ const Login = (props: Props) => {
     const [userName, setUserName] = useRecoilState(userNameState);
 
     const onFinish: FormProps<any>['onFinish'] = (values: any) => {
-        setOpen(false)
-        setUserName(values.username)
-        props.onLoginSuccess(values.username)
+        setOpen(false);
+        setUserName(values.username);
+        props.onLoginSuccess(values.username);
     };
 
     const [open, setOpen] = useState(false);
@@ -41,7 +41,7 @@ const Login = (props: Props) => {
                     name="basic"
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
-                    style={{ maxWidth: 600 ,display: 'flex', flexDirection:'column',justifyContent: 'center', alignItems: 'center' }}
+                    style={{ maxWidth: 600 ,display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems: 'center' }}
                     initialValues={{ remember: true }}
                     onFinish={onFinish}
                     autoComplete="off"

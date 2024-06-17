@@ -13,13 +13,13 @@ const QrCode = () => {
     const [qrImageUrl, setQrImageUrl] = useState('');
     const [isAdded, setIsAdded] = useState(false);
 
+    
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         if (!inputValue) return alert('Please enter some value');
         const response = await QRCode.toDataURL(inputValue);
         setQrImageUrl(response);
     }
-
 
     return (
         <div className={styles.page}>

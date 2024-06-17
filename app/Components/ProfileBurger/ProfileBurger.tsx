@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react';
 import styles from './ProfileBurger.module.scss'
 import Login from '../LogIn/LogIn';
-import { userIsGeorgianState, userIsLogedOutState, userNameState } from "@/app/atoms/states";
+import { userIsGeorgianState, profileIsVisibleState, userNameState } from "@/app/atoms/states";
 import { useRecoilState } from 'recoil';
 import Link from 'next/link';
 
 const ProfileBurger = () => {
 
-    const [profileIsVisible, setProfileIsVisible] = useRecoilState(userIsLogedOutState);
+    const [profileIsVisible, setProfileIsVisible] = useRecoilState(profileIsVisibleState);
     const [isLogOut, setIsLogOut] = useState(profileIsVisible);
     const [userName, setUserName] = useRecoilState(userNameState);
     const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
@@ -79,7 +79,7 @@ const ProfileBurger = () => {
                     </div>
                     <div className={styles.settingContainer}>
                         <div className={styles.settings}>
-                            <button><div className={styles.settingButton}><img src="/settings.png" /><p>{userIsGeorgian ? "სხვა პარამეტრები" : "More Settings"}</p></div></button>
+                            <button><div className={styles.settingButton}><img src="/settings.png" /><Link href='/Settings'>{userIsGeorgian ? "სხვა პარამეტრები" : "More Settings"}</Link></div></button>
                         </div>
                         <div className={styles.help}>
                             <button><div className={styles.helpButton}><img src="/help.png" /><p>{userIsGeorgian ? "დახმარება" : "Help"}</p></div></button>

@@ -4,20 +4,24 @@ import QrScanner from 'qr-scanner';
 
 const QrCodeScanner = () => {
 
-    const [file, setFile] = useState<any>(null);
-    const [data, setData] = useState<any>(null)
+    const [file, setFile] = useState<File | null>(null);
+    const [data, setData] = useState<String | null>(null);
     const fileRef = useRef<HTMLInputElement>(null);
 
 
     const handleClick = () => {
-        fileRef.current.click();
+        if (fileRef.current) {
+            fileRef.current.click();
+        }
     }
 
     const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files[0]
-        setFile(file);
-        const result = await QrScanner.scanImage(file)
-        setData(result)
+        if (e.target.files && e.target.files.length > 0) {
+            const file = e.target.files[0]
+            setFile(file);
+            const result = await QrScanner.scanImage(file);
+            setData(result);
+        }
     }
     return (
         <div className={styles.scanContainer}>

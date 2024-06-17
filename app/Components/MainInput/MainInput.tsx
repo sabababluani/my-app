@@ -15,61 +15,88 @@ interface Props {
     darkMode?: React.CSSProperties;
 }
 
+interface Task {
+    value: string;
+    id: number;
+}
+
 const MainInput: React.FC<Props> = (props) => {
     const [inputValue, setInputValue] = useState<string>('');
-    const [tasks, setTasks] = useState<string[]>([]);
+    const [tasks, setTasks] = useState<Task[]>([]);
     const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
-    const [isAddedEdit, setIsAddedEdit] = useState(false);
-    const [editText, setEditText] = useState('')
+    const [isEditing, setIsEditing] = useState<number | null>(null);
+    const [editText, setEditText] = useState<string>('');
+    const [activeEditMenu, setActiveEditMenu] = useState<number | null>(null);
+
+
     const pathName = usePathname();
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
     };
 
-    const handleKeyPress = (e: any) => {
-        if (inputValue !== '' && e.target.value.length <= 12) {
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (inputValue !== '' && inputValue.length <= 12) {
             if (e.key === 'Enter' && tasks.length < 12) {
-                setTasks((prevState) => [...prevState, inputValue]);
+                setTasks((prevState) => [...prevState, { value: inputValue, id: prevState.length + 1 }]);
                 setInputValue('');
             }
         }
     };
+    console.log(tasks);
 
     const onAdd = () => {
-        if (inputValue !== '' && inputValue.length <= 12) {
-            if (tasks.length < 12) {
-                setTasks((prevState) => [...prevState, inputValue]);
-                setInputValue('');
-            }
+        if (inputValue !== '' && inputValue.length <= 12 && tasks.length < 12) {
+            setTasks((prevState) => [...prevState, { value: inputValue, id: prevState.length + 1 }]);
+            setInputValue('');
         }
     };
 
     const handleTaskDelete = (index: number) => {
-        const updatedTasks = [...tasks];
-        updatedTasks.splice(index, 1);
-        setTasks(updatedTasks);
+        setTasks(tasks.filter((_, taskIndex) => taskIndex !== index));
+        setActiveEditMenu(null)
     };
 
-    const handleEditTask = () => {
-        setIsAddedEdit(!isAddedEdit);
+    const handleEditTask = (index: number) => {
+        setIsEditing(index);
+        setEditText(tasks[index].value);
     };
 
-    const handleCancel = () => {
-        setIsAddedEdit(false);
+    const handleEditChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEditText(e.target.value);
     };
 
+    const handleEditSave = () => {
+        if (isEditing !== null && editText !== '') {
+            const updatedTasks = [...tasks];
+            updatedTasks[isEditing] = { ...updatedTasks[isEditing], value: editText };
+            setTasks(updatedTasks);
+            setIsEditing(null);
+            setEditText('');
+        }
+    };
 
+    const handleEditCancel = () => {
+        setIsEditing(null);
+        setEditText('');
+    };
 
-    const onInputChange = (e: any) => {
-        setEditText(e.target.value)
-    }
+    const toggleEditMenu = (index: number) => {
+        setActiveEditMenu((prev) => (prev === index ? null : index));
+    };
+
 
     return (
         <>
-            {tasks.map((task, index) => (
-                isAddedEdit && <EditShortcut key={index} onCancel={handleCancel} inputValue={task} onInputChange={onInputChange} value={inputValue} />
-            ))}
+            {isEditing !== null && (
+                <EditShortcut
+                    onCancel={handleEditCancel}
+                    inputValue={editText}
+                    onInputChange={handleEditChange}
+                    value={editText}
+                    onSave={handleEditSave}
+                />
+            )}
             <div className={styles.searchcontainer} style={props.mainStyle}>
                 <img src="search.png" alt="search" onClick={onAdd} />
                 <input
@@ -104,12 +131,14 @@ const MainInput: React.FC<Props> = (props) => {
             ) : (
                 <ul className={styles.cardWrapper}>
                     {tasks.map((task, index) => (
-                        <li key={index}>
+                        <li key={task.id}>
                             <MiniButton
-                                title={task}
+                                title={task.value}
                                 style={props.darkMode}
                                 onDelete={() => handleTaskDelete(index)}
-                                onEdit={() => handleEditTask()}
+                                onEdit={() => handleEditTask(index)}
+                                addComponent={() => toggleEditMenu(index)}
+                                isAddedEdit={activeEditMenu === index}
                             />
                         </li>
                     ))}
@@ -117,6 +146,6 @@ const MainInput: React.FC<Props> = (props) => {
             )}
         </>
     );
-}
+};
 
 export default MainInput;
