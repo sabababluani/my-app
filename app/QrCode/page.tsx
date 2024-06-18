@@ -11,9 +11,7 @@ const QrCode = () => {
 
     const [inputValue, setInputValue] = useState('');
     const [qrImageUrl, setQrImageUrl] = useState('');
-    const [isAdded, setIsAdded] = useState(false);
 
-    
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         if (!inputValue) return alert('Please enter some value');

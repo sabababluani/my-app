@@ -21,13 +21,14 @@ interface Task {
 }
 
 const MainInput: React.FC<Props> = (props) => {
+
     const [inputValue, setInputValue] = useState<string>('');
     const [tasks, setTasks] = useState<Task[]>([]);
     const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
     const [isEditing, setIsEditing] = useState<number | null>(null);
     const [editText, setEditText] = useState<string>('');
     const [activeEditMenu, setActiveEditMenu] = useState<number | null>(null);
-
+    const [editURL, setEditURL] = useState<string>('');
 
     const pathName = usePathname();
 
@@ -43,7 +44,6 @@ const MainInput: React.FC<Props> = (props) => {
             }
         }
     };
-    console.log(tasks);
 
     const onAdd = () => {
         if (inputValue !== '' && inputValue.length <= 12 && tasks.length < 12) {
@@ -53,17 +53,24 @@ const MainInput: React.FC<Props> = (props) => {
     };
 
     const handleTaskDelete = (index: number) => {
-        setTasks(tasks.filter((_, taskIndex) => taskIndex !== index));
-        setActiveEditMenu(null)
+        const updatedTasks = [...tasks];
+        updatedTasks.splice(index, 1);
+        setTasks(updatedTasks);
+        setActiveEditMenu(null);
     };
 
     const handleEditTask = (index: number) => {
         setIsEditing(index);
         setEditText(tasks[index].value);
+        setEditURL(`https://www.${tasks[index].value}.com`);
     };
 
-    const handleEditChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEditText(e.target.value);
+    const handleEditChange = (value : string) => {
+        setEditText(value);
+    };
+
+    const handleEditURLChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEditURL(e.target.value);
     };
 
     const handleEditSave = () => {
@@ -73,12 +80,14 @@ const MainInput: React.FC<Props> = (props) => {
             setTasks(updatedTasks);
             setIsEditing(null);
             setEditText('');
+            setEditURL('');
         }
     };
 
     const handleEditCancel = () => {
         setIsEditing(null);
         setEditText('');
+        setEditURL('');
     };
 
     const toggleEditMenu = (index: number) => {
@@ -95,6 +104,8 @@ const MainInput: React.FC<Props> = (props) => {
                     onInputChange={handleEditChange}
                     value={editText}
                     onSave={handleEditSave}
+                    inputURL={editURL}
+                    onInputURL={handleEditURLChange}
                 />
             )}
             <div className={styles.searchcontainer} style={props.mainStyle}>
