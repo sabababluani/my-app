@@ -3,7 +3,6 @@
     background-color: #f5f8ff;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     width: 350px;
     border-radius: 20px;
 }
@@ -30,13 +29,20 @@
     align-items: center;
     gap: 10px;
     margin: 10px;
-    padding-left: 12px;
+    padding-left: 22px;
 }
 
 .option img {
     width: 20px;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.option:hover{
+    background-color:lightsteelblue;
+    cursor: default;
+    border-radius: 30px;
+    width: 250px;
 }
 
 .option p {
@@ -49,14 +55,18 @@
 }
 
 .sectionTxt h2 {
-    font-size: 23px;
+    font-size: 22px;
+    color: #202124;
+    line-height: 28px;
 }
 
 .sectionTxt p {
     font-size: 20px;
-    width: 650px;
-    font-size: 17px;
+    font-size: 14px;
     margin-top: -2px;
+    line-height: 22px;
+    color: #4d5156;
+    width: 650px;
 }
 
 .container {
@@ -88,9 +98,20 @@
 }
 
 .links a{
-    font-size: 16px;
     text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
 }
+
+.links{
+    margin-left: -30px;
+}
+
+.links a:hover{
+    text-decoration: underline;
+}
+
+
 
 
 

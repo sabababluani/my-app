@@ -41,7 +41,7 @@ const Section = () => {
                 <div className={`${styles.content} ${styles.sectionTxt}`}>
                     <h2>other options</h2>
                     <div className={styles.btn}>
-                        <OptionBtn name='Google Account Settings' src="history.png" />
+                        <OptionBtn name='Google Account Settings' src="user.png" />
                         <OptionBtn name='Parental controls on Family Link' src="history.png" />
                     </div>
 
