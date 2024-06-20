@@ -9,7 +9,7 @@ type Props = {
 const OptionBtn = (props:Props) => {
     return(
         <div className={Styles.container}>
-            <div className={Styles.container__btn}>
+            <div className={Styles.btn}>
                 <img src={props.src}  />
                 {props.name}
             </div>

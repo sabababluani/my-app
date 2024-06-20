@@ -1,0 +1,27 @@
+
+
+.container {
+    display: flex;
+    gap: 80px;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.txt h2 {
+    font-size: 22px;
+    color: #202124;
+    line-height: 28px;
+}
+
+.txt p {
+    font-size: 20px;
+    font-size: 14px;
+    margin-top: -2px;
+    line-height: 22px;
+    color: #4d5156;
+    width: 516px;
+}

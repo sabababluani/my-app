@@ -3,7 +3,8 @@ import styles from "./Buttons.module.scss";
 type Props = {
     name: string;
     src: string;
-    span: string;
+    span ?: string;
+    icon ?: string
 }
 const Button = (props: Props) => {
 
@@ -16,7 +17,7 @@ const Button = (props: Props) => {
                 <p>{props.name}</p>
             </div>
             <div className={styles.span}>
-                <p> {props.span}</p>
+                <p> {props.icon}</p>
             </div>
         </div>
 
