@@ -9,7 +9,7 @@ const SettingSearch = () => {
     return (
         <>
             <header className={styles.header}>
-                <Settings title='Search options' />
+                <Settings />
             </header>
                 <Section /> 
         </>
