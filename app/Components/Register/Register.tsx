@@ -18,8 +18,6 @@ interface Props {
 
 const Register = ({ onLoginClick, onSuccesfulRegister }: Props) => {
     const onFinish: FormProps<FieldType>['onFinish'] = (registerValue) => {
-        console.log('Success:', registerValue);
-
         if (registerValue && registerValue.username) {
             localStorage.setItem('username', registerValue.username)
         }

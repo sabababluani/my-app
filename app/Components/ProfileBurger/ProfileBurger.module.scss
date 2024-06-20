@@ -34,6 +34,10 @@
     height: 64px;
 }
 
+.Profile {
+    position: relative;
+}
+
 .paragraph p {
     color: black;
 }
@@ -291,6 +295,7 @@
     justify-content: start;
     align-items: center;
     padding-right: 10px;
+    gap: 5px;
 }
 
 .helpButton button:hover {
@@ -343,4 +348,17 @@
     display: flex;
     flex-direction: column;
     gap: 3px;
+}
+
+.pencilImg img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.pencilImg {
+    position: absolute;
+    top: 45px;
+    right: 1px;
+    cursor: pointer;
 }

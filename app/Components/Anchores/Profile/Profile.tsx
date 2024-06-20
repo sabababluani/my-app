@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from './Profile.module.scss';
 import Login from "../../LogIn/LogIn";
 import { useRecoilState } from "recoil";
@@ -13,8 +13,23 @@ interface Props {
 
 const Profile = (props: Props) => {
 
-    const [userName, setUserName] = useState('');
+    const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
     const [userIsLogedOut, setUserIsLogedOut] = useRecoilState(profileIsVisibleState);
+
+    useEffect(() => {
+        const storedUserIsLogedOut = localStorage.getItem('userIsLogedOut');
+        if (storedUserIsLogedOut !== null) {
+            setUserIsLogedOut(storedUserIsLogedOut === 'true');
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('userName', userName);
+    }, [userName]);
+
+    useEffect(() => {
+        localStorage.setItem('userIsLogedOut', userIsLogedOut.toString());
+    }, [userIsLogedOut]);
 
     const handleLoginSuccess = (username: string) => {
         setUserName(username);

@@ -12,6 +12,7 @@
     "ant": "^0.2.0",
     "antd": "^5.17.4",
     "axios": "^1.7.2",
+    "bcryptjs": "^2.4.3",
     "next": "14.2.3",
     "qr-scanner": "^1.4.2",
     "qrcode": "^1.5.3",
@@ -22,6 +23,7 @@
     "sass": "^1.77.4"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/qrcode": "^1.5.5",
     "@types/react": "^18",
