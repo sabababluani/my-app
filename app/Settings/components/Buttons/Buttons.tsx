@@ -4,7 +4,6 @@ type Props = {
     name: string;
     src: string;
     span ?: string;
-    icon ?: string
 }
 const Button = (props: Props) => {
 
@@ -17,7 +16,7 @@ const Button = (props: Props) => {
                 <p>{props.name}</p>
             </div>
             <div className={styles.span}>
-                <p> {props.icon}</p>
+                <p> {props.span}</p>
             </div>
         </div>
 
