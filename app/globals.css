@@ -38,6 +38,38 @@ main {
   display: block;
 }
 
+:root {
+  --body-background: white;
+  --title: black;
+  --primary: blue;
+}
+
+:root {
+  --body-background: white;
+  --title: black;
+  --primary: blue;
+}
+
+body[data-theme='light'] {
+  --body-background: white;
+  --title: black;
+  --primary: blue;
+}
+
+body[data-theme='dark'] {
+  --body-background: #242424;
+  --title: white;
+  --primary: rgb(97, 97, 255);
+}
+
+body {
+  background-color: var(--body-background);
+  color: var(--title);
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+}
+
 /**
    * Correct the font size and margin on `h1` elements within `section` and
    * `article` contexts in Chrome, Firefox, and Safari.

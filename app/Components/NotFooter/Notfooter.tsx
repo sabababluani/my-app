@@ -1,32 +1,33 @@
 'use client'
 
-import { userIsGeorgianState } from "@/app/atoms/states";
+import { darkModeState, userIsGeorgianState } from "@/app/atoms/states";
 import Style from "./Notfooter.module.scss";
 import { useRecoilState } from "recoil";
+import { useEffect } from "react";
 
-interface Props {
-    backStyle ?: React.CSSProperties;
-}
 
-export default function NotFooter({ backStyle }: Props) {
+export default function NotFooter() {
 
     const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
+    const [darkMode, setDarkMode] = useRecoilState(darkModeState);
+
+
 
     return (
-        <div className={Style.container} style={backStyle}>
+        <div className={darkMode ? Style.darkContainer : Style.container} >
             <p>{userIsGeorgian ? "საქართველო" : "English"}</p>
             <hr />
-            <div className={Style.secondContainer} style={backStyle}>
-                <div className={Style.foot}>
-                    <a href="#" style={backStyle}>{userIsGeorgian ? "შესახებ" : "About"}</a>
-                    <a href="#" style={backStyle}>{userIsGeorgian ? "რეკლამა" : "Advertisement"}</a>
-                    <a href="#" style={backStyle}>{userIsGeorgian ? "ბიზნესმენი" : "Buissnesman"}</a>
-                    <a href="#" style={backStyle}>{userIsGeorgian ? "როგორ მუშაობს ძიება" : "How the searching works"}</a>
+            <div className={Style.secondContainer} >
+                <div className={darkMode ? Style.darkFoot : Style.foot}>
+                    <a href="#" >{userIsGeorgian ? "შესახებ" : "About"}</a>
+                    <a href="#" >{userIsGeorgian ? "რეკლამა" : "Advertisement"}</a>
+                    <a href="#" >{userIsGeorgian ? "ბიზნესმენი" : "Buissnesman"}</a>
+                    <a href="#" >{userIsGeorgian ? "როგორ მუშაობს ძიება" : "How the searching works"}</a>
                 </div>
-                <div className={Style.foot} style={backStyle}>
-                    <a href="#" style={backStyle}>{userIsGeorgian ? "კონფიდენციალური" : "Confidential"}</a>
-                    <a href="#" style={backStyle}>{userIsGeorgian ? "წესები" : "Laws"}</a>
-                    <a href="#" style={backStyle}>{userIsGeorgian ? "პარამეტრები" : "Settings"}</a>
+                <div className={darkMode ? Style.darkFoot : Style.foot} >
+                    <a href="#">{userIsGeorgian ? "კონფიდენციალური" : "Confidential"}</a>
+                    <a href="#">{userIsGeorgian ? "წესები" : "Laws"}</a>
+                    <a href="#" >{userIsGeorgian ? "პარამეტრები" : "Settings"}</a>
                 </div>
             </div>
         </div>

@@ -1,10 +1,9 @@
-'use client'
-
-import { useState } from "react";
+import React, { useEffect } from "react";
 import Styles from "./Anchores.module.scss";
 import Info from "./Info/Info";
-import Login from "../LogIn/LogIn";
 import Profile from "./Profile/Profile";
+import { useRecoilState } from "recoil";
+import { darkModeState } from "@/app/atoms/states";
 
 type Props = {
     isLog: boolean;
@@ -18,20 +17,35 @@ type Props = {
     setIsLog: (value: boolean) => void;
 }
 
-export default function Anchores(props: Props) {
+const Anchores: React.FC<Props> = (props) => {
+    const [darkMode, setDarkMode] = useRecoilState(darkModeState);
+
+    useEffect(() => {
+        document.body.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+    }, [darkMode]);
+
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+    };
+
     const toggleProfile = () => {
         props.setIsLog(!props.isLog);
     };
 
     return (
         <div className={Styles.container} style={props.style}>
+            <div className={Styles.darkModeToggle} onClick={toggleDarkMode}>
+                {darkMode ? <img src="/sun.png" alt="Sun" /> : <img src="/moon.png" alt="Moon" />}
+            </div>
             {props.active && <Info displayPics />}
-            <div className={Styles.wrapper} >
-                <div className={Styles.buttons} onClick={() => props.setHandleClick(!props.isActive)} >
+            <div className={Styles.wrapper}>
+                <div className={Styles.buttons} onClick={() => props.setHandleClick(!props.isActive)}>
                     <img src={props.src} alt={props.alt} />
                 </div>
                 <Profile isLog={props.isLog} handleClick={toggleProfile} />
             </div>
         </div>
-    )
+    );
 }
+
+export default Anchores;

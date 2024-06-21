@@ -14,3 +14,8 @@ export const userNameState = atom ({
     key: "userName",
     default: ''
 })
+
+export const darkModeState = atom ({
+    key : 'darkMode',
+    default: false
+})

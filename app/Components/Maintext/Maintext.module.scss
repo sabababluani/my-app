@@ -1,11 +1,15 @@
 .container p {
     font-size: 13px;
 }
+.darkContainer p {
+    font-size: 13px;
+}
+
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top:20px ;
+    margin-top: 20px;
 }
 
 .container a {
@@ -15,4 +19,24 @@
 
 .container a:hover {
     text-decoration: underline;
+}
+
+.darkContainer a {
+    text-decoration: none;
+    color: rgb(206, 200, 246);
+}
+.darkContainer a {
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.darkContainer a:hover {
+    text-decoration: underline;
+}
+
+.darkContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }

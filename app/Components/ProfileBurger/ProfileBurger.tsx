@@ -7,11 +7,8 @@ import { userIsGeorgianState, profileIsVisibleState, userNameState } from "@/app
 import { useRecoilState } from 'recoil';
 import Link from 'next/link';
 
-type Props = { 
-    pfpPicture : string;
-}
 
-const ProfileBurger: React.FC = () => {
+const ProfileBurger = () => {
     const [profileIsVisible, setProfileIsVisible] = useRecoilState(profileIsVisibleState);
     const [isLogOut, setIsLogOut] = useState(profileIsVisible);
     const [userName, setUserName] = useRecoilState(userNameState);
@@ -28,7 +25,9 @@ const ProfileBurger: React.FC = () => {
         if (storedUserName) setUserName(storedUserName);
         if (storedProfileIsVisible) setProfileIsVisible(storedProfileIsVisible === 'true');
         if (storedRandomNumber) setRandomNumber(parseInt(storedRandomNumber, 10));
-        if (storedImage) setImage(storedImage);
+        if (storedImage) {
+            setImage(storedImage);
+        };
     }, []);
 
     useEffect(() => {

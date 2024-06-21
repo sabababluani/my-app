@@ -15,6 +15,7 @@ const Profile = (props: Props) => {
 
     const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
     const [userIsLogedOut, setUserIsLogedOut] = useRecoilState(profileIsVisibleState);
+    const [image, setImage] = useState<string | null>(null)
 
     useEffect(() => {
         const storedUserIsLogedOut = localStorage.getItem('userIsLogedOut');
@@ -26,6 +27,10 @@ const Profile = (props: Props) => {
     useEffect(() => {
         localStorage.setItem('userName', userName);
     }, [userName]);
+    useEffect(() => {
+        setImage(localStorage.getItem('profileImage'))
+    }, [localStorage.getItem('profileImage')])
+
 
     useEffect(() => {
         localStorage.setItem('userIsLogedOut', userIsLogedOut.toString());
@@ -47,7 +52,7 @@ const Profile = (props: Props) => {
             userName ? (
                 <div className={styles.ProfileWrapper} onClick={toggleProfile}>
                     <div className={styles.Profile}>
-                        <img src="/penguinLinux.png" alt="pingvinishka" />
+                        <img src={image ? image : "/penguinLinux.png"} alt="pingvinishka" />
                     </div>
                     <p>{userName}</p>
                 </div>

@@ -25,7 +25,7 @@ export default function Home() {
         <Anchores active src="/9button.png" alt="shuffle" isActive={isActive} setHandleClick={setIsActive} isLog={isLog} setIsLog={setIsLog} />
         <div className={styles.navbar}>
           <div className={styles.wrapper}>
-            <Logo src="/swimLogo.gif" alt="google logo" style={{ width: "250px", height: "100px" }} />
+            <Logo src="/googleLogoo.png" alt="google logo" style={{ width: "250px", height: "90px" }} />
             <div className={styles.activeLogin}>
             </div>
             <Maininput />
@@ -38,7 +38,7 @@ export default function Home() {
       <div className={isLog ? styles.activeProfileBurger : styles.inactiveProfileBurger}>
         <ProfileBurger />
       </div>
-      <NotFooter backStyle={{ color: "black" }} />
+      <NotFooter  />
     </div>
   );
 }
