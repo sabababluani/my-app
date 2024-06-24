@@ -52,3 +52,47 @@
 .option p {
     color: #545d7e;
 }
+
+.darkSidebar{
+    background-color: #242832;
+    border-radius: 0 28px 0 0;
+    padding: 12px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+
+.darkSafe{
+    background-color: #3a3f50;
+    color: #eef0ff;
+    fill: currentColor;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin: 10px 12px;
+    border-radius: 30px;
+    width: 250px;
+    cursor: pointer;
+}
+
+.darkOption{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+    padding-left: 22px;
+    background-color: #3a3f50;
+    color: #eef0ff;
+    fill: currentColor;
+}
+
+.darkOption :hover{
+    background-color: #3a3f50;
+    color: #eef0ff;
+    fill: currentColor;
+    border-radius: 30px;
+    width: 250px;
+    cursor: pointer;
+}

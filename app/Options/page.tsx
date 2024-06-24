@@ -1,3 +1,5 @@
+'use client'
+
 import Settings from "../Settings/components/Settings/Settings"
 import Otheroptions from "./Otheroptions/Otheroptions";
 import styles from "./page.module.scss";

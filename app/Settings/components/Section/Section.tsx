@@ -4,15 +4,18 @@ import Button from "../Buttons/Buttons";
 import OptionBtn from "../OptionsBtn/OptionsBtn";
 import styles from "./Section.module.scss";
 import Sidebar from "../Sidebar/Sidebar";
+import { darkModeState } from "@/app/atoms/states";
+import { useRecoilState } from "recoil";
 
 
 
 const Section = () => {
+    const [darkMode, setDarkMode] = useRecoilState(darkModeState);
     return (
         <div className={styles.container}>
             <Sidebar/>
             <div className={styles.sec}>
-                <div className={`${styles.activity} ${styles.sectionTxt}`}>
+                <div className={darkMode ? styles.darkSectionTxt : `${styles.activity} ${styles.sectionTxt}`}>
                     <h2>activity</h2>
                     <p>
                         When you save history to your account as part of your web and app activity,

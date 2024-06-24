@@ -33,3 +33,34 @@
 .wrapper:hover{
     background-color: #c7dbff;
 }
+.span p{
+    color: #174ea6;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.darkFlex img{
+    color: #fff;
+}
+
+.darkFlex p{
+    color: #eef0ff;
+}
+
+.darkSpan p{
+    color: #a8c7fa;
+}
+
+.darkWrapper{
+    -webkit-tap-highlight-color: transparent;
+    margin-top: 4px;
+    background: #2c303d;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.darkWrapper :hover{
+    color: #eef0ff;
+    background-color: #3a3f50;
+}

@@ -1,7 +1,12 @@
+import { useRecoilState } from "recoil";
 import styles from "./Settings.module.scss";
+import { darkModeState } from "@/app/atoms/states";
 
 
 const Settings = () => {
+
+    
+    
     return(
         <div className={styles.container}>
             <div className={styles.container__txt}>
