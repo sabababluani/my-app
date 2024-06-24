@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import type { FormProps } from 'antd';
 import { Button, Form, Input, Modal } from 'antd';
-import { useRecoilState } from 'recoil';
-import { userNameState } from '@/app/atoms/states';
 import styles from './Login.module.scss';
 import Link from 'next/link';
 import Register from '../Register/Register';
@@ -12,7 +10,6 @@ interface Props {
 }
 
 const Login = (props: Props) => {
-    const [userName, setUserName] = useRecoilState(userNameState);
     const [userWantsRegister, setUserWantsRegister] = useState(false);
     const [open, setOpen] = useState(false);
 
@@ -27,10 +24,13 @@ const Login = (props: Props) => {
     const onFinish: FormProps<any>['onFinish'] = (values: any) => {
         const storedUsername = localStorage.getItem('username');
         const storedPassword = localStorage.getItem('password');
+        const storedImage = localStorage.getItem('image');
 
         if (values.username === storedUsername && values.password === storedPassword) {
             setOpen(false);
-            setUserName(values.username);
+            localStorage.setItem('username', values.username);
+            localStorage.setItem('password', values.password);
+            localStorage.setItem('image', values.image);
             props.onLoginSuccess(values.username);
         } else {
             alert('Invalid username or password');

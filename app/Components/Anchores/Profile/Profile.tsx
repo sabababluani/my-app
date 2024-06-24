@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import styles from './Profile.module.scss';
 import Login from "../../LogIn/LogIn";
 import { useRecoilState } from "recoil";
-import { profileIsVisibleState } from "@/app/atoms/states";
+import { imageChangeState, profileIsVisibleState } from "@/app/atoms/states";
 
 interface Props {
     handleClick: (value: boolean) => void;
@@ -13,9 +13,9 @@ interface Props {
 
 const Profile = (props: Props) => {
 
-    const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
+    const [userName, setUserName] = useState(localStorage.getItem('username') || '');
     const [userIsLogedOut, setUserIsLogedOut] = useRecoilState(profileIsVisibleState);
-    const [image, setImage] = useState<string | null>(null)
+    const [image, setImage] = useRecoilState(imageChangeState);
 
     useEffect(() => {
         const storedUserIsLogedOut = localStorage.getItem('userIsLogedOut');
@@ -27,10 +27,11 @@ const Profile = (props: Props) => {
     useEffect(() => {
         localStorage.setItem('userName', userName);
     }, [userName]);
-    useEffect(() => {
-        setImage(localStorage.getItem('profileImage'))
-    }, [localStorage.getItem('profileImage')])
 
+    useEffect(() => {
+        const profileImage = localStorage.getItem('profileImage');
+        setImage(profileImage || "/penguinLinux.png");
+    }, []);
 
     useEffect(() => {
         localStorage.setItem('userIsLogedOut', userIsLogedOut.toString());
@@ -52,7 +53,7 @@ const Profile = (props: Props) => {
             userName ? (
                 <div className={styles.ProfileWrapper} onClick={toggleProfile}>
                     <div className={styles.Profile}>
-                        <img src={image ? image : "/penguinLinux.png"} alt="pingvinishka" />
+                        <img src={image} alt="pingvinishka" />
                     </div>
                     <p>{userName}</p>
                 </div>

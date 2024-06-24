@@ -10,12 +10,12 @@ export const profileIsVisibleState = atom({
     default: false
 })
 
-export const userNameState = atom ({
-    key: "userName",
-    default: ''
+export const darkModeState = atom({
+    key: 'darkMode',
+    default: false
 })
 
-export const darkModeState = atom ({
-    key : 'darkMode',
-    default: false
+export const imageChangeState = atom ({
+    key: 'imageChange',
+    default: ''
 })

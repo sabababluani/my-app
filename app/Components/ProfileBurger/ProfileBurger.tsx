@@ -3,36 +3,32 @@
 import { useEffect, useRef, useState, ChangeEvent } from 'react';
 import styles from './ProfileBurger.module.scss';
 import Login from '../LogIn/LogIn';
-import { userIsGeorgianState, profileIsVisibleState, userNameState } from "@/app/atoms/states";
+import { userIsGeorgianState, profileIsVisibleState, darkModeState, imageChangeState } from "@/app/atoms/states";
 import { useRecoilState } from 'recoil';
 import Link from 'next/link';
 
 
 const ProfileBurger = () => {
+
     const [profileIsVisible, setProfileIsVisible] = useRecoilState(profileIsVisibleState);
     const [isLogOut, setIsLogOut] = useState(profileIsVisible);
-    const [userName, setUserName] = useRecoilState(userNameState);
-    const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
+    const [userIsGeorgian, setUserIsGeorgian] = useRecoilState(userIsGeorgianState);
     const [randomNumber, setRandomNumber] = useState(0);
-    const [image, setImage] = useState<string | null>(null);
+    const [image, setImage] = useRecoilState(imageChangeState);
+    const [darkMode] = useRecoilState(darkModeState);
+    const [safeSearch, setSafeSearch] = useState(false);
+
 
     useEffect(() => {
-        const storedUserName = localStorage.getItem('userName');
         const storedProfileIsVisible = localStorage.getItem('profileIsVisible');
         const storedRandomNumber = localStorage.getItem('randomNumber');
         const storedImage = localStorage.getItem('profileImage');
 
-        if (storedUserName) setUserName(storedUserName);
         if (storedProfileIsVisible) setProfileIsVisible(storedProfileIsVisible === 'true');
         if (storedRandomNumber) setRandomNumber(parseInt(storedRandomNumber, 10));
-        if (storedImage) {
-            setImage(storedImage);
-        };
+        if (storedImage) setImage(storedImage);
     }, []);
 
-    useEffect(() => {
-        localStorage.setItem('userName', userName);
-    }, [userName]);
 
     useEffect(() => {
         localStorage.setItem('profileIsVisible', profileIsVisible.toString());
@@ -49,7 +45,6 @@ const ProfileBurger = () => {
     }, [image]);
 
     const handleLoginSuccess = (username: string) => {
-        setUserName(username);
         setProfileIsVisible(false);
         setIsLogOut(false);
     };
@@ -84,11 +79,24 @@ const ProfileBurger = () => {
         }
     }
 
+    useEffect(() => {
+        localStorage.setItem('safeSearch', safeSearch.toString())
+    })
+
+
+    const handleSafeSearch = () => {
+        setSafeSearch(prevState => !prevState);
+    }
+
+    const toggleLanguage = () => {
+        setUserIsGeorgian(prevState => !prevState);
+    }
+
     return (
         !profileIsVisible &&
-        <div className={styles.wrapper}>
+        <div className={darkMode ? styles.darkWrapper : styles.wrapper}>
             <div className={styles.container}>
-                <div><p>{`${userName.toLowerCase()}${randomNumber}@gmail.com`}</p></div>
+                <div><p>{`${localStorage.getItem('username')}${randomNumber}@gmail.com`}</p></div>
                 <div className={styles.Profile}>
                     <img src={image || "/penguinLinux.png"} />
                     <div className={styles.pencilImg} onClick={handleImageClick}>
@@ -97,7 +105,7 @@ const ProfileBurger = () => {
                     </div>
                 </div>
                 <div className={styles.paragraph}>
-                    <p>{userIsGeorgian ? `გამარჯობა, ${userName}!` : `Hi, ${userName}!`}</p>
+                    <p>{userIsGeorgian ? `გამარჯობა, ${localStorage.getItem('username')}!` : `Hi, ${localStorage.getItem('username')}!`}</p>
                 </div>
                 <div className={`${styles.managebutton} ${userIsGeorgian ? styles.manageGeorgian : styles.managebutton}`}>
                     <button>{userIsGeorgian ? "მართეთ თქვენი Google ანგარიში" : "Manage your Google Account"}</button>
@@ -113,6 +121,7 @@ const ProfileBurger = () => {
                 <div className={styles.searchParagraph}>
                     <p>{userIsGeorgian ? "მეტი Google ძიება-დან" : "More from Google Search"}</p>
                 </div>
+                <div></div>
                 <div className={styles.deleteButtons}>
                     <div className={styles.historyButton}>
                         <button>
@@ -129,14 +138,13 @@ const ProfileBurger = () => {
                 </div>
                 <div className={styles.buttonWrapper}>
                     <div className={styles.historyButton}>
-                        <button>
+                        <button onClick={handleSafeSearch} >
                             <div className={styles.interestInner}><img src="/safety.png" alt="SafeSearch" /><p>SafeSearch</p></div>
-                            <p><span className={styles.deleteButtonsSaving}>{userIsGeorgian ? "გათიშვა" : "Off"}</span></p>
-                        </button>
+                            <p><span className={styles.deleteButtonsSaving}>{safeSearch ? (userIsGeorgian ? "ჩართულია" : "On") : (userIsGeorgian ? "გათიშული" : "Off")}</span></p>                        </button>
                     </div>
                     <div className={styles.languagesbutton}>
-                        <button>
-                            <div className={styles.languageInner}><img src="/language.png" alt="Language" /><p>{userIsGeorgian ? "ენა" : "Language"}</p></div>
+                        <button onClick={toggleLanguage}>
+                            <div className={styles.languageInner} ><img src="/language.png" alt="Language" /><p>{userIsGeorgian ? "ენა" : "Language"}</p></div>
                             <p><span className={styles.deleteButtonsSaving}>{userIsGeorgian ? "English" : "ქართული"}</span></p>
                         </button>
                     </div>

@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { useRecoilState } from "recoil";
 import { userIsGeorgianState } from "@/app/atoms/states";
 import EditShortcut from "./EditShortcut/EditShortcut";
+import { useRouter } from 'next/navigation';
 
 interface Props {
     inputStyle?: React.CSSProperties;
@@ -22,6 +23,7 @@ interface Task {
 
 const MainInput: React.FC<Props> = (props) => {
 
+    const router = useRouter();
     const [inputValue, setInputValue] = useState<string>('');
     const [tasks, setTasks] = useState<Task[]>([]);
     const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
@@ -38,12 +40,25 @@ const MainInput: React.FC<Props> = (props) => {
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (inputValue !== '' && inputValue.length <= 12) {
+            const safeSearch = localStorage.getItem('safeSearch');
             if (e.key === 'Enter' && tasks.length < 12) {
-                setTasks((prevState) => [...prevState, { value: inputValue, id: prevState.length + 1 }]);
-                setInputValue('');
+                if (safeSearch && JSON.parse(safeSearch) === true) {
+                    if (inputValue.toLowerCase() === 'facebook') {
+                        router.push('/not-found');
+                    } else {
+                        setTasks((prevState) => [...prevState, { value: inputValue, id: prevState.length + 1 }]);
+                        setInputValue('');
+                    }
+                } else {
+                    setTasks((prevState) => [...prevState, { value: inputValue, id: prevState.length + 1 }]);
+                    setInputValue('');
+                }
             }
         }
     };
+    
+
+
 
     const onAdd = () => {
         if (inputValue !== '' && inputValue.length <= 12 && tasks.length < 12) {
@@ -65,7 +80,7 @@ const MainInput: React.FC<Props> = (props) => {
         setEditURL(`https://www.${tasks[index].value}.com`);
     };
 
-    const handleEditChange = (value : string) => {
+    const handleEditChange = (value: string) => {
         setEditText(value);
     };
 

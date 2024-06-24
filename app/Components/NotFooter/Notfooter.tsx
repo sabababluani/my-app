@@ -11,8 +11,6 @@ export default function NotFooter() {
     const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
     const [darkMode, setDarkMode] = useRecoilState(darkModeState);
 
-
-
     return (
         <div className={darkMode ? Style.darkContainer : Style.container} >
             <p>{userIsGeorgian ? "საქართველო" : "English"}</p>
