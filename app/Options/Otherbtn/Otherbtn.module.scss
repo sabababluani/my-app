@@ -49,9 +49,19 @@
     line-height: 20px;
 }
 
-.span p{
-    color: #174ea6;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
+
+.darkWrapper{
+    background-color: #2c303d;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 650px;
+    border-radius: 20px;
+    padding: 18px 15px;
+    cursor: pointer;
+}
+
+.darkWrapper:hover{
+    background-color: #3a3f50;
+    color: #eef0ff;
 }
