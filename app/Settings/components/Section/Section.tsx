@@ -26,7 +26,7 @@ const Section = () => {
                      <Button name='Search History' span='Saving in progress' src="history.png" />
                 </div>
                
-                <div className={`${styles.content} ${styles.sectionTxt}`}>
+                <div className={darkMode ? styles.darkSectionTxt : `${styles.activity} ${styles.sectionTxt}`}>
                     <h2>content</h2>
                     <p>
                         Control the types of search results you see by setting personalization and inappropriate content settings
@@ -36,7 +36,7 @@ const Section = () => {
                     <Button name='Personal results' span='Involved' src="personal.png" />
                     <Button name='SafeSearch' span='Filtering is enabled' src="handshake.png" />
                 </div>
-                <div className={`${styles.content} ${styles.sectionTxt}`}>
+                <div className={darkMode ? styles.darkSectionTxt : `${styles.activity} ${styles.sectionTxt}`}>
                     <h2>other options</h2>
                     <div className={styles.btn}>
                         <OptionBtn name='Google Account Settings' src="user.png" />
@@ -45,7 +45,7 @@ const Section = () => {
 
                 </div>
 
-                <div className={styles.links}>
+                <div className={darkMode ? styles.darkLinks : styles.links}>
                     <ul>
                         <Link href="#">Feedback</Link>
                         <Link href="#">Help</Link>

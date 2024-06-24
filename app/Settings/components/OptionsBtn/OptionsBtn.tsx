@@ -1,5 +1,7 @@
 
+import { useRecoilState } from "recoil";
 import  Styles  from "./OptionsBtn.module.scss";
+import { darkModeState } from "@/app/atoms/states";
 type Props = {
     
     name: string;
@@ -7,8 +9,9 @@ type Props = {
 }
 
 const OptionBtn = (props:Props) => {
+    const [darkMode, setDarkMode] = useRecoilState(darkModeState);
     return(
-        <div className={Styles.container}>
+        <div className={ darkMode ? Styles.darkContainer : Styles.container}>
             <div className={Styles.btn}>
                 <img src={props.src}  />
                 {props.name}

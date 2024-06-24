@@ -43,7 +43,6 @@
 
 .option:hover{
     background-color:lightsteelblue;
-    cursor: default;
     border-radius: 30px;
     width: 250px;
     cursor: pointer;
@@ -83,16 +82,25 @@
     gap: 10px;
     margin: 10px;
     padding-left: 22px;
-    background-color: #3a3f50;
     color: #eef0ff;
-    fill: currentColor;
 }
 
-.darkOption :hover{
+.darkOption:hover{
     background-color: #3a3f50;
     color: #eef0ff;
-    fill: currentColor;
     border-radius: 30px;
     width: 250px;
     cursor: pointer;
+}
+
+.darkSafe img{
+    width: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.darkOption img{
+    width: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
