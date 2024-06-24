@@ -1,8 +1,12 @@
 import { useRecoilState } from "recoil";
 import styles from "./Sidebar.module.scss";
 import { darkModeState } from "@/app/atoms/states";
+import Link from "next/link";
+import { userIsGeorgianState, profileIsVisibleState, userNameState } from "@/app/atoms/states";
 
 const Sidebar = () => {
+
+    const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
     
     const [darkMode, setDarkMode] = useRecoilState(darkModeState);
     return (
@@ -10,11 +14,11 @@ const Sidebar = () => {
             <div className={darkMode ? styles.darkSidebar : styles.sidebar}>
                 <div className={darkMode ? styles.darkSafe : styles.safe}>
                     <img src="security.png" alt="" />
-                    <p>Privacy and Security</p>
+                    <Link href={"/Options"}> {userIsGeorgian ? "კონფიდენციალურობა და უსაფრთხოება" : "Privacy and Security"}</Link>
                 </div>
                 <div className={darkMode ? styles.darkOption : styles.option}>
                     <img src="option.png" alt="" />
-                    <p>other options</p>
+                    <Link href={"/Options"}> {userIsGeorgian ? "სხვა პარამეტრები" : "other options"}</Link>
                 </div>
             </div>
         </>

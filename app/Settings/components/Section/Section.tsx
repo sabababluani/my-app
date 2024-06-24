@@ -11,6 +11,7 @@ import { useRecoilState } from "recoil";
 
 const Section = () => {
     const [darkMode, setDarkMode] = useRecoilState(darkModeState);
+    
     return (
         <div className={styles.container}>
             <Sidebar/>

@@ -42,14 +42,19 @@
 }
 
 .option:hover{
-    background-color:lightsteelblue;
-    border-radius: 30px;
     width: 250px;
-    cursor: pointer;
+    border-radius: 9999px;
+    background-color: #c7dbff;
+    height: 50px;
 }
 
-.option p {
+
+.option a {
     color: #545d7e;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
 }
 
 .darkSidebar{
@@ -87,10 +92,10 @@
 
 .darkOption:hover{
     background-color: #3a3f50;
-    color: #eef0ff;
-    border-radius: 30px;
     width: 250px;
-    cursor: pointer;
+    border-radius: 9999px;;
+    height: 50px;
+    color: #c3c6d6;
 }
 
 .darkSafe img{
@@ -103,4 +108,12 @@
     width: 20px;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.darkOption a{
+    color: #eef0ff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
 }
