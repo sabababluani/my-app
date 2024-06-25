@@ -21,6 +21,7 @@
     gap: 10px;
     position: fixed;
 }
+
 .container {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -204,6 +205,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.innerHistoryButton a {
+    text-decoration: none;
+    color: black;
 }
 
 .lastDeleteButton button {

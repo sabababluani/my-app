@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GrayButton from "../GrayButton/GrayButton";
 import Maintext from "../Maintext/Maintext";
 import styles from "./MainInput.module.scss";
@@ -8,6 +8,7 @@ import { useRecoilState } from "recoil";
 import { userIsGeorgianState } from "@/app/atoms/states";
 import EditShortcut from "./EditShortcut/EditShortcut";
 import { useRouter } from 'next/navigation';
+import dayjs from 'dayjs';
 
 interface Props {
     inputStyle?: React.CSSProperties;
@@ -19,6 +20,8 @@ interface Props {
 interface Task {
     value: string;
     id: number;
+    timestamp: string;
+    historyUrl: string;
 }
 
 const MainInput: React.FC<Props> = (props) => {
@@ -31,8 +34,18 @@ const MainInput: React.FC<Props> = (props) => {
     const [editText, setEditText] = useState<string>('');
     const [activeEditMenu, setActiveEditMenu] = useState<number | null>(null);
     const [editURL, setEditURL] = useState<string>('');
+    const [historyArray, setHistoryArray] = useState<Task[]>([]);
 
     const pathName = usePathname();
+
+    useEffect(() => {
+        const savedTasks = JSON.parse(localStorage.getItem('historyArray') || '[]');
+        setHistoryArray(savedTasks);
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('historyArray', JSON.stringify(historyArray));
+    }, [historyArray]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
@@ -43,26 +56,29 @@ const MainInput: React.FC<Props> = (props) => {
             const safeSearch = localStorage.getItem('safeSearch');
             if (e.key === 'Enter' && tasks.length < 12) {
                 if (safeSearch && JSON.parse(safeSearch) === true) {
-                    if (inputValue.toLowerCase() === 'facebook') {
+                    if (inputValue.toLowerCase() === 'twitter') {
                         router.push('/not-found');
                     } else {
-                        setTasks((prevState) => [...prevState, { value: inputValue, id: prevState.length + 1 }]);
+                        const newTask = { value: inputValue, id: tasks.length + 1, timestamp: dayjs().format('HH:mmA'), historyUrl: editURL };
+                        setTasks((prevState) => [...prevState, newTask]);
+                        setHistoryArray((prevState) => [...prevState, newTask]);
                         setInputValue('');
                     }
                 } else {
-                    setTasks((prevState) => [...prevState, { value: inputValue, id: prevState.length + 1 }]);
+                    const newTask = { value: inputValue, id: tasks.length + 1, timestamp: dayjs().format('HH:mmA'), historyUrl: editURL };
+                    setTasks((prevState) => [...prevState, newTask]);
+                    setHistoryArray((prevState) => [...prevState, newTask]);
                     setInputValue('');
                 }
             }
         }
     };
-    
-
-
 
     const onAdd = () => {
         if (inputValue !== '' && inputValue.length <= 12 && tasks.length < 12) {
-            setTasks((prevState) => [...prevState, { value: inputValue, id: prevState.length + 1 }]);
+            const newTask = { value: inputValue, id: tasks.length + 1, timestamp: dayjs().format('HH:mmA'), historyUrl: editURL };
+            setTasks((prevState) => [...prevState, newTask]);
+            setHistoryArray((prevState) => [...prevState, newTask]);
             setInputValue('');
         }
     };
@@ -108,7 +124,6 @@ const MainInput: React.FC<Props> = (props) => {
     const toggleEditMenu = (index: number) => {
         setActiveEditMenu((prev) => (prev === index ? null : index));
     };
-
 
     return (
         <>

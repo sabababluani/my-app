@@ -11,7 +11,6 @@ import Link from 'next/link';
 const ProfileBurger = () => {
 
     const [profileIsVisible, setProfileIsVisible] = useRecoilState(profileIsVisibleState);
-    const [isLogOut, setIsLogOut] = useState(profileIsVisible);
     const [userIsGeorgian, setUserIsGeorgian] = useRecoilState(userIsGeorgianState);
     const [randomNumber, setRandomNumber] = useState(0);
     const [image, setImage] = useRecoilState(imageChangeState);
@@ -46,14 +45,12 @@ const ProfileBurger = () => {
 
     const handleLoginSuccess = (username: string) => {
         setProfileIsVisible(false);
-        setIsLogOut(false);
     };
 
     const toggleFn = () => {
-        const newValue = !isLogOut;
-        setProfileIsVisible(newValue);
-        setIsLogOut(newValue);
+        setProfileIsVisible(prevState => !prevState);
     };
+
 
     useEffect(() => {
         const generateRandomNumber = () => Math.floor(Math.random() * 900) + 100;
@@ -125,7 +122,7 @@ const ProfileBurger = () => {
                 <div className={styles.deleteButtons}>
                     <div className={styles.historyButton}>
                         <button>
-                            <div className={styles.innerHistoryButton}><img src="/searchhistory.png" alt="History" /> <p>{userIsGeorgian ? "ძიების ისტორია" : "Search History"}</p></div>
+                            <div className={styles.innerHistoryButton}><img src="/searchhistory.png" alt="History" /> <Link href='/History'>{userIsGeorgian ? "ძიების ისტორია" : "Search History"}</Link></div>
                             <p><span className={styles.deleteButtonsSaving}>{userIsGeorgian ? "ინახება" : "Saving"}</span></p>
                         </button>
                     </div>

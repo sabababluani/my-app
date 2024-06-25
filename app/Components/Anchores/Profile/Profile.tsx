@@ -43,7 +43,7 @@ const Profile = (props: Props) => {
     };
 
     const toggleProfile = () => {
-        props.handleClick(!props.isLog);
+        props.handleClick(!props.isLog);//aqaaa problema
     };
 
     return (

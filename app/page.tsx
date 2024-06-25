@@ -3,16 +3,11 @@
 import { useState } from "react";
 import Anchores from "./Components/Anchores/Anchores";
 import Burger from "./Components/Burger/Burger";
-import GrayButton from "./Components/GrayButton/GrayButton";
 import Logo from "./Components/Logo/Logo";
 import Maininput from "./Components/MainInput/MainInput";
-import Maintext from "./Components/Maintext/Maintext";
 import NotFooter from "./Components/NotFooter/Notfooter";
 import styles from "./page.module.css";
-import Login from "./Components/LogIn/LogIn";
 import ProfileBurger from "./Components/ProfileBurger/ProfileBurger";
-import axios from "axios";
-
 
 export default function Home() {
 
@@ -38,7 +33,7 @@ export default function Home() {
       <div className={isLog ? styles.activeProfileBurger : styles.inactiveProfileBurger}>
         <ProfileBurger />
       </div>
-      <NotFooter  />
+      <NotFooter />
     </div>
   );
 }
