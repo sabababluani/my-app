@@ -36,21 +36,28 @@ const MainInput: React.FC<Props> = (props) => {
     const [historyArray, setHistoryArray] = useState<Task[]>([]);
     const pathName = usePathname();
 
+    // Load tasks from localStorage on initial render
     useEffect(() => {
-        const savedTasks = JSON.parse(localStorage.getItem('historyArray') || '[]');
-        setHistoryArray(savedTasks);
+        const savedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+        const savedHistory = JSON.parse(localStorage.getItem('historyArray') || '[]');
         setTasks(savedTasks);
+        setHistoryArray(savedHistory);
     }, []);
+
+    // Save tasks and history to localStorage whenever they change
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }, [tasks]);
 
     useEffect(() => {
         localStorage.setItem('historyArray', JSON.stringify(historyArray));
     }, [historyArray]);
 
-    const uniqueId = () => {
+    // Generate unique ID for new tasks
+    const generateUniqueId = () => {
         const highestId = historyArray.length > 0 ? Math.max(...historyArray.map(task => task.id)) : 0;
         return highestId + 1;
     };
-    
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
@@ -74,7 +81,7 @@ const MainInput: React.FC<Props> = (props) => {
     };
 
     const addNewTask = () => {
-        const newTask = { value: inputValue, id: uniqueId(), timestamp: dayjs().format('HH:mmA'), historyUrl: editURL };
+        const newTask = { value: inputValue, id: generateUniqueId(), timestamp: dayjs().format('HH:mmA'), historyUrl: editURL };
         setTasks((prevState) => [...prevState, newTask]);
         setHistoryArray((prevState) => [...prevState, newTask]);
         setInputValue('');
