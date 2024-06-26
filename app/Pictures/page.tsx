@@ -31,7 +31,6 @@ export default function Picture() {
             <div className={isLog ? styles.activeProfileBurger : styles.inactiveProfileBurger}>
                 <ProfileBurger />
             </div>
-            <NotFooter backStyle={{ background: "#1b1b1c", color: "#fff" }} />
         </div>
     );
 }

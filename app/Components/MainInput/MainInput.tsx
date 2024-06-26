@@ -4,7 +4,7 @@ import Maintext from "../Maintext/Maintext";
 import styles from "./MainInput.module.scss";
 import MiniButton from "./MiniButtons/MiniButton";
 import { usePathname } from "next/navigation";
-import { useRecoilState } from "recoil";
+import { useRecoilState } from 'recoil';
 import { userIsGeorgianState } from "@/app/atoms/states";
 import EditShortcut from "./EditShortcut/EditShortcut";
 import { useRouter } from 'next/navigation';
@@ -25,7 +25,6 @@ interface Task {
 }
 
 const MainInput: React.FC<Props> = (props) => {
-
     const router = useRouter();
     const [inputValue, setInputValue] = useState<string>('');
     const [tasks, setTasks] = useState<Task[]>([]);
@@ -35,17 +34,23 @@ const MainInput: React.FC<Props> = (props) => {
     const [activeEditMenu, setActiveEditMenu] = useState<number | null>(null);
     const [editURL, setEditURL] = useState<string>('');
     const [historyArray, setHistoryArray] = useState<Task[]>([]);
-
     const pathName = usePathname();
 
     useEffect(() => {
         const savedTasks = JSON.parse(localStorage.getItem('historyArray') || '[]');
         setHistoryArray(savedTasks);
+        setTasks(savedTasks);
     }, []);
 
     useEffect(() => {
         localStorage.setItem('historyArray', JSON.stringify(historyArray));
     }, [historyArray]);
+
+    const uniqueId = () => {
+        const highestId = historyArray.length > 0 ? Math.max(...historyArray.map(task => task.id)) : 0;
+        return highestId + 1;
+    };
+    
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
@@ -59,27 +64,25 @@ const MainInput: React.FC<Props> = (props) => {
                     if (inputValue.toLowerCase() === 'twitter') {
                         router.push('/not-found');
                     } else {
-                        const newTask = { value: inputValue, id: tasks.length + 1, timestamp: dayjs().format('HH:mmA'), historyUrl: editURL };
-                        setTasks((prevState) => [...prevState, newTask]);
-                        setHistoryArray((prevState) => [...prevState, newTask]);
-                        setInputValue('');
+                        addNewTask();
                     }
                 } else {
-                    const newTask = { value: inputValue, id: tasks.length + 1, timestamp: dayjs().format('HH:mmA'), historyUrl: editURL };
-                    setTasks((prevState) => [...prevState, newTask]);
-                    setHistoryArray((prevState) => [...prevState, newTask]);
-                    setInputValue('');
+                    addNewTask();
                 }
             }
         }
     };
 
+    const addNewTask = () => {
+        const newTask = { value: inputValue, id: uniqueId(), timestamp: dayjs().format('HH:mmA'), historyUrl: editURL };
+        setTasks((prevState) => [...prevState, newTask]);
+        setHistoryArray((prevState) => [...prevState, newTask]);
+        setInputValue('');
+    };
+
     const onAdd = () => {
         if (inputValue !== '' && inputValue.length <= 12 && tasks.length < 12) {
-            const newTask = { value: inputValue, id: tasks.length + 1, timestamp: dayjs().format('HH:mmA'), historyUrl: editURL };
-            setTasks((prevState) => [...prevState, newTask]);
-            setHistoryArray((prevState) => [...prevState, newTask]);
-            setInputValue('');
+            addNewTask();
         }
     };
 
@@ -87,6 +90,7 @@ const MainInput: React.FC<Props> = (props) => {
         const updatedTasks = [...tasks];
         updatedTasks.splice(index, 1);
         setTasks(updatedTasks);
+        setHistoryArray(updatedTasks);
         setActiveEditMenu(null);
     };
 
@@ -109,6 +113,7 @@ const MainInput: React.FC<Props> = (props) => {
             const updatedTasks = [...tasks];
             updatedTasks[isEditing] = { ...updatedTasks[isEditing], value: editText };
             setTasks(updatedTasks);
+            setHistoryArray(updatedTasks);
             setIsEditing(null);
             setEditText('');
             setEditURL('');

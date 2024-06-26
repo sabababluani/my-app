@@ -25,7 +25,7 @@ export default function NotFooter() {
                 <div className={darkMode ? Style.darkFoot : Style.foot} >
                     <a href="#">{userIsGeorgian ? "კონფიდენციალური" : "Confidential"}</a>
                     <a href="#">{userIsGeorgian ? "წესები" : "Laws"}</a>
-                    <a href="#" >{userIsGeorgian ? "პარამეტრები" : "Settings"}</a>
+                    <a href="#">{userIsGeorgian ? "პარამეტრები" : "Settings"}</a>
                 </div>
             </div>
         </div>
