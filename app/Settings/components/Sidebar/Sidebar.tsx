@@ -8,18 +8,18 @@ import { usePathname } from "next/navigation";
 const Sidebar = () => {
 
     const [userIsGeorgian] = useRecoilState(userIsGeorgianState);
-    
+
     const [darkMode, setDarkMode] = useRecoilState(darkModeState);
     const pathName = usePathname();
-    
-    
+
+
     return (
         <>
             <div className={darkMode ? styles.darkSidebar : styles.sidebar}>
-                <div className={pathName ==='/Otheroptions' ? (darkMode ? styles.darkSafe : styles.safe ): styles.offContainer}>
+                <div className={pathName === '/Otheroptions' ? styles.offContainer : (darkMode ? styles.darkSafe : styles.safe)}>
                     <img src="security.png" alt="" />
 
-                    <p> Privacy and Security</p>
+                    <Link href={"/Settings"}> {userIsGeorgian ? "კონფიდენციალურობა და უსაფრთხოება" : "Privacy and Security"}</Link>
                 </div>
                 <div className={darkMode ? styles.darkOption : styles.option}>
                     <img src="option.png" alt="" />

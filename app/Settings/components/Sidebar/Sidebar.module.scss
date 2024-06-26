@@ -8,22 +8,33 @@
     border-radius: 20px;
 }
 
-.offContainer {
+.Safe{
+    background-color: #3a3f50;
+    color: #eef0ff;
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #c7dbff;
     padding: 10px 12px;
     margin: 10px 12px;
     border-radius: 30px;
     width: 250px;
     cursor: pointer;
+    height: 50px;
 }
 
-.offContainer img {
+
+.safe img {
     width: 40px;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.safe a {
+    color: #545d7e;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
 }
 
 .option {
@@ -51,7 +62,7 @@
 }
 
 
-.option p {
+.option a {
     color: #545d7e;
     text-decoration: none;
     font-size: 14px;
@@ -69,19 +80,6 @@
     width: 350px;
 }
 
-.Safe{
-    background-color: #3a3f50;
-    color: #eef0ff;
-    fill: currentColor;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    margin: 10px 12px;
-    border-radius: 30px;
-    width: 250px;
-    cursor: pointer;
-}
 
 .darkOption{
     display: flex;
@@ -102,11 +100,7 @@
     height: 50px;
 }
 
-.Safe img{
-    width: 40px;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+
 
 .darkOption img{
     width: 20px;
@@ -121,4 +115,49 @@
     font-weight: 400;
     line-height: 20px;
 }
+
+.darkSafe{
+    background-color: #3a3f50;
+    color: #eef0ff;
+    fill: currentColor;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin: 10px 12px;
+    border-radius: 30px;
+    width: 250px;
+    cursor: pointer;
+}
+
+.darkSafe img{
+    width: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.darkSafe a{
+    color: #eef0ff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+// .offContainer:hover{
+//     cursor: default;
+//     border-radius: 30px;
+//     width: 250px;
+//     background-color: #c7dbff;
+// }
+
+// .offContainer{
+//     display: flex;
+//     align-items: center;
+//     gap: 10px;
+//     margin: 10px;
+//     padding-left: 22px;
+//     width: 250px;
+//     height: 50px;
+// }
 
