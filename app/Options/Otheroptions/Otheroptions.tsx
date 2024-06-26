@@ -1,14 +1,14 @@
-import Sidebar from "@/app/Settings/components/Sidebar/Sidebar";
 import styles from "./Otheroptions.module.scss";
 import Otherbtn from "../Otherbtn/Otherbtn";
 import Link from "next/link";
+import Sidebar from "@/app/Settings/components/Sidebar/Sidebar";
 
 const Otheroptions = () => {
 
     return (
         <>
             <div className={styles.container}>
-                <Sidebar />
+                <Sidebar/>
 
                 <div className={styles.section}>
                     <div className={styles.txt}>
