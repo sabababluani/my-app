@@ -25,6 +25,7 @@ interface Task {
 }
 
 const MainInput: React.FC<Props> = (props) => {
+
     const router = useRouter();
     const [inputValue, setInputValue] = useState<string>('');
     const [tasks, setTasks] = useState<Task[]>([]);
@@ -36,24 +37,15 @@ const MainInput: React.FC<Props> = (props) => {
     const [historyArray, setHistoryArray] = useState<Task[]>([]);
     const pathName = usePathname();
 
-    // Load tasks from localStorage on initial render
     useEffect(() => {
-        const savedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
         const savedHistory = JSON.parse(localStorage.getItem('historyArray') || '[]');
-        setTasks(savedTasks);
         setHistoryArray(savedHistory);
     }, []);
-
-    // Save tasks and history to localStorage whenever they change
-    useEffect(() => {
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    }, [tasks]);
 
     useEffect(() => {
         localStorage.setItem('historyArray', JSON.stringify(historyArray));
     }, [historyArray]);
 
-    // Generate unique ID for new tasks
     const generateUniqueId = () => {
         const highestId = historyArray.length > 0 ? Math.max(...historyArray.map(task => task.id)) : 0;
         return highestId + 1;
@@ -75,13 +67,13 @@ const MainInput: React.FC<Props> = (props) => {
                     }
                 } else {
                     addNewTask();
-                }
+                }   
             }
         }
     };
 
     const addNewTask = () => {
-        const newTask = { value: inputValue, id: generateUniqueId(), timestamp: dayjs().format('HH:mmA'), historyUrl: editURL };
+        const newTask: Task = { value: inputValue, id: generateUniqueId(), timestamp: dayjs().format('HH:mmA'), historyUrl: editURL };
         setTasks((prevState) => [...prevState, newTask]);
         setHistoryArray((prevState) => [...prevState, newTask]);
         setInputValue('');
@@ -97,14 +89,12 @@ const MainInput: React.FC<Props> = (props) => {
         const updatedTasks = [...tasks];
         updatedTasks.splice(index, 1);
         setTasks(updatedTasks);
-        setHistoryArray(updatedTasks);
-        setActiveEditMenu(null);
     };
 
     const handleEditTask = (index: number) => {
         setIsEditing(index);
         setEditText(tasks[index].value);
-        setEditURL(`https://www.${tasks[index].value}.com`);
+        return setEditURL(`https://www.${tasks[index].value}.com`);
     };
 
     const handleEditChange = (value: string) => {
@@ -112,15 +102,22 @@ const MainInput: React.FC<Props> = (props) => {
     };
 
     const handleEditURLChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEditURL(e.target.value);
+        setEditURL(e.target.value);     
     };
 
     const handleEditSave = () => {
         if (isEditing !== null && editText !== '') {
             const updatedTasks = [...tasks];
-            updatedTasks[isEditing] = { ...updatedTasks[isEditing], value: editText };
+            updatedTasks[isEditing] = { ...updatedTasks[isEditing], value: editText, historyUrl: editURL };
             setTasks(updatedTasks);
-            setHistoryArray(updatedTasks);
+            setHistoryArray((prevState) => {
+                const updatedHistory = [...prevState];
+                const historyIndex = updatedHistory.findIndex(task => task.id === updatedTasks[isEditing!].id);
+                if (historyIndex > -1) {
+                    updatedHistory[historyIndex] = updatedTasks[isEditing!];
+                }
+                return updatedHistory;
+            });
             setIsEditing(null);
             setEditText('');
             setEditURL('');

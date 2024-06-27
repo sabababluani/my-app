@@ -1,0 +1,20 @@
+.container {
+    width: 120px;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 8px;
+    position: absolute;
+    right: 10px;
+    bottom: 30px;
+}
+.container ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container li {
+    font-size: 14px;
+    font-weight: 400;
+}

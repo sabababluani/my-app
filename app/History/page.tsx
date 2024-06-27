@@ -1,29 +1,17 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import HistoryDiv from "./components/HistoryDiv/HistoryDiv";
+import HistoryDiv from './components/HistoryDiv/HistoryDiv';
 import styles from './page.module.scss';
 import dayjs from 'dayjs';
-
-interface Task {
-    value: string;
-    id: number;
-    timestamp: string;
-    historyUrl: string;
-    markedForDelete: boolean;
-}
 
 const HistoryPage: React.FC = () => {
     const [history, setHistory] = useState<any[]>([]);
 
     useEffect(() => {
-        const savedHistory = JSON.parse(localStorage.getItem('historyArray') || '[]') as any[];
-        // if (savedHistory.length > 0) {
-        //     setHistory((prevState) => [...prevState, savedHistory]);
-        // }
-        setHistory(savedHistory)
+        const savedHistory = JSON.parse(localStorage.getItem('historyArray') || '[]');
+        setHistory(savedHistory);
     }, []);
-
 
     const date = dayjs().format('dddd, MMMM D, YYYY');
 
@@ -73,6 +61,6 @@ const HistoryPage: React.FC = () => {
             </div>
         </div>
     );
-}
+};
 
 export default HistoryPage;

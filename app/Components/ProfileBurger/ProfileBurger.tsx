@@ -6,17 +6,15 @@ import Login from '../LogIn/LogIn';
 import { userIsGeorgianState, profileIsVisibleState, darkModeState, imageChangeState } from "@/app/atoms/states";
 import { useRecoilState } from 'recoil';
 import Link from 'next/link';
-
+import dayjs from 'dayjs';
 
 const ProfileBurger = () => {
-
     const [profileIsVisible, setProfileIsVisible] = useRecoilState(profileIsVisibleState);
     const [userIsGeorgian, setUserIsGeorgian] = useRecoilState(userIsGeorgianState);
     const [randomNumber, setRandomNumber] = useState(0);
     const [image, setImage] = useRecoilState(imageChangeState);
     const [darkMode] = useRecoilState(darkModeState);
     const [safeSearch, setSafeSearch] = useState(false);
-
 
     useEffect(() => {
         const storedProfileIsVisible = localStorage.getItem('profileIsVisible');
@@ -27,7 +25,6 @@ const ProfileBurger = () => {
         if (storedRandomNumber) setRandomNumber(parseInt(storedRandomNumber, 10));
         if (storedImage) setImage(storedImage);
     }, []);
-
 
     useEffect(() => {
         localStorage.setItem('profileIsVisible', profileIsVisible.toString());
@@ -50,7 +47,6 @@ const ProfileBurger = () => {
     const toggleFn = () => {
         setProfileIsVisible(prevState => !prevState);
     };
-
 
     useEffect(() => {
         const generateRandomNumber = () => Math.floor(Math.random() * 900) + 100;
@@ -80,7 +76,6 @@ const ProfileBurger = () => {
         localStorage.setItem('safeSearch', safeSearch.toString())
     })
 
-
     const handleSafeSearch = () => {
         setSafeSearch(prevState => !prevState);
     }
@@ -88,6 +83,20 @@ const ProfileBurger = () => {
     const toggleLanguage = () => {
         setUserIsGeorgian(prevState => !prevState);
     }
+
+    const deleteLast15Minutes = () => {
+
+        const history = JSON.parse(localStorage.getItem('historyArray') || '[]');
+        const currentTime = dayjs();
+        const minutesAgo = currentTime.subtract(1, 'minute')
+
+        const updatedHistory = history.filter((item: any) => {
+            const itemTime = dayjs(item.timestamp);
+            return itemTime.isBefore(minutesAgo);
+        });
+         
+        localStorage.setItem('historyArray', JSON.stringify(updatedHistory));
+    };
 
     return (
         !profileIsVisible &&
@@ -127,7 +136,7 @@ const ProfileBurger = () => {
                         </button>
                     </div>
                     <div className={styles.lastDeleteButton}>
-                        <button><img src="/garbage4.png" alt="Delete" /> <p>{userIsGeorgian ? "ბოლო 15 წუთის წაშლა" : "Delete last 15 minutes"}</p></button>
+                        <button onClick={deleteLast15Minutes}><img src="/garbage4.png" alt="Delete" /> <p>{userIsGeorgian ? "ბოლო 15 წუთის წაშლა" : "Delete last 15 minutes"}</p></button>
                     </div>
                 </div>
                 <div className={styles.interestsButton}>
