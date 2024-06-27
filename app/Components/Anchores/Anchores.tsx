@@ -34,9 +34,6 @@ const Anchores: React.FC<Props> = (props) => {
 
     return (
         <div className={Styles.container} style={props.style}>
-            <div className={Styles.darkModeToggle} onClick={toggleDarkMode}>
-                {darkMode ? <img src="/sun.png" alt="Sun" /> : <img src="/moon.png" alt="Moon" />}
-            </div>
             {props.active && <Info displayPics />}
             <div className={Styles.wrapper}>
                 <div className={Styles.buttons} onClick={() => props.setHandleClick(!props.isActive)}>
