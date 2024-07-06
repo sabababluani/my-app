@@ -5,6 +5,7 @@ import Style from "./Notfooter.module.scss";
 import { useRecoilState } from "recoil";
 import { useState } from "react";
 import LittleNavBar from "./LittleNavBar/LittleNavBar";
+import Link from "next/link";
 
 type Props = {
     settingsShow?: () => void;
@@ -30,7 +31,7 @@ export default function NotFooter(props: Props) {
                     <div className={darkMode ? Style.darkFoot : Style.foot}>
                         <a href="#" >{userIsGeorgian ? "შესახებ" : "About"}</a>
                         <a href="#" >{userIsGeorgian ? "რეკლამა" : "Advertisement"}</a>
-                        <a href="#" >{userIsGeorgian ? "ბიზნესმენი" : "Buissnesman"}</a>
+                        <Link href="/Buissnesman" >{userIsGeorgian ? "ბიზნესმენი" : "Buissnesman"}</Link>
                         <a href="#" >{userIsGeorgian ? "როგორ მუშაობს ძიება" : "How the searching works"}</a>
                     </div>
                     <div className={darkMode ? Style.darkFoot : Style.foot} >

@@ -1,0 +1,23 @@
+.container {
+    width: 100%;
+    padding: 15px 0;
+    background-color: #13828A;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+}
+
+.fill:hover:enabled {
+    background-color: #1DC2CE;
+}
+
+.fill:active:enabled {
+    background-color: #1DC2CE;
+}
+
+.fill:disabled {
+    background-color: #8A9793;
+    cursor: not-allowed;
+}

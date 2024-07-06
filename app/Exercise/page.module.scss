@@ -1,0 +1,49 @@
+.container {
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container input {
+    width: 98%;
+}
+
+.wrapper {
+    padding: 50px;
+    max-width: 500px;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cancel {
+    width: 151px;
+}
+
+.cont select {
+    width: 309px;
+}
+
+.wrapp {
+    display: flex;
+    gap: 10px;
+    align-items: center ;
+}
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    gap: 176px;
+}
