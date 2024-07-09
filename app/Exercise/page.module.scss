@@ -38,12 +38,24 @@
 
 .wrapp {
     display: flex;
+    height: 150px;
     gap: 10px;
     align-items: center ;
+    background-color: #121212;
 }
 
 .cont {
     display: flex;
     flex-direction: column;
     gap: 176px;
+}
+
+.clasi {
+    width: 103px;
+}
+
+.conti {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
 }
