@@ -1,0 +1,120 @@
+.wrapper {
+    color: #fff;
+}
+
+.container {
+    background-color: #052224;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    padding-top: 13px;
+}
+
+.musicInfo {
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.musicInfo span {
+    white-space: nowrap;
+}
+
+.musicInfo .musicName {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.musicInfo .artistName {
+    font-size: 14px;
+}
+
+.photo {
+    padding-left: 36px;
+}
+
+.musicInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.musicInfo span {
+    font-size: 14px;
+    color: #fff;
+}
+
+.musicPhoto {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.adjustButtons {
+    display: flex;
+    align-items: center;
+}
+
+.range {
+    -webkit-appearance: none;
+    height: 5px;
+    background: #FFFFFF80;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0.1px;
+    height: 5px;
+    box-shadow: -400px 0 0 400px #fff;
+}
+
+.progressBar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 900px;
+    width: 100%;
+}
+
+.progressBar input {
+    width: 100%;
+}
+
+.musicMiddle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1250px;
+    width: 100%;
+}
+
+.musicMiddle img {
+    cursor: pointer;
+}
+
+.progresWrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 1250px;
+    width: 100%;
+    justify-content: center;
+}
+
+.arrow {
+    padding-right: 18px;
+    cursor: pointer;
+}
+
+.adjustButtons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
