@@ -17,6 +17,21 @@ const AudioPlayer = (props: Props) => {
     const progressRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
+        const handleTimeUpdate = () => {
+            if (audioRef.current) {
+                setCurrentTime(audioRef.current.currentTime);
+                if (progressRef.current) {
+                    progressRef.current.value = String((audioRef.current.currentTime / audioRef.current.duration) * 100);
+                }
+            }
+        };
+    
+        const handleLoadedMetadata = () => {
+            if (audioRef.current) {
+                setDuration(audioRef.current.duration);                
+            }
+        };
+    
         if (audioRef.current) {
             const audio = audioRef.current;
             audio.addEventListener('timeupdate', handleTimeUpdate);
@@ -26,27 +41,15 @@ const AudioPlayer = (props: Props) => {
                 audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
             };
         }
-    }, []);
+    }, [props.audioSrc]); 
 
-    const handleTimeUpdate = () => {
-        if (audioRef.current) {
-            setCurrentTime(audioRef.current.currentTime);
-            if (progressRef.current) {
-                progressRef.current.value = String((audioRef.current.currentTime / duration) * 100);
-            }
-        }
-    };
-
-    const handleLoadedMetadata = () => {
-        if (audioRef.current) {
-            setDuration(audioRef.current.duration);
-        }
-    };
 
     const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        
         if (audioRef.current) {
             const newTime = (e.target.valueAsNumber / 100) * duration;
             audioRef.current.currentTime = newTime;
+
             setCurrentTime(newTime);
         }
     };
@@ -68,6 +71,13 @@ const AudioPlayer = (props: Props) => {
         return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
 
+    const handleTenSecondsBack = () => {
+        if (audioRef.current) {
+            audioRef.current.currentTime -= 10;
+            setCurrentTime(audioRef.current.currentTime);
+        }
+    };
+
     return (
         <>
             <audio ref={audioRef} src={props.audioSrc}></audio>
@@ -84,16 +94,16 @@ const AudioPlayer = (props: Props) => {
                     </div>
                     <div className={styles.musicMiddle}>
                         <div className={styles.adjustButtons}>
-                            <img src="/valumedown.png" />
-                            <img src="/previous.png" />
+                            <Image src="/valumedown.png" alt='valumeDownButton' width={24} height={24} />
+                            <Image src="/previous.png" alt='previousMusicButton' width={24} height={24} />
                             <div onClick={PlayMusic} className={styles.test}>
                                 <Image src={playing ? "/pause.png" : "/play.png"} alt='playbutton' width={42} height={42} />
                             </div>
-                            <img src="/next.png" />
-                            <img src="/valumeup.png" />
+                            <Image src="/next.png" alt='nextMusicButton' width={24} height={24} />
+                            <Image src="/valumeup.png" alt='valumeUpButton' width={24} height={24} />
                         </div>
                         <div className={styles.progresWrapper}>
-                            <div>
+                            <div onClick={handleTenSecondsBack}>
                                 <Image src="/gobackten.png" alt='tensecondback' width={24} height={24} />
                             </div>
                             <div className={styles.progressBar}>

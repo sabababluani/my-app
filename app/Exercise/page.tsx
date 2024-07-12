@@ -12,8 +12,8 @@ const Exercise = () => {
     <>
       <AudioPlayer
         src="/album.png"
-        music="Baby"
-        artist="Justin Bieber"
+        music="ragaca"
+        artist="ragacis musika"
         audioSrc="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
       />
     </>
