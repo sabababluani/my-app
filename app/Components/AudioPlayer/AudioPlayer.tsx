@@ -25,31 +25,39 @@ const AudioPlayer = (props: Props) => {
                 }
             }
         };
-    
+
         const handleLoadedMetadata = () => {
             if (audioRef.current) {
-                setDuration(audioRef.current.duration);                
+                setDuration(audioRef.current.duration);
             }
         };
-    
+
         if (audioRef.current) {
             const audio = audioRef.current;
             audio.addEventListener('timeupdate', handleTimeUpdate);
             audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+
             return () => {
                 audio.removeEventListener('timeupdate', handleTimeUpdate);
                 audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
             };
         }
+    }, []); 
+
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.load(); 
+            setPlaying(false);
+            setCurrentTime(0);
+            setDuration(0);
+        }
     }, [props.audioSrc]); 
 
-
     const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        
         if (audioRef.current) {
             const newTime = (e.target.valueAsNumber / 100) * duration;
             audioRef.current.currentTime = newTime;
-
             setCurrentTime(newTime);
         }
     };
