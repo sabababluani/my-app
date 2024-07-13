@@ -142,13 +142,14 @@
     display: block;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
     .buttonWrapper {
         display: none;
     }
 
     .musicMiddle {
         flex-direction: row-reverse;
+        gap: 32px;
     }
 
     .mainButton img {

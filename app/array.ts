@@ -13,6 +13,12 @@ const songs = [
         music: "yvela tvali chemzeda",
         artist: "ori faqi",
         audioSrc: "/2pac.mp3",
+    },
+    {
+        src: '/big.jpg',
+        music: 'hipnozi',
+        artist: 'didi',
+        audioSrc: '/big.mp3'
     }
 ]
 

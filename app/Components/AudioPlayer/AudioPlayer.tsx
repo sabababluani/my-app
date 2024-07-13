@@ -103,12 +103,30 @@ const AudioPlayer = ({ songs }: Props) => {
         setCurrentSongIndex((prevIndex) => (prevIndex - 1 + songs.length) % songs.length);
     };
 
+    const handleVolumeDown = () => {
+        if (audioRef.current) {
+            audioRef.current.volume = Math.max(0, audioRef.current.volume - 0.2);
+        }
+    };
+    
+    const handleVolumeUp = () => {
+        if (audioRef.current) {
+            audioRef.current.volume = Math.min(1, audioRef.current.volume + 0.2);
+        }
+    };
+
     useEffect(() => {
         if (audioRef.current) {
             audioRef.current.play();
             setPlaying(true);
         }
     }, [currentSongIndex]);
+
+    useEffect(() => {
+        if (currentTime === duration) {
+            setCurrentSongIndex((prevIndex) => (prevIndex + 1) % songs.length);
+        }
+    }, [])
 
     return (
         <>
@@ -127,7 +145,7 @@ const AudioPlayer = ({ songs }: Props) => {
                     <div className={styles.musicMiddle}>
                         <div className={styles.adjustButtons}>
                             <div className={styles.buttonWrapper}>
-                                <Image src="/valumedown.png" alt='volumeDownButton' width={24} height={24} />
+                                <Image src="/valumedown.png" alt='volumeDownButton' width={24} height={24} onClick={handleVolumeDown} />
                             </div>
                             <div className={styles.adjustButton}>
                                 <Image src="/previous.png" alt='previousMusicButton' width={24} height={24} onClick={handlePreviousSong} />
@@ -139,7 +157,7 @@ const AudioPlayer = ({ songs }: Props) => {
                                 <Image src="/next.png" alt='nextMusicButton' width={24} height={24} onClick={handleNextSong} />
                             </div>
                             <div className={styles.buttonWrapper}>
-                                <Image src="/valumeup.png" alt='volumeUpButton' width={24} height={24} />
+                                <Image src="/valumeup.png" alt='volumeUpButton' width={24} height={24} onClick={handleVolumeUp} />
                             </div>
                         </div>
 
@@ -158,7 +176,7 @@ const AudioPlayer = ({ songs }: Props) => {
                                     />
                                 </div>
                             </div>
-                            
+
                             <div className={styles.progressBar}>
                                 <p>{formatTime(currentTime)}</p>
                                 <input
