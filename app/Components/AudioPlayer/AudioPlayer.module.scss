@@ -9,7 +9,8 @@
     align-items: center;
     justify-content: space-between;
     gap: 36px;
-    padding-top: 13px;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
 .musicInfo {
@@ -17,10 +18,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.musicInfo span {
-    white-space: nowrap;
+    width: 97px;
 }
 
 .musicInfo .musicName {
@@ -34,6 +32,10 @@
 
 .photo {
     padding-left: 36px;
+}
+
+.photo img {
+    border-radius: 6px;
 }
 
 .musicInfo {
@@ -56,7 +58,7 @@
 
 .adjustButtons {
     display: flex;
-    align-items: center;
+
 }
 
 .range {
@@ -117,4 +119,106 @@
     display: flex;
     gap: 16px;
     align-items: center;
+}
+
+.adjustButton img {
+    width: 28px;
+    height: 28px;
+}
+
+.ipadTime {
+    display: none;
+}
+
+.ipadRange {
+    display: none;
+}
+
+.ipadProgressBar {
+    display: none;
+}
+
+.progressBar input {
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .buttonWrapper {
+        display: none;
+    }
+
+    .musicMiddle {
+        flex-direction: row-reverse;
+    }
+
+    .mainButton img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .adjustButton img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .progressBar>p {
+        display: none;
+    }
+
+    .ipadTime {
+        display: block;
+    }
+
+    .progressBar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .progresWrapper {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .photo img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .musicInfo .musicName {
+        font-weight: 400;
+    }
+
+    .musicPhoto {
+        gap: 8px;
+    }
+
+    .progressBar>input {
+        display: none;
+    }
+
+    .ipadRange {
+        display: block;
+        width: 100%;
+    }
+
+    .ipadContainer {
+        display: flex;
+        gap: 8px;
+    }
+
+    .ipadProgressBar {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .ipadProgress {
+        display: flex;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .ipadRange input {
+        width: 100%;
+    }
 }

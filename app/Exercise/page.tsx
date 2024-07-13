@@ -1,8 +1,6 @@
 'use client'
 
-import { useState } from "react";
-import Button, { ButtonType, Mode } from "../Components/Button/Button"
-import styles from './page.module.scss';
+import songs from '../array';
 import AudioPlayer from "../Components/AudioPlayer/AudioPlayer";
 
 
@@ -10,14 +8,8 @@ const Exercise = () => {
 
   return (
     <>
-      <AudioPlayer
-        src="/album.png"
-        music="baby"
-        artist="Justin Bieber"
-        audioSrc="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-      />
+      <AudioPlayer songs={songs}/>
     </>
-
   )
 }
 
