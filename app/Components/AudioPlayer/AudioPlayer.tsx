@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './AudioPlayer.module.scss';
 import Image from "next/image";
+import Link from 'next/link';
 
 type Song = {
     src: string;
@@ -14,6 +15,7 @@ type Props = {
 };
 
 const AudioPlayer = ({ songs }: Props) => {
+
     const [playing, setPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -108,7 +110,7 @@ const AudioPlayer = ({ songs }: Props) => {
             audioRef.current.volume = Math.max(0, audioRef.current.volume - 0.2);
         }
     };
-    
+
     const handleVolumeUp = () => {
         if (audioRef.current) {
             audioRef.current.volume = Math.min(1, audioRef.current.volume + 0.2);
@@ -176,6 +178,14 @@ const AudioPlayer = ({ songs }: Props) => {
                                     />
                                 </div>
                             </div>
+                            <div className={styles.mobileProgress}>
+                                <div onClick={handleTenSecondsBack} >
+                                    <Image src="/gobackten.png" alt='tensecodndback' width={24} height={22} />
+                                </div>
+                                <div className={styles.mobileTime}>
+                                    <span>{`${formatTime(currentTime)}/${formatTime(duration)}`}</span>
+                                </div>
+                            </div>
 
                             <div className={styles.progressBar}>
                                 <p>{formatTime(currentTime)}</p>
@@ -194,7 +204,9 @@ const AudioPlayer = ({ songs }: Props) => {
                         </div>
                     </div>
                     <div className={styles.arrow}>
-                        <Image src='/Arroww.png' alt='arrow' width={32} height={32} />
+                        <Link href='#'>
+                            <Image src='/Arroww.png' alt='arrow' width={32} height={32} />
+                        </Link>
                     </div>
                 </div>
             </div>

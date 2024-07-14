@@ -89,6 +89,7 @@ const MainInput: React.FC<Props> = (props) => {
         const updatedTasks = [...tasks];
         updatedTasks.splice(index, 1);
         setTasks(updatedTasks);
+        
     };
 
     const handleEditTask = (index: number) => {

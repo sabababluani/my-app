@@ -56,10 +56,6 @@
     gap: 16px;
 }
 
-.adjustButtons {
-    display: flex;
-
-}
 
 .range {
     -webkit-appearance: none;
@@ -142,6 +138,11 @@
     display: block;
 }
 
+
+.mobileProgress {
+    display: none;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .buttonWrapper {
         display: none;
@@ -168,6 +169,7 @@
 
     .ipadTime {
         display: block;
+        font-size: 14px;
     }
 
     .progressBar {
@@ -185,7 +187,10 @@
         height: 48px;
     }
 
-    .musicInfo .musicName {
+    .musicInfo  .musicName{
+        font-weight: 400;
+    }
+    .musicInfo .musicArtist {
         font-weight: 400;
     }
 
@@ -221,5 +226,70 @@
 
     .ipadRange input {
         width: 100%;
+    }
+    .adjustButtons {
+        gap: 12px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .ipadProgress {
+        display: none;
+    }
+
+    .mobileProgress {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .ipadTime {
+        display: none;
+    }
+
+    .photo img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .musicInfo {
+        display: none;
+    }
+
+    .buttonWrapper {
+        display: none;
+    }
+    .progressBar>p {
+        display: none;
+    }
+    .progressBar>input {
+        display: none;
+    }
+    .mainButton img {
+        width: 32px;
+        height: 32px;
+    }
+    .musicMiddle {
+        flex-direction: row-reverse;
+        width: auto;
+    }
+    .photo {
+        padding-left: 16px;
+    }
+    .container {
+        gap: 0;
+    }
+    .mobileProgress img {
+        position: relative;
+        top: 1px;
+    }
+    .arrow {
+        padding-right: 16px;
+    }
+    .adjustButtons {
+        gap: 12px;
+    }
+    .mobileTime {
+        font-size: 14px;
     }
 }
