@@ -13,159 +13,22 @@
     padding-bottom: 12px;
 }
 
-.musicInfo {
-    height: 56px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 97px;
-}
-
-.musicInfo .musicName {
-    font-weight: 500;
-    font-size: 16px;
-}
-
-.musicInfo .artistName {
-    font-size: 14px;
-}
-
-.photo {
-    padding-left: 36px;
-}
-
-.photo img {
-    border-radius: 6px;
-}
-
-.musicInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-}
-
-.musicInfo span {
-    font-size: 14px;
-    color: #fff;
-}
-
-.musicPhoto {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-
-
-.progressBar {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    max-width: 900px;
-    width: 100%;
-}
-
-.progressBar input {
-    width: 100%;
-}
-
-.musicMiddle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 1250px;
-    width: 100%;
-}
-
 .musicMiddle img {
     cursor: pointer;
 }
-
-.progresWrapper {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+.musicMiddle {
     max-width: 1250px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
-.arrow {
-    padding-right: 18px;
-    cursor: pointer;
-}
-
-.adjustButtons {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-}
-
-.adjustButton img {
-    width: 28px;
-    height: 28px;
-}
-
-.ipadTime {
-    display: none;
-}
-
-.ipadRange {
-    display: none;
-}
-
-.ipadProgressBar {
-    display: none;
-}
-
-.progressBar input {
-    display: block;
-}
-
-
-.mobileProgress {
-    display: none;
-}
-
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .buttonWrapper {
-        display: none;
-    }
-
     .musicMiddle {
         flex-direction: row-reverse;
         gap: 32px;
-    }
-
-    .mainButton img {
-        width: 28px;
-        height: 28px;
-    }
-
-    .adjustButton img {
-        width: 24px;
-        height: 24px;
-    }
-
-    .progressBar>p {
-        display: none;
-    }
-
-    .ipadTime {
-        display: block;
-        font-size: 14px;
-    }
-
-    .progressBar {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .progresWrapper {
-        flex-direction: column;
-        gap: 0;
     }
 
     .photo img {
@@ -173,87 +36,21 @@
         height: 48px;
     }
 
-    .musicInfo  .musicName{
-        font-weight: 400;
-    }
-    .musicInfo .musicArtist {
-        font-weight: 400;
-    }
-
     .musicPhoto {
         gap: 8px;
-    }
-
-    .progressBar>input {
-        display: none;
-    }
-
-    .ipadRange {
-        display: block;
-        width: 100%;
     }
 
     .ipadContainer {
         display: flex;
         gap: 8px;
     }
-
-    .ipadProgressBar {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .ipadProgress {
-        display: flex;
-        width: 100%;
-        gap: 8px;
-    }
-
-    .ipadRange input {
-        width: 100%;
-    }
-    .adjustButtons {
-        gap: 12px;
-    }
 }
 
 @media screen and (max-width: 767px) {
-    .ipadProgress {
-        display: none;
-    }
-
-    .mobileProgress {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-    }
-
-    .ipadTime {
-        display: none;
-    }
 
     .photo img {
         width: 36px;
         height: 36px;
-    }
-
-    .musicInfo {
-        display: none;
-    }
-
-    .buttonWrapper {
-        display: none;
-    }
-    .progressBar>p {
-        display: none;
-    }
-    .progressBar>input {
-        display: none;
-    }
-    .mainButton img {
-        width: 32px;
-        height: 32px;
     }
     .musicMiddle {
         flex-direction: row-reverse;
@@ -265,17 +62,8 @@
     .container {
         gap: 0;
     }
-    .mobileProgress img {
-        position: relative;
-        top: 1px;
+    .musicMiddle {
+        gap: 0;
     }
-    .arrow {
-        padding-right: 16px;
-    }
-    .adjustButtons {
-        gap: 12px;
-    }
-    .mobileTime {
-        font-size: 14px;
-    }
+
 }

@@ -1,12 +1,11 @@
 import { useRef, useEffect } from 'react';
-import styles from './AudioPlayer.module.scss';
-import Image from "next/image";
-import Link from 'next/link';
+import styles from './AudioPlayer.module.scss'
 import { useRecoilState } from 'recoil';
 import { audioPlayerState } from '@/app/atoms/states';
 import AdjustButtons from './AdjustButtons/AdjustButtons';
-import InputRange from './InputRange/InputRange';
-
+import ProgressBars from './ProgressBars/ProgressBars';
+import MusicPhoto from './MusicPhoto/MusicPhoto';
+import ArrowLink from './Arrow/Arrow';
 
 type Song = {
     src: string;
@@ -93,12 +92,6 @@ const AudioPlayer = ({ songs }: Props) => {
         }
     };
 
-    const formatTime = (time: number) => {
-        const minutes = Math.floor(time / 60);
-        const seconds = Math.floor(time % 60);
-        return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-    };
-
     const handleTenSecondsBack = () => {
         if (audioRef.current) {
             audioRef.current.currentTime -= 10;
@@ -144,65 +137,12 @@ const AudioPlayer = ({ songs }: Props) => {
             <audio ref={audioRef} src={songs[audioPlayer.currentSongIndex].audioSrc}></audio>
             <div className={styles.wrapper}>
                 <div className={styles.container}>
-                    <div className={styles.musicPhoto}>
-                        <div className={styles.photo}>
-                            <Image src={songs[audioPlayer.currentSongIndex].src} width={78} height={78} alt='musicPhoto' />
-                        </div>
-                        <div className={styles.musicInfo}>
-                            <span className={styles.musicName}>{songs[audioPlayer.currentSongIndex].music}</span>
-                            <span className={styles.artistName}>{songs[audioPlayer.currentSongIndex].artist}</span>
-                        </div>
-                    </div>
+                    <MusicPhoto src={songs[audioPlayer.currentSongIndex].src} music={songs[audioPlayer.currentSongIndex].music} artist={songs[audioPlayer.currentSongIndex].artist} />
                     <div className={styles.musicMiddle}>
-                        <AdjustButtons
-                            onVolumeDown={handleVolumeDown}
-                            onVolumeUp={handleVolumeUp}
-                            onPreviousSong={handlePreviousSong}
-                            onNextSong={handleNextSong}
-                            onPlayMusic={PlayMusic}
-                            playing={audioPlayer.playing}
-                        />
-                        <div className={styles.progresWrapper}>
-                            <div className={styles.ipadProgress}>
-                                <div onClick={handleTenSecondsBack} className={styles.tensecondback}>
-                                    <Image src="/gobackten.png" alt='tensecondback' width={24} height={24} />
-                                </div>
-                                <div className={styles.ipadRange}>
-                                    <InputRange
-                                        defaultValue="0"
-                                        onChange={handleProgressChange}
-                                        progressRef={ipadProgressRef}
-                                    />
-                                </div>
-                            </div>
-                            <div className={styles.mobileProgress}>
-                                <div onClick={handleTenSecondsBack} >
-                                    <Image src="/gobackten.png" alt='tensecodndback' width={24} height={22} />
-                                </div>
-                                <div className={styles.mobileTime}>
-                                    <span>{`${formatTime(audioPlayer.currentTime)}/${formatTime(audioPlayer.duration)}`}</span>
-                                </div>
-                            </div>
-
-                            <div className={styles.progressBar}>
-                                <p>{formatTime(audioPlayer.currentTime)}</p>
-                                <InputRange
-                                    defaultValue="0"
-                                    onChange={handleProgressChange}
-                                    progressRef={progressRef}
-                                />
-                                <div className={styles.ipadTime}>
-                                    <span>{`${formatTime(audioPlayer.currentTime)}/${formatTime(audioPlayer.duration)}`}</span>
-                                </div>
-                                <p>{formatTime(audioPlayer.duration)}</p>
-                            </div>
-                        </div>
+                        <AdjustButtons onVolumeDown={handleVolumeDown} onVolumeUp={handleVolumeUp} onPreviousSong={handlePreviousSong} onNextSong={handleNextSong} onPlayMusic={PlayMusic} playing={audioPlayer.playing} />
+                        <ProgressBars currentTime={audioPlayer.currentTime} duration={audioPlayer.duration} onProgressChange={handleProgressChange} onTenSecondsBack={handleTenSecondsBack} progressRef={progressRef} />
                     </div>
-                    <div className={styles.arrow}>
-                        <Link href='#'>
-                            <Image src='/Arroww.png' alt='arrow' width={32} height={32} />
-                        </Link>
-                    </div>
+                    <ArrowLink />
                 </div>
             </div>
         </>
