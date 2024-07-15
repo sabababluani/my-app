@@ -19,3 +19,13 @@ export const imageChangeState = atom ({
     key: 'imageChange',
     default: ''
 })
+
+export const audioPlayerState = atom({
+    key: 'audioPlayerState',
+    default: {
+      playing: false,
+      currentTime: 0,
+      duration: 0,
+      currentSongIndex: 0,
+    },
+  });
