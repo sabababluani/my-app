@@ -2,13 +2,14 @@
 
 import songs from '../array';
 import AudioPlayer from "../Components/AudioPlayer/AudioPlayer";
+import MainAudio from '../Components/MainAudio/MainAudio';
 
 
 const Exercise = () => {
 
   return (
     <>
-      <AudioPlayer songs={songs}/>
+      <MainAudio songs={songs} />
     </>
   )
 }

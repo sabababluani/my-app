@@ -13,23 +13,9 @@
     padding-bottom: 12px;
 }
 
-.musicMiddle img {
-    cursor: pointer;
-}
-.musicMiddle {
-    max-width: 1250px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .musicMiddle {
-        flex-direction: row-reverse;
-        gap: 32px;
-    }
 
     .photo img {
         width: 48px;
@@ -52,17 +38,11 @@
         width: 36px;
         height: 36px;
     }
-    .musicMiddle {
-        flex-direction: row-reverse;
-        width: auto;
-    }
+
     .photo {
         padding-left: 16px;
     }
     .container {
-        gap: 0;
-    }
-    .musicMiddle {
         gap: 0;
     }
 

@@ -15,7 +15,7 @@ export const darkModeState = atom({
     default: false
 })
 
-export const imageChangeState = atom ({
+export const imageChangeState = atom({
     key: 'imageChange',
     default: ''
 })
@@ -23,9 +23,9 @@ export const imageChangeState = atom ({
 export const audioPlayerState = atom({
     key: 'audioPlayerState',
     default: {
-      playing: false,
-      currentTime: 0,
-      duration: 0,
-      currentSongIndex: 0,
+        currentTime: 0,
+        duration: 0,
+        currentSongIndex: 0,
+        loop: false,
     },
-  });
+});

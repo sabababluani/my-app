@@ -1,11 +1,7 @@
 import Image from "next/image";
 import styles from './MusicPhoto.module.scss';
+import { MusicPhotoProps } from "@/app/Interfaces/Interface";
 
-type MusicPhotoProps = {
-    src: string;
-    music: string;
-    artist: string;
-};
 
 const MusicPhoto: React.FC<MusicPhotoProps> = ({ src, music, artist }) => (
     <div className={styles.musicPhoto}>
