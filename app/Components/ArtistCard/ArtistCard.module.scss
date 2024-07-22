@@ -1,0 +1,17 @@
+.wrapper {
+    width: 288px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+.wrapper img {
+    width: 288px;
+    height: 305px;
+}
+
+.wrapper p {
+    font-size: 32px;
+    font-weight: 600;
+}
