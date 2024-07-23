@@ -1,27 +1,32 @@
-import MusicPhoto from '../AudioPlayer/MusicPhoto/MusicPhoto';
 import styles from './RowAlbum.module.scss';
+import RowMusicPhoto from './RowMusicPhoto/RowMusicPhoto';
+import Image from 'next/image';
 
 interface Props {
   albumName: string;
   duration: String;
   onPlusClick?: () => void;
-  onRowalbumClick?: () => void;
+  onRowAlbumClick?: () => void;
 }
 
 const RowAlbum = (props: Props) => {
   return (
-    <div className={styles.cont}>
-      <div className={styles.wrapper} onClick={props.onRowalbumClick}>
-        <MusicPhoto
-          src={'/big.jpg'}
-          music={'Music Name'}
-          artist={'Artist Name'}
+    <div className={styles.wrapper} onClick={props.onRowAlbumClick}>
+      <RowMusicPhoto
+        cover={'/big.jpg'}
+        music={'Music Name'}
+        artist={'Artist Name'}
+      />
+      <p>{props.albumName}</p>
+      <div className={styles.container}>
+        <p>{props.duration}</p>
+        <Image
+          width={36}
+          height={36}
+          src="/plusMini.png"
+          alt="plusButton"
+          onClick={props.onPlusClick}
         />
-        <p>{props.albumName}</p>
-        <div className={styles.container}>
-          <p>{props.duration}</p>
-          <img src="/plusMini.png" onClick={props.onPlusClick} />
-        </div>
       </div>
     </div>
   );

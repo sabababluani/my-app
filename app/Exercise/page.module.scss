@@ -1,0 +1,24 @@
+.container {
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  max-width: 1224px;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 513px) {
+  .wrapper {
+    flex-wrap: wrap;
+  }
+}
