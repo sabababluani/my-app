@@ -1,18 +1,12 @@
 'use client';
 
-import songs from '../array';
-import ArtistCard from '../Components/ArtistCard/ArtistCard';
-import AudioPlayer from '../Components/AudioPlayer/AudioPlayer';
-import MainAudio from '../Components/MainAudio/MainAudio';
-import RowAlbum from '../Components/RowAlbum/RowAlbum';
+import React, { useState } from 'react';
+import Navigation from '../Components/Navigation/Navigation';
 import styles from './page.module.scss';
+import NavigationContainer from './NavigationContainer/NavigationContainer';
 
-const Exercise = () => {
-  return (
-    <div className={styles.container}>
-      <RowAlbum duration="03:30" albumName="Album name" />
-    </div>
-  );
+const Navigat = () => {
+  return <NavigationContainer />;
 };
 
-export default Exercise;
+export default NavigationContainer;
