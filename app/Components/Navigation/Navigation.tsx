@@ -9,6 +9,7 @@ interface NavigationProps {
   right?: boolean;
   isActive: boolean;
   onClick: () => void;
+  link?: string;
 }
 
 const Navigation = (props: NavigationProps) => {
@@ -19,7 +20,7 @@ const Navigation = (props: NavigationProps) => {
   if (props.isActive) classes.push(styles.active);
 
   return (
-    <Link href={''} className={classes.join(' ').trim()}>
+    <Link href={props.link ? props.link : ''} className={classes.join(' ').trim()}>
       <div onClick={props.onClick}>
         <span>{props.title}</span>
       </div>

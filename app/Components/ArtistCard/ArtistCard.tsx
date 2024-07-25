@@ -8,8 +8,8 @@ interface Props {
 }
 const ArtistCard = (props: Props) => {
   return (
-    <Link href="#">
-      <div className={styles.wrapper}>
+    <div className={styles.wrapper}>
+      <Link href="">
         <Image
           src={props.artistPhoto}
           alt="artistPhoto"
@@ -17,8 +17,8 @@ const ArtistCard = (props: Props) => {
           height={305}
         />
         <p>{props.artistName}</p>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

@@ -12,17 +12,15 @@
   width: 100%;
   display: flex;
   gap: 20px;
-  height: 500px;
   align-items: center;
   justify-content: center;
 }
 
-@media screen and (max-width: 513px) {
+@media screen and (max-width: 768px) {
   .wrapper {
     flex-wrap: wrap;
   }
 }
-
 
 .navigationContainer {
   display: flex;

@@ -5,33 +5,44 @@ import { usePathname } from 'next/navigation';
 import styles from './NavigationContainer.module.scss';
 import Navigation from '@/app/Components/Navigation/Navigation';
 
-const NavigationContainer = () => {
-  const pathname = usePathname();
-  const defaultNavigationItems = [
-    { title: 'Home', left: true },
-    { title: 'Top Albums', middle: true },
-    { title: 'Album Name', right: true },
-  ];
+interface NavigationItem {
+  title: string;
+  left?: boolean;
+  middle?: boolean;
+  right?: boolean;
+  link?: string;
+}
 
-  const exerciseNavigationItems = [
-    { title: 'Home', left: true },
+const navigationConfig: { [key: string]: NavigationItem[] } = {
+  '/Exercise': [
+    { title: 'Home', left: true, link: '/' },
     { title: 'Top Albums', right: true, middle: true },
-  ];
+  ],
+  '/test': [
+    { title: 'Home', left: true, link: '/' },
+    { title: 'Top Albums', middle: true, link: '/Exercise' },
+    { title: 'Album Name', right: true },
+  ],
+  '/tust': [
+    { title: 'Home', left: true, link: '/' },
+    { title: 'top tusttt', middle: true, right: true },
+  ],
+  '/tast': [
+    { title: 'Home', left: true, link: '/' },
+    { title: 'top tassttt', middle: true, link: '/tust' },
+    { title: 'top tastt', right: true },
+  ],
+};
 
-  const navigationItems =
-    pathname === '/Exercise' ? exerciseNavigationItems : defaultNavigationItems;
+const NavigationContainer: React.FC = () => {
+  const pathname = usePathname();
+  const [activeIndex, setActiveIndex] = useState<number>(-1);
 
-  const defaultActiveIndex = navigationItems.findIndex(
-    (item) => 
-      (pathname === '/Exercise' && item.title === 'Top Albums') ||
-      (pathname !== '/Exercise' && item.title === 'Album Name')
-  );
-
-  const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
+  const navigationItems = navigationConfig[pathname] || navigationConfig['/'];
 
   useEffect(() => {
-    setActiveIndex(defaultActiveIndex);
-  }, [pathname, defaultActiveIndex]);
+    setActiveIndex(navigationItems.length - 1);
+  }, [pathname, navigationItems]);
 
   const handleNavigationClick = (index: number) => {
     setActiveIndex(index);
@@ -48,6 +59,7 @@ const NavigationContainer = () => {
           right={item.right}
           isActive={activeIndex === index}
           onClick={() => handleNavigationClick(index)}
+          link={item.link}
         />
       ))}
     </div>
