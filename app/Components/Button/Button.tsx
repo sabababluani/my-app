@@ -54,7 +54,7 @@ const Button = (props: Props) => {
                     <img src={props.icon} alt='Icon' className={styles.icon} />
                     {props.title}
                 </>
-            )}
+            )} 
             {props.type === ButtonType.Text && props.title}
         </button>
     );

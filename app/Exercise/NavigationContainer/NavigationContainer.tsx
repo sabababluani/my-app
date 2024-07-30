@@ -14,15 +14,15 @@ interface NavigationItem {
 }
 
 const navigationConfig: { [key: string]: NavigationItem[] } = {
-  '/Exercise': [
+  '/topAlbums': [
     { title: 'Home', left: true, link: '/' },
     { title: 'Top Albums', right: true, middle: true },
   ],
-  '/test': [
+  '/album': [
     { title: 'Home', left: true, link: '/' },
     { title: 'Top Albums', middle: true, link: '/Exercise' },
     { title: 'Album Name', right: true },
-  ],
+  ], 
   '/tust': [
     { title: 'Home', left: true, link: '/' },
     { title: 'top tusttt', middle: true, right: true },

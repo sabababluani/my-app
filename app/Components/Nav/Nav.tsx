@@ -12,7 +12,7 @@ interface NavigationProps {
   link?: string;
 }
 
-const Navigation = (props: NavigationProps) => {
+const Nav = (props: NavigationProps) => {
   const classes = [styles.container];
 
   if (props.left) classes.push(styles.leftContainer);
@@ -31,4 +31,4 @@ const Navigation = (props: NavigationProps) => {
   );
 };
 
-export default Navigation;
+export default Nav;

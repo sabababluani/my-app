@@ -10,13 +10,17 @@ const ArtistCard = (props: Props) => {
   return (
     <div className={styles.wrapper}>
       <Link href="">
-        <Image
-          src={props.artistPhoto}
-          alt="artistPhoto"
-          width={158}
-          height={305}
-        />
-        <p>{props.artistName}</p>
+        <div className={styles.container}>
+          <Image
+            src={props.artistPhoto}
+            alt="artistPhoto"
+            width={158}
+            height={305}
+          />
+        </div>
+        <div className={styles.containerParagraph}>
+          <p>{props.artistName}</p>
+        </div>
       </Link>
     </div>
   );

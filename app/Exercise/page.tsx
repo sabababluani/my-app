@@ -12,7 +12,7 @@ const Navigat = () => {
     <div className={styles.containerr}>
       <NavigationContainer />
     </div>
-  )
+  );
 };
 
 export default Navigat;

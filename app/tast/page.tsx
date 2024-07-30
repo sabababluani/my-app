@@ -1,16 +1,21 @@
-'use client';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Breadcrumb from './Task/Breadcrumb';
+import tust from '../albumPage/page';
+import test from '../test/page';
 
-import React, { useState } from 'react';
-import Navigation from '../Components/Navigation/Navigation';
-import styles from './page.module.scss';
-import NavigationContainer from '../Exercise/page';
 
-const test = () => {
+const App = () => {
   return (
-    <div>
-      <NavigationContainer />
-    </div>
+    <Router>
+      <div>
+        <Breadcrumb />
+          <Route path="/"  />
+          <Route path="/test" />
+          <Route path="/contact" />
+      </div>
+    </Router>
   );
 };
 
-export default test;
+export default App;

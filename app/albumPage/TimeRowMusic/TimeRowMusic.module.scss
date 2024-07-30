@@ -1,0 +1,47 @@
+.wrapper {
+  max-width: 704px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(
+    90deg,
+    rgba(19, 130, 138, 0.1) 0%,
+    rgba(5, 34, 36, 0.1) 100%
+  );
+  padding: 6px 18px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+.wrapper:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(19, 130, 138, 0.5) 0%,
+    rgba(5, 34, 36, 0.5) 100%
+  );
+}
+.wrapper:active {
+  background: linear-gradient(90deg, #13828a 0%, #052224 100%);
+}
+
+.wrapper img {
+  border-radius: 50%;
+}
+
+.container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.container span {
+  color: #fff;
+  font-weight: 500;
+}
+.timeContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.timeContainer span {
+  color: #ffffff80;
+}
