@@ -28,6 +28,7 @@ body {
   margin: 0;
   font-family: Lato;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /**
