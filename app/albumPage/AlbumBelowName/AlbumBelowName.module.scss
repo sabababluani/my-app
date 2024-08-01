@@ -1,7 +1,7 @@
 .container {
   max-width: 288px;
-  width: 100%;
   max-height: 304px;
+  padding : 20px 32px 0;
   height: 100%;
   background: linear-gradient(
     180deg,
@@ -28,11 +28,10 @@
 
 .container img {
   border-radius: 6px;
-  margin-top: 20px;
+  width: 100%;
   max-width: 224px;
-  margin-left: 32px;
-  margin-right: 32px;
-  width: 80%;
+  max-height: 220px;
+  height: 100%;
 }
 
 .container span {
@@ -41,4 +40,25 @@
   color: #fff;
   padding-top: 10px;
   margin-bottom: 20px;
+  text-align: center;
+}
+
+@media screen and (min-width : 768px)and (max-width: 1023px) { 
+  
+
+}
+
+@media screen and (max-width) {
+  .container img {
+    max-width: 150px;
+    max-height: 120px;
+  }
+  .container{
+    width: unset;
+    padding: 20px 20px 0;
+  }
+  .container span {
+    font-size: 16px;
+    font-weight: 500;
+  }
 }

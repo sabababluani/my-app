@@ -8,6 +8,9 @@ import TimeRowMusic from './TimeRowMusic/TimeRowMusic';
 import AlbumBelowName from './AlbumBelowName/AlbumBelowName';
 import Button, { ButtonType, Mode } from '../Components/Button/Button';
 import RowAlbum from '../Components/RowAlbum/RowAlbum';
+import Description from './Description/Description';
+import AlbumSection from './AlbumSection/AlbumSection';
+import RowAlbumSection from './RowAlbumSection/RowAlbumSection';
 
 const AlbumPage = () => {
   const navigationItems: NavigationPropsInterface[] = [
@@ -21,99 +24,78 @@ const AlbumPage = () => {
       <header className={styles.header}>
         <h2>zd bratt </h2>
       </header>
-      <div className={styles.artistContainer}>
-        <div className={styles.artistWrapperContainer}>
-          <div className={styles.artistWrapper}>
-            <div className={styles.container}>
-              <div className={styles.navigator}>
-                {navigationItems.map((item, index) => (
-                  <Navigationn
-                    key={index}
-                    title={item.title}
-                    link={item.link}
-                    isActive={index === 2}
-                  />
-                ))}
+      <div className={styles.wholeContainer}>
+        <div className={styles.wholeWrapper}>
+          <div className={styles.artistWrapperContainer}>
+            <div className={styles.artistWrapper}>
+              <div className={styles.textWrapper}>
+                <div className={styles.navigator}>
+                  {navigationItems.map((item, index) => (
+                    <Navigationn
+                      key={index}
+                      title={item.title}
+                      link={item.link}
+                      isActive={index === 2}
+                    />
+                  ))}
+                </div>
+
+                <div className={styles.desktopArtist}>
+                  <Description />
+                  <div className={styles.overview}>
+                    <span>Overview</span>
+                  </div>
+                  <div className={styles.timeContainer}>
+                    <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
+                    <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
+                    <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
+                    <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
+                  </div>
+                </div>
               </div>
             </div>
-            <div className={styles.textContainer}>
-              <span className={styles.artist}>Artist</span>
-              <h1>Artist Name</h1>
-              <span className={styles.description}>
-                Here is description of an artist. admin should input this. Here
-                is description of an artist. admin should input this.
-              </span>
+            <div className={styles.mobileArtistWrapper}>
+              <Description />
+              <div className={styles.artistCover}>
+                <Image
+                  src="/kendrika.png"
+                  width={628}
+                  height={660}
+                  alt="artist"
+                />
+              </div>
+              <div className={styles.overview}>
+                <span>Overview</span>
+              </div>
+              <div className={styles.timeContainer}>
+                <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
+                <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
+                <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
+                <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
+              </div>
             </div>
-            <div className={styles.overview}>
-              <span>Overview</span>
-            </div>
-            <div className={styles.timeContainer}>
-              <TimeRowMusic
-                cover={'/Glogo.jpg'}
-                musicName={'kargi bichi'}
-                time={'3/12/1202'}
-              />
-              <TimeRowMusic
-                cover={'/Glogo.jpg'}
-                musicName={'kargi bichi'}
-                time={'3/12/1202'}
-              />
-              <TimeRowMusic
-                cover={'/Glogo.jpg'}
-                musicName={'kargi bichi'}
-                time={'3/12/1202'}
-              />
-              <TimeRowMusic
-                cover={'/Glogo.jpg'}
-                musicName={'kargi bichi'}
-                time={'3/12/1202'}
-              />
-              <TimeRowMusic
-                cover={'/Glogo.jpg'}
-                musicName={'kargi bichi'}
-                time={'3/12/1202'}
-              />
-              <TimeRowMusic
-                cover={'/Glogo.jpg'}
-                musicName={'kargi bichi'}
-                time={'3/12/1202'}
+            <div className={styles.artistCover}>
+              <Image
+                src="/kendrika.png"
+                width={628}
+                height={660}
+                alt="artist"
               />
             </div>
           </div>
-          <div className={styles.artistCover}>
-            <Image src="/kendrika.png" width={628} height={660} alt="artist" />
+          <div className={styles.albumRelase}>
+            <div className={styles.albumRelaseContainer}>
+              <p>Released Albums</p>
+              <div className={styles.button}>
+                <Button mode={Mode.More} type={ButtonType.Text} title="More" />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className={styles.albumRelase}>
-        <div className={styles.albumRelaseContainer}>
-          <p>Released Albums</p>
-          <div className={styles.button}>
-            <Button mode={Mode.More} type={ButtonType.Text} title="More" />
+          <AlbumSection />
+          <div className={styles.allTrack}>
+            <p>Top musics</p>
           </div>
-        </div>
-      </div>
-      <div className={styles.albumContainer}>
-        <div className={styles.albumWrapper}>
-          <AlbumBelowName artistCover={'/big.jpg'} albumName={'Album Name'} />
-          <AlbumBelowName artistCover={'/big.jpg'} albumName={'Album Name'} />
-          <AlbumBelowName artistCover={'/big.jpg'} albumName={'Album Name'} />
-          <AlbumBelowName artistCover={'/big.jpg'} albumName={'Album Name'} />
-        </div>
-      </div>
-      <div className={styles.allTrack}>
-        <p>Top musics</p>
-      </div>
-      <div className={styles.topMusicContainer}>
-        <div className={styles.topMusicWrapper}>
-          <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
-          <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
-          <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
-          <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
-          <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
-          <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
-          <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
-          <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
+          <RowAlbumSection />
         </div>
       </div>
     </div>

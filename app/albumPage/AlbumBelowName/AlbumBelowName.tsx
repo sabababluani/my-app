@@ -8,8 +8,8 @@ const AlbumBelowName = (props: AlbumBelowNamePropsInterface) => {
       <Image
         src={props.artistCover}
         alt="Artist Photo"
-        width={224}
-        height={220}
+        height={200}
+        width={220}
       />
       <span>{props.albumName}</span>
     </div>

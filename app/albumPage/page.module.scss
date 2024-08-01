@@ -10,10 +10,25 @@
   color: #fff;
 }
 
+.wholeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1224px;
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.wholeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .wrapper {
   width: 100%;
   background-image: url(../../public/background.png);
   background-repeat: repeat;
+  overflow-x: hidden;
 }
 
 .navigator {
@@ -73,12 +88,10 @@
 .timeContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   gap: 6px;
   max-width: 600px;
   width: 100%;
-  margin-top: 29px;
 }
 
 .artistCover {
@@ -102,15 +115,21 @@
   gap: 24px;
 }
 
+.artistWrapperContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
 .artistWrapper {
   display: flex;
   align-items: start;
   justify-content: center;
   flex-direction: column;
   gap: 40px;
-  padding-left: 34px;
-  max-width: 1224px;
-  margin-left: 24px;
+  width: 100%;
 }
 
 .button {
@@ -131,14 +150,11 @@
 }
 
 .albumRelaseContainer {
-  max-width: 1288px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 32px;
-  margin-left: 32px;
-  margin-right: 32px;
+  margin-top: 10px;
 }
 
 .albumContainer {
@@ -151,31 +167,21 @@
 .albumWrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 24px;
-  max-width: 1288px;
   width: 100%;
-  margin-top: 24px;
-  margin-left: 24px;
-  margin-right: 24px;
 }
 
 .allTrack {
-  max-width: 1284px;
   width: 100%;
   display: flex;
   align-items: center;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   margin-top: 28px;
-  margin-left: 28px;
-  margin-right: 28px;
 }
 
 .allTrack p {
   text-align: left;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 500;
   color: #fff;
 }
@@ -193,8 +199,49 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-left: 28px;
-  margin-right: 28px;
-  max-width: 1224px;
+  width: 97%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .textContainer h1 {
+    font-size: 60px;
+    font-weight: 600;
+  }
+  .albumRelase p {
+    font-size: 28px;
+    font-weight: 500;
+  }
+  .allTrack p {
+    font-size: 28px;
+  }
+}
+
+.albumWrapper {
+  display: grid;
+  gap: 24px;
   width: 100%;
+  grid-template-columns: repeat(4, 1fr); 
+}
+
+.albumContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .albumWrapper {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .mobileArtistWrapper {
+    display: flex;
+  }
+  .desktopArtist {
+    display: none;
+  }
+}
+
+.mobileArtistWrapper {
+  display: none;
 }
