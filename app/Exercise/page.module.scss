@@ -8,23 +8,32 @@
 }
 
 .wrapper {
-  max-width: 1224px;
   width: 100%;
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: center;
+
 }
 
-@media screen and (max-width: 768px) {
-  .wrapper {
-    flex-wrap: wrap;
-  }
+@media screen and (max-width: 819px) {
+
   .wrapper {
     max-height: 400px;
+  }
+  .wrap {
+    flex-wrap: nowrap;
   }
 }
 
 .navigationContainer {
   display: flex;
+}
+
+.wrap {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
 }

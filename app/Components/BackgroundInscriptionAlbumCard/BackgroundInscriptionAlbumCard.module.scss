@@ -1,0 +1,35 @@
+.wrapper {
+  background-image: url(../../../public/music.png);
+  background-repeat: no-repeat;
+  max-width: 392px;
+  height: 264px;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  padding-left: 14px;
+  padding-bottom: 18px;
+  padding-top: 13px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.albumName {
+  font-size: 28px;
+}
+
+.artistName {
+  font-size: 20px;
+}
+
+.time {
+  font-size: 14px;
+}
