@@ -46,10 +46,10 @@ const AlbumPage = () => {
                     <span>Overview</span>
                   </div>
                   <div className={styles.timeContainer}>
-                    <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
-                    <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
-                    <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
-                    <RowAlbum albumName={'zdddddddd'} duration={'3;33'} />
+                    <RowAlbum albumName={'zdddddddd'} duration={'3:33'} />
+                    <RowAlbum albumName={'zdddddddd'} duration={'3:33'} />
+                    <RowAlbum albumName={'zdddddddd'} duration={'3:33'} />
+                    <RowAlbum albumName={'zdddddddd'} duration={'3:33'} />
                   </div>
                 </div>
               </div>

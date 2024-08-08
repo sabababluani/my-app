@@ -1,23 +1,37 @@
-/* Breadcrumb.css */
-.breadcrumb {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    background-color: transparent;
-  }
+// /* Breadcrumb.css */
+// .breadcrumb {
+//     display: flex;
+//     list-style: none;
+//     padding: 0;
+//     background-color: transparent;
+//   }
   
-  .breadcrumb-item + .breadcrumb-item::before {
-    content: ">";
-    padding: 0 5px;
-    color: #6c757d;
-  }
+//   .breadcrumb-item + .breadcrumb-item::before {
+//     content: ">";
+//     padding: 0 5px;
+//     color: #6c757d;
+//   }
   
-  .breadcrumb-item a {
-    text-decoration: none;
-    color: #007bff;
-  }
+//   .breadcrumb-item a {
+//     text-decoration: none;
+//     color: #007bff;
+//   }
   
-  .breadcrumb-item a:hover {
-    text-decoration: underline;
-  }
+//   .breadcrumb-item a:hover {
+//     text-decoration: underline;
+//   }
   
+
+.container {
+  width: 400px;
+  height: 400px;
+  background-color: black;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.wrapper {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+}

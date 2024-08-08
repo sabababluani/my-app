@@ -1,0 +1,24 @@
+.wrapper {
+  margin-top: 48px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin-top: 64px;
+  width: 100%;
+  max-width: 1224px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}

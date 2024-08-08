@@ -1,4 +1,3 @@
-// Navigationn.tsx
 import Link from 'next/link';
 import React from 'react';
 import styles from './Navigation.module.scss';

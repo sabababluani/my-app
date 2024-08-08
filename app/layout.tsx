@@ -22,7 +22,9 @@ export default function RootLayout({
       </head>
       <body>
         <RecoilWrapper>
+          <div className='children'>
           {children}
+          </div>
         </RecoilWrapper>
       </body>
     </html>
