@@ -5,20 +5,30 @@ interface BackgroundInscriptionAlbumCardPropsInterface {
   artistName: string;
   albumTime: string;
   songCount: string;
+  backgroundImage?: string;
 }
 
 const BackgroundInscriptionAlbumCard = (
   props: BackgroundInscriptionAlbumCardPropsInterface
 ) => {
+  const { albumName, artistName, albumTime, songCount, backgroundImage } = props;
+
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={styles.wrapper}
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <div className={styles.container}>
-        <span className={styles.albumName}>{props.albumName}</span>
-        <span className={styles.artistName}>{props.artistName}</span>
-        <span className={styles.time}>{props.albumTime}</span>
+        <span className={styles.albumName}>{albumName}</span>
+        <span className={styles.artistName}>{artistName}</span>
+        <span className={styles.time}>{albumTime}</span>
       </div>
       <div>
-        <span>{props.songCount}</span>
+        <span className={styles.songCount}>{songCount}</span>
       </div>
     </div>
   );

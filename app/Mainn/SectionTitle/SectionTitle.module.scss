@@ -16,10 +16,11 @@
   color: #fff;
 }
 
-
 @media  screen and (max-width : 768px) {
-  .wrapper {
-    padding-right: 16px;
-    padding-left: 16px;
+  .button {
+    width: 54px;
+  }
+  .wrapper p {
+    font-size: 26px;
   }
 }

@@ -3,10 +3,16 @@
   width: 100%;
   max-width: 1224px;
   gap: 24px;
-  margin-top: 36px;
   grid-template-columns: repeat(4, 1fr);
-  margin: 0 auto;
-  padding-top: 12px;
+  margin-top: 24px;
+  justify-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.parentWrapper {
+  width: 100%;
+  max-width: 1224px;
 }
 
 @media screen and (max-width: 768px) {

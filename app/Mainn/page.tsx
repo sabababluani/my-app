@@ -1,25 +1,18 @@
 'use client';
 
-import AlbumsColumn from './AlbumsColumn/AlbumsColumn';
 import ArtistSection from './ArtistSection/ArtistSection';
 import Header from './Header/Header';
-import SectionTitle from './SectionTitle/SectionTitle';
-import TopCharts from './TopCharts/TopCharts';
+import MusicLibrary from './MusicLibrary/MusicLibrary';
+import PopularSectionTitle from './PopularSectionTitle/PopularSectionTitle';
 import TopHits from './TopHits/TopHits';
-import styles from './page.module.scss';
 
 const main = () => {
   return (
     <>
       <Header />
-      <div className={styles.wrapper}>
-        <SectionTitle title="Popularrrrrrr" />
-      </div>
+      <PopularSectionTitle />
       <ArtistSection />
-      <div className={styles.container}>
-        <TopCharts />
-        <AlbumsColumn />
-      </div>
+      <MusicLibrary />
       <TopHits />
     </>
   );
