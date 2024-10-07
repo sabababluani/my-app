@@ -1,15 +1,13 @@
 'use client';
 
 import ArtistSection from './ArtistSection/ArtistSection';
-import Header from './Header/Header';
 import MusicLibrary from './MusicLibrary/MusicLibrary';
 import PopularSectionTitle from './PopularSectionTitle/PopularSectionTitle';
 import TopHits from './TopHits/TopHits';
 
-const main = () => {
+const HomePage = () => {
   return (
     <>
-      <Header />
       <PopularSectionTitle />
       <ArtistSection />
       <MusicLibrary />
@@ -18,4 +16,4 @@ const main = () => {
   );
 };
 
-export default main;
+export default HomePage;
